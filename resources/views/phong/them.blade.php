@@ -1,0 +1,65 @@
+<!-- Content -->
+@csrf
+
+<div class="container col-md-auto mt-2">
+    <div class="alert alert-primary">
+        <div class="row justify-content-center">
+            <h5 class="text-center" id="side12">THÊM PHÒNG</h5>
+        </div>
+        <div class="mb-3 option-toa">
+            <label class="form-label">Tòa
+                <span id="colorIcon">*</span>
+            </label>
+            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="toa" name="toa">
+                <option value="">Chọn Tòa</option>
+                @foreach($toa as $toa)
+                <option value="{{$toa->id_toa}}">{{$toa->ten}}</option>
+                @endforeach
+            </select>
+        </div>
+        <!-- Chọn Tầng -->
+        <div class="mb-3 option-tang">
+            <label class="form-label">Tầng
+                <span id="colorIcon">*</span>
+            </label>
+            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tang" name="tang">
+                <option value="">Chọn Tầng</option>
+                @foreach($tang as $tang)
+                <option value="{{$tang->id_tang}}" data-id-toa="{{$tang->id_toa}}">{{$tang->ten}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tên phòng
+                <span id="colorIcon">*</span>
+            </label>
+            <input required class="form-control" type="text" name="ten" placeholder="Vui lòng nhập tên phòng">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tình trạng
+                <span id="colorIcon">*</span>
+            </label>
+            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tt" name="tt">
+                <option value="0">Còn trống</option>
+                <option value="1">Đầy</option>
+            </select>
+        </div>
+        <div class="row justify-content-center">
+            <button type="submit" class="btn btn-success col-md-5" id="side123">Thêm</button>
+        </div>
+    </div>
+</div>
+<script>
+    //Chọn tòa
+    document.getElementById('toa').addEventListener('change', function() {
+        var selectedToa = this.value;
+        var toaOptions = document.querySelectorAll('#tang option');
+        toaOptions.forEach(function(option) {
+            if (option.getAttribute('data-id-toa') == selectedToa) {
+                option.style.display = 'block';
+            } else {
+                option.style.display = 'none';
+            }
+        });
+    });
+</script>

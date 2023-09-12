@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Controllers;
+use App\Models\Dien;
+
+use Illuminate\Http\Request;
+
+class DienController extends Controller
+{
+    public function index()
+    {
+        $title = 'Điện';
+        $breadcrumbs = [
+            [
+                'name' => 'Điện',
+                'link' => './dien'
+            ]
+        ];
+        $diens = Dien::paginate(5);
+
+        return view('dien/dien', compact('title', 'diens', 'breadcrumbs'));
+    }
+    public function them()
+    {
+        $title = 'Điện';
+        $breadcrumbs = [
+            [
+                'name' => 'Điện',
+                'link' => './'
+            ], [
+                'name' => 'Thêm',
+                'link' => './them'
+            ]
+        ];
+        $dien=Dien::get();
+
+        return view('dien/them', compact('title', 'breadcrumbs','dien'));
+    }
+}

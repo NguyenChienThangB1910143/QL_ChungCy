@@ -23,6 +23,9 @@
         <li class="{{mb_strtolower($title)=='tài khoản'?'active':''}}">
             <a href="{{route('taikhoan')}}">Tài khoản</a>
         </li>
+        <li class="{{mb_strtolower($title)=='tin tức'?'active':''}}">
+            <a href="{{route('tintuc')}}">Tin Tức</a>
+        </li>
         <li class="{{mb_strtolower($title)=='điện nước'?'active':''}}">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Điện Nước</a>
                 <ul class="dropdown-menu">

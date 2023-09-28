@@ -11,6 +11,7 @@ use App\Http\Controllers\PhongController;
 use App\Http\Controllers\ThongKeController;
 use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\TangController;
+use App\Http\Controllers\TinTucController;
 use App\Http\Controllers\ToaController;
 use Illuminate\Support\Facades\Route;
 
@@ -90,4 +91,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hoadon',[HoaDonController::class,'index'])->name('hoadon');
     Route::get('/hoadon/them',[HoaDonController::class,'them'])->name('hoadon-them');
     Route::post('/hoadon/them',[HoaDonController::class,'store'])->name('hoadon-store');
+
+    Route::get('/tintuc',[TinTucController::class,'index'])->name('tintuc');
+    Route::get('/tintuc/them',[TinTucController::class,'them'])->name('tintuc-them');
+    Route::post('/tintuc/store',[TinTucController::class,'store'])->name('tintuc-store');
+    Route::get('/tintuc/chinhsua/{id}', [TinTucController::class, 'chinhsua'])->name('tintuc-chinhsua');
+    Route::post('/tintuc/update/{id}', [TinTucController::class, 'update'])->name('tintuc-update');
+    Route::get('/tintuc/chitiet/{id}', [TinTucController::class, 'chitiet'])->name('tintuc-chitiet');
 });
+route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');

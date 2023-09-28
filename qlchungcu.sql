@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 29, 2023 lúc 04:58 AM
--- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.2.0
+-- Thời gian đã tạo: Th9 28, 2023 lúc 03:15 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,6 +64,58 @@ CREATE TABLE `chungcu` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `dien`
+--
+
+CREATE TABLE `dien` (
+  `id` int(11) NOT NULL,
+  `id_phong` int(11) DEFAULT NULL,
+  `chiso_cu` int(11) NOT NULL,
+  `chiso_moi` int(11) NOT NULL,
+  `thoigian` date NOT NULL,
+  `dongia` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `dien`
+--
+
+INSERT INTO `dien` (`id`, `id_phong`, `chiso_cu`, `chiso_moi`, `thoigian`, `dongia`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, 3, '2023-09-28', 10000, '2023-09-27 21:46:32', '2023-09-27 21:46:32');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `hoadon`
+--
+
+CREATE TABLE `hoadon` (
+  `id` int(11) NOT NULL,
+  `id_phong` int(11) NOT NULL,
+  `thoigian` date NOT NULL,
+  `tiendien` int(11) NOT NULL,
+  `tiennuoc` int(11) NOT NULL,
+  `tienbaixe` int(11) NOT NULL,
+  `khac` varchar(255) NOT NULL,
+  `thuthem` int(11) NOT NULL,
+  `thanhtien` int(11) NOT NULL,
+  `tinhtrang` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `hoadon`
+--
+
+INSERT INTO `hoadon` (`id`, `id_phong`, `thoigian`, `tiendien`, `tiennuoc`, `tienbaixe`, `khac`, `thuthem`, `thanhtien`, `tinhtrang`, `created_at`, `updated_at`) VALUES
+(1, 1, '2023-09-28', 30000, 60000, 30000, 'Sửa chữa', 100000, 220000, 0, '2023-09-27 22:30:08', '2023-09-27 22:30:08');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `hopdong`
 --
 
@@ -85,6 +137,30 @@ CREATE TABLE `hopdong` (
 
 INSERT INTO `hopdong` (`id_hopdong`, `id_user`, `id_ql`, `id_phong`, `id_baixe`, `ngaybatdau`, `ngayketthuc`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, 1, 1, '2023-08-29', '2023-08-31', '2023-08-28 19:56:43', '2023-08-28 19:56:43');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `nuoc`
+--
+
+CREATE TABLE `nuoc` (
+  `id` int(11) NOT NULL,
+  `id_phong` int(11) NOT NULL,
+  `chiso_cu` int(11) NOT NULL,
+  `chiso_moi` int(11) NOT NULL,
+  `thoigian` date NOT NULL,
+  `dongia` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `nuoc`
+--
+
+INSERT INTO `nuoc` (`id`, `id_phong`, `chiso_cu`, `chiso_moi`, `thoigian`, `dongia`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, 3, '2023-09-28', 20000, '2023-09-27 22:07:47', '2023-09-27 22:07:47');
 
 -- --------------------------------------------------------
 
@@ -128,6 +204,29 @@ CREATE TABLE `tang` (
 
 INSERT INTO `tang` (`id_tang`, `ten`, `id_toa`, `created_at`, `updated_at`) VALUES
 (1, 'Tầng 1', 1, '2023-08-28 19:50:30', '2023-08-28 19:50:30');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tintuc`
+--
+
+CREATE TABLE `tintuc` (
+  `id` int(11) NOT NULL,
+  `tieude` varchar(255) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `noidung` text DEFAULT NULL,
+  `thoigian` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tintuc`
+--
+
+INSERT INTO `tintuc` (`id`, `tieude`, `id_user`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
+(1, 'Hello', 1, '<figure class=\"image\"><img src=\"http://localhost/QL_ChungCy/public/media/ZhongLi_1695906816.jpg\"></figure>', '2023-09-28', '2023-09-28 06:13:47', '2023-09-28 06:13:47');
 
 -- --------------------------------------------------------
 
@@ -189,10 +288,28 @@ ALTER TABLE `chungcu`
   ADD PRIMARY KEY (`id_chungcu`);
 
 --
+-- Chỉ mục cho bảng `dien`
+--
+ALTER TABLE `dien`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `hoadon`
+--
+ALTER TABLE `hoadon`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `hopdong`
 --
 ALTER TABLE `hopdong`
   ADD PRIMARY KEY (`id_hopdong`);
+
+--
+-- Chỉ mục cho bảng `nuoc`
+--
+ALTER TABLE `nuoc`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `phong`
@@ -205,6 +322,12 @@ ALTER TABLE `phong`
 --
 ALTER TABLE `tang`
   ADD PRIMARY KEY (`id_tang`);
+
+--
+-- Chỉ mục cho bảng `tintuc`
+--
+ALTER TABLE `tintuc`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `toa`
@@ -235,10 +358,28 @@ ALTER TABLE `chungcu`
   MODIFY `id_chungcu` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `dien`
+--
+ALTER TABLE `dien`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `hoadon`
+--
+ALTER TABLE `hoadon`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT cho bảng `hopdong`
 --
 ALTER TABLE `hopdong`
   MODIFY `id_hopdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `nuoc`
+--
+ALTER TABLE `nuoc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `phong`
@@ -251,6 +392,12 @@ ALTER TABLE `phong`
 --
 ALTER TABLE `tang`
   MODIFY `id_tang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `tintuc`
+--
+ALTER TABLE `tintuc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `toa`

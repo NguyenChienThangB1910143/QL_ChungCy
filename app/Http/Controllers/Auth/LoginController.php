@@ -49,24 +49,31 @@ class LoginController extends Controller
     }
 
     public function postLogin(Request $request)
-    {
-        $credentials = $this->getCredentials($request);
+{
+    $credentials = $this->getCredentials($request);
 
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
-        $email = "";
-        // dd($user->password);
-        if ($user) {
-            $email = $user->email;
-        }
-        // Authenticate the user
-        if (Auth::attempt(['email' => $email, 'password' => $request->Password], $request->get('remember'))) {
-            return redirect()->route('home');
-        } else {
-            return redirect()->to('login')
-                ->withErrors(trans('app.login-false'));
-        }
+    $user = Auth::getProvider()->retrieveByCredentials($credentials);
+    $email = "";
+    if ($user) {
+        $email = $user->email;
     }
-
+    // Authenticate the user
+    if (Auth::attempt(['email' => $email, 'password' => $request->Password], $request->get('remember'))) {
+        // Check user's role to redirect properly
+        switch ($user->quyen) {
+            case 0:
+            case 1:
+                return redirect()->route('home');
+            case 2:
+                return redirect()->route('homecustomer');
+            default:
+                return redirect()->route('home');
+        }
+    } else {
+        return redirect()->to('login')
+            ->withErrors(trans('app.login-false'));
+    }
+}
 
     public function getCredentials(Request $request)
     {
@@ -79,7 +86,6 @@ class LoginController extends Controller
     {
         $title = 'Forgot password';
         if($request->isMethod('post')){
-            // dd($request);
             $user = User::where('email', $request->Email)
             ->first();
             if (Hash::check($request->input('old-password'), $user->password)) {
@@ -88,11 +94,9 @@ class LoginController extends Controller
                 ]);
                 
                 return redirect()->route('forgot-password')->withSuccess('Lấy lại mật khẩu thành công.');
-                //$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6
             }else{
                 return redirect()->route('forgot-password')->withErrors('Mật khẩu cũ không đúng.');
             }
-            // dd($user);
         }
         return view('auth.forgotpassword', compact('title'));
     }

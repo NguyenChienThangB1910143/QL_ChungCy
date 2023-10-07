@@ -5,6 +5,7 @@ use App\Http\Controllers\BaiXeController;
 use App\Http\Controllers\DienController;
 use App\Http\Controllers\HoaDonController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeCustomerController;
 use App\Http\Controllers\HopDongController;
 use App\Http\Controllers\NuocController;
 use App\Http\Controllers\PhongController;
@@ -36,6 +37,7 @@ Route::any('/forgotpassword', [LoginController::class, 'forgotpassword'])->name(
 Route::group(['middleware' => 'auth'], function () {
     // router home 
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/customer', [HomeCustomerController::class, 'index'])->name('homecustomer');
     Route::get('/logout', [LogoutController::class, 'getLogout'])->name('logout');
     //phong
     Route::get('/phong', [PhongController::class, 'index'])->name('phong');

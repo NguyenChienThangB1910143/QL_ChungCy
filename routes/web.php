@@ -14,6 +14,7 @@ use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\TangController;
 use App\Http\Controllers\TinTucController;
 use App\Http\Controllers\ToaController;
+use App\Http\Controllers\TTTKController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -102,5 +103,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/tintuc/update/{id}', [TinTucController::class, 'update'])->name('tintuc-update');
     Route::get('/tintuc/chitiet/{id}', [TinTucController::class, 'chitiet'])->name('tintuc-chitiet');
     Route::get('/tintuc/xoa/{id}', [TinTucController::class, 'xoa'])->name('tintuc-xoa');
+
+    //customer
+    Route::get('/customer/taikhoan',[TTTKController::class,'index'])->name('profile');
+    Route::get('/customer/taikhoan/chinhsua/{id}', [TTTKController::class, 'chinhsua'])->name('profile-chinhsua');
+    Route::post('/customer/taikhoan/update/{id}', [TTTKController::class, 'update'])->name('profile-update');
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');

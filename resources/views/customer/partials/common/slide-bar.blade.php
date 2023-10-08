@@ -5,6 +5,9 @@
         <li class="{{mb_strtolower($title)=='trang chủ'?'active':''}}">
             <a href="{{route('homecustomer')}}">Trang Chủ</a>
         </li>
+        <li class="{{mb_strtolower($title)=='thông tin người dùng'?'active':''}}">
+            <a href="{{route('profile')}}">Thông tin người dùng</a>
+        </li>
     </ul>
 </nav>
 

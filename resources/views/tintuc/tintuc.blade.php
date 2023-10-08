@@ -103,12 +103,15 @@
                             <td>{{$tintuc->ten_user}}</td>
                             <td>{{$tintuc->thoigian}}</td>
                             <td>
-                                <form action="{{route('tintuc-chinhsua', $tintuc->id)}}" method="get">
+                                <form action="{{route('tintuc-xoa', $tintuc->id)}}" method="get">
                                         <buton type="submit" onclick=chitiet_tintuc('{{$tintuc->id}}') class="btn btn-info me-md-1 m-1">
                                             <i class="fas fa-eye"></i> 
                                         </buton>
                                         <button type="button" onclick=capnhat_tintuc('{{$tintuc->id}}') class="btn btn-primary me-md-3">
                                             <i class="fas fa-edit"></i> Sửa
+                                        </button>
+                                        <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">
+                                            <i class="fas fa-trash-alt"></i> Xóa
                                         </button>
                                     </form>
                             </td>

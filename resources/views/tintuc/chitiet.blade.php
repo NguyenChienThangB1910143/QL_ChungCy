@@ -24,10 +24,7 @@
                                     <div style="cursor: default;" class="col-6 col-sm-6">Mã tin:</div>
                                     <label name="id" class="col-6 col-sm-6 text-view">{{$chitiet->id}}</label>
                                 </div>
-                                <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Tên người viết:</div>
-                                    <label name="ten_user" class="col-6 col-sm-6 text-view">{{$chitiet->ten_user}}</label>
-                                </div>
+
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Tiêu đề:</div>
                                     <label name="tieude" class="col-6 col-sm-6 text-view">{{$chitiet->tieude}}</label>
@@ -38,7 +35,7 @@
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Nội dung:</div>
-                                    <label name="noidung" class="col-6 col-sm-6 text-view">{{ $chitiet->noidung }}</label>
+                                    <p name="noidung" class="col-6 col-sm-6 text-view">{!! $chitiet->noidung !!}</p>
                                 </div>
                             </div>
                         </div>

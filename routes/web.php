@@ -94,11 +94,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hoadon/them',[HoaDonController::class,'them'])->name('hoadon-them');
     Route::post('/hoadon/them',[HoaDonController::class,'store'])->name('hoadon-store');
 
+    //Tin tuc
     Route::get('/tintuc',[TinTucController::class,'index'])->name('tintuc');
     Route::get('/tintuc/them',[TinTucController::class,'them'])->name('tintuc-them');
     Route::post('/tintuc/store',[TinTucController::class,'store'])->name('tintuc-store');
     Route::get('/tintuc/chinhsua/{id}', [TinTucController::class, 'chinhsua'])->name('tintuc-chinhsua');
     Route::post('/tintuc/update/{id}', [TinTucController::class, 'update'])->name('tintuc-update');
     Route::get('/tintuc/chitiet/{id}', [TinTucController::class, 'chitiet'])->name('tintuc-chitiet');
+    Route::get('/tintuc/xoa/{id}', [TinTucController::class, 'xoa'])->name('tintuc-xoa');
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');

@@ -81,11 +81,49 @@ class TinTucController extends Controller
                 'link' => './' . $request->id
             ]
         ];
-        $chitiettintuc =  TinTuc::join('users', 'tintuc.id_user', '=', 'users.id')
-        ->select('tintuc.*', 
-                'users.name as ten_user'
-                )->where('id', $request->id)->get();
+        $chitiettintuc =  TinTuc::where('id', $request->id)->get();
 
         return view('tintuc/chitiet', compact('title', 'chitiettintuc', 'breadcrumbs'));
+    }
+    public function chinhsua(Request $request)
+    {
+        $title = 'Tin Tức';
+        $breadcrumbs = [
+            [
+                'name' => 'Tin Tức',
+                'link' =>'./'
+            ],[
+                'name' => 'Thêm',
+                'link' => './them'
+            ]
+        ];
+        $tintuc=TinTuc::get();
+        $user = User::get();
+        return view('tintuc/chinhsua', compact('title',  'breadcrumbs', 'tintuc','user'));
+    }
+    public function update(Request $request){
+        $id_ql = Auth::user()->id;
+        $suatintuc = TinTuc::where('id', $request->id)->update([
+            'id' => $request->id,
+            'tieude' => $request->tieude,
+            'thoigian' => $request->thoigian,
+            'id_user' => $id_ql,
+            'noidung' => $request->noidung,
+
+        ]);
+        if ($suatintuc) {
+            Session::flash('success', 'Cập nhật thành công.');
+            return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']); 
+        }
+
+        return redirect()->route('tintuc')->with('success', 'Sửa không thành công, không được chỉnh sửa mã trạm');
+    }
+    public function xoa(Request $request)
+    {
+        $deletetintuc = TinTuc::where('id', $request->id)->first();
+
+        $deletetintuc->where('id', $request->id)->delete();
+
+        return redirect()->route('tintuc')->with('success', 'Xóa thành công');
     }
 }

@@ -15,7 +15,9 @@ use App\Http\Controllers\TangController;
 use App\Http\Controllers\TinTucController;
 use App\Http\Controllers\ToaController;
 use App\Http\Controllers\TTTKController;
+Use App\Http\Controllers\HoaDonCustomerController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -108,5 +110,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/customer/taikhoan',[TTTKController::class,'index'])->name('profile');
     Route::get('/customer/taikhoan/chinhsua/{id}', [TTTKController::class, 'chinhsua'])->name('profile-chinhsua');
     Route::post('/customer/taikhoan/update/{id}', [TTTKController::class, 'update'])->name('profile-update');
+
+    //Hoa Don customer
+    Route::get('/customer/hoadon',[HoaDonCustomerController::class,'index'])->name('hoadoncustomer');
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');

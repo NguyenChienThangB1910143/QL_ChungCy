@@ -90,7 +90,10 @@
                                     <div style="cursor: default;" class="col-6 col-sm-6">STK:</div>
                                     <label name="STK" class="col-6 col-sm-6 text-view">{{$user->STK}}</label>
                                 </div>
-
+                                <div class="row mb-1">
+                                    <div style="cursor: default;" class="col-6 col-sm-6">Phòng:</div>
+                                    <label name="STK" class="col-6 col-sm-6 text-view">{{$hopdong->id_phong}}</label>
+                                </div>
                             </div>
                         </div>
                     </form>

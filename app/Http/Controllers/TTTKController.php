@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
+use App\Models\HopDong;
+use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
+
 class TTTKController extends Controller
 {
     public function index()
@@ -17,7 +21,11 @@ class TTTKController extends Controller
             ]
         ];
         $user = Auth::user();
-        return view('customer/taikhoan/profile', compact('title', 'user', 'breadcrumbs'));
+        $hopdong = HopDong::where('id_user', $user->id)
+            ->where('ngayketthuc', '>', Carbon::now())
+            ->first();
+
+        return view('customer/taikhoan/profile', compact('title', 'user','hopdong', 'breadcrumbs'));
     }
     public function chinhsua(Request $request)
     {
@@ -28,11 +36,11 @@ class TTTKController extends Controller
                 'link' =>'./'
             ],[
                 'name' => 'Chỉnh sửa',
-                'link' => './chinhsua'
+                'link' => './chinhsua' . $request->id
             ]
         ];
-        $user = Auth::user();
-        return view('customer/taikhoan/chinhsua', compact('title', 'breadcrumbs','user'));
+        $suatk = User::where('id', $request->id)->get();
+        return view('customer/taikhoan/chinhsua', compact('title', 'breadcrumbs','suatk'));
     }
     public function update(Request $request){
         $suatk = User::where('id', $request->id)->update([
@@ -48,6 +56,6 @@ class TTTKController extends Controller
             return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']); 
         }
 
-        return redirect()->route('profile')->with('success', 'Sửa không thành công, không được chỉnh sửa mã trạm');
+        return redirect()->route('profile')->with('success', 'Sửa không thành công, không được chỉnh sửa mã người dùng');
     }
 }

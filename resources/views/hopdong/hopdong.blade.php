@@ -126,9 +126,9 @@
                             <td>{{ \Carbon\Carbon::parse($hopdongs->ngayketthuc)->isPast() ? 'Hết hiệu lực' : 'Còn hiệu lực' }}</td>
                             <td>
                             <form action="{{route('hopdong-capnhat', $hopdongs->id_hopdong)}}" method="get">
-                                        <buton type="submit" onclick=chitiet_hopdong('{{$hopdongs->id_hopdong}}') class="btn btn-info me-md-1 m-1">
+                                        <button type="submit" onclick=chitiet_hopdong('{{$hopdongs->id_hopdong}}') class="btn btn-info me-md-1 m-1">
                                             <i class="fas fa-eye"></i> 
-                                        </buton>
+                                        </button>
                                         <button type="button" onclick=capnhat_hopdong('{{$hopdongs->id_hopdong}}') class="btn btn-primary me-md-3">
                                             <i class="fas fa-edit"></i> Sửa
                                         </a>
@@ -164,7 +164,7 @@
         $('#body_edit').submit(function(evt) {
             evt.preventDefault();
             var formData = new FormData(this);
-            var id_phong = $("#id_hopdong").val();
+            var id_hopdong = $("#id_hopdong").val();
             $.ajax({
                 type: 'POST',
                 dataType: 'json',

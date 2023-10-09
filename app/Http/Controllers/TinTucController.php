@@ -6,7 +6,7 @@ use App\Models\TinTuc;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Session;
 class TinTucController extends Controller
 {
     public function index()
@@ -91,15 +91,15 @@ class TinTucController extends Controller
         $breadcrumbs = [
             [
                 'name' => 'Tin Tức',
-                'link' =>'./'
+                'link' =>'../'
             ],[
-                'name' => 'Thêm',
-                'link' => './them'
+                'name' => 'Chỉnh sửa',
+                'link' => './' . $request->id
             ]
         ];
-        $tintuc=TinTuc::get();
+        $suatintuc=TinTuc::where('id', $request->id)->get();
         $user = User::get();
-        return view('tintuc/chinhsua', compact('title',  'breadcrumbs', 'tintuc','user'));
+        return view('tintuc/chinhsua', compact('title',  'breadcrumbs', 'suatintuc','user'));
     }
     public function update(Request $request){
         $id_ql = Auth::user()->id;

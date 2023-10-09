@@ -11,7 +11,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Mã Phòng</label>
-                <input style="cursor: not-allowed;" name="id_phong" class="form-control" value="{{$sua->id_phong}}"></input>
+                <input style="cursor: not-allowed;" name="id_phong" class="form-control" value="{{$sua->id_phong}}">
             </div>
             <div class="mb-3 text-left">
                 <label class="form-label">Tên phòng

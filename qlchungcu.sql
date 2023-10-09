@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 07, 2023 lúc 07:15 PM
+-- Thời gian đã tạo: Th10 09, 2023 lúc 09:40 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -136,7 +136,8 @@ CREATE TABLE `hopdong` (
 --
 
 INSERT INTO `hopdong` (`id_hopdong`, `id_user`, `id_ql`, `id_phong`, `id_baixe`, `ngaybatdau`, `ngayketthuc`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 1, '2023-08-29', '2023-08-31', '2023-08-28 19:56:43', '2023-08-28 19:56:43');
+(1, 1, 1, 1, 1, '2023-08-29', '2023-08-31', '2023-08-28 19:56:43', '2023-10-09 10:02:08'),
+(2, 2, 1, 1, 1, '2023-10-01', '2023-10-31', '2023-10-09 11:47:58', '2023-10-09 11:47:58');
 
 -- --------------------------------------------------------
 
@@ -182,7 +183,7 @@ CREATE TABLE `phong` (
 --
 
 INSERT INTO `phong` (`id_phong`, `ten`, `id_tang`, `tinhtrang`, `created_at`, `updated_at`) VALUES
-(1, 'P101', 1, 1, '2023-08-28 19:54:40', '2023-08-28 19:56:43');
+(1, 'P101', 1, 1, '2023-08-28 19:54:40', '2023-10-09 11:47:58');
 
 -- --------------------------------------------------------
 
@@ -226,7 +227,8 @@ CREATE TABLE `tintuc` (
 --
 
 INSERT INTO `tintuc` (`id`, `tieude`, `id_user`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
-(1, 'Hello', 1, '<figure class=\"image\"><img src=\"http://localhost/QL_ChungCy/public/media/ZhongLi_1695906816.jpg\"></figure>', '2023-09-28', '2023-09-28 06:13:47', '2023-09-28 06:13:47');
+(11, 'Tin 5', 1, '<p>egsbseb<img src=\"http://localhost/QL_ChungCy/public/media/logo_1696874178.png\"></p>', '2023-10-09', '2023-10-09 09:57:12', '2023-10-09 10:56:19'),
+(12, 'Tin 5', 1, NULL, '2023-10-10', '2023-10-09 10:43:18', '2023-10-09 10:43:34');
 
 -- --------------------------------------------------------
 
@@ -272,7 +274,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `ngaysinh`, `email`, `sdt`, `password`, `quyen`, `STK`, `trangthai`, `created_at`, `updated_at`) VALUES
 (1, 'Nguyen Chien Thang', NULL, 'nguyenchienthang2632001@gmail.com', '0582427509', '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', 0, '6546545466', NULL, NULL, NULL),
-(2, 'Khách A', '1999-11-25', 'a@gmail.com', '02118512', '$2y$10$WdQ97EnrxgHmuDDhQA9afOKwMV6l3BC43H/MC.rBn6eDE8DwCyMMC', 2, '6415684152', 1, '2023-10-07 07:26:31', '2023-10-07 07:26:31');
+(2, 'Khách Văn B', '1999-11-25', 'a@gmail.com', '02118512', '$2y$10$WdQ97EnrxgHmuDDhQA9afOKwMV6l3BC43H/MC.rBn6eDE8DwCyMMC', 2, '6415684', 1, '2023-10-07 07:26:31', '2023-10-09 11:23:24');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -376,7 +378,7 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `hopdong`
 --
 ALTER TABLE `hopdong`
-  MODIFY `id_hopdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_hopdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `nuoc`
@@ -400,7 +402,7 @@ ALTER TABLE `tang`
 -- AUTO_INCREMENT cho bảng `tintuc`
 --
 ALTER TABLE `tintuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `toa`

@@ -9,15 +9,9 @@
 
 @section('content')
 <div class="content-main">
-    <!-- start body -->
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        @include('customer.partials.common.slide-bar')
-
         <!-- Page Content  -->
         <div id="content">
             <!-- Tieu de -->
-            @include('customer.partials.common.tieude')
             <div class="modal fade" id="editprofile">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -101,7 +95,6 @@
             </div>
         </div>
 
-    </div>
     <!-- end body -->
 </div>
 @endsection

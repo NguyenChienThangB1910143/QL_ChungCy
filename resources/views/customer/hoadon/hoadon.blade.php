@@ -11,14 +11,8 @@
 <div class="content-main">
     <!-- start body -->
     <div class="wrapper">
-        <!-- Sidebar  -->
-        @include('customer.partials.common.slide-bar')
-
         <!-- Page Content  -->
         <div id="content">
-            <!-- Tieu de -->
-            @include('customer.partials.common.tieude')
-        
             <!-- Content -->
             <div class='p-4 d-flex flex-column' >
                 <table class="table table-hover mt-3">

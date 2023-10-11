@@ -24,16 +24,13 @@ nav a {
     text-decoration: none; /* Không gạch chân */
 }
 footer {
-    background-color: #007bff;
     padding: 20px;
     margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white; 
-    position: fixed;
-    bottom: 0;
-    width: 80%; /* Chiều rộng theo container */
+    color: white;
+    height: 100px;
 }
 header, nav, footer {
     background-color: #007bff;
@@ -53,6 +50,8 @@ header, nav, footer {
 }
 .logout-button {
     margin-left: 10px;
+    border: 1px black;
+    border-radius: 3px;
 }
 .icon-row {
     display: flex;

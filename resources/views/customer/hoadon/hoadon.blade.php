@@ -51,11 +51,12 @@
 
                                 @if($hoadon->tinhtrang==0)
                                 <td>
-                                    <form action="" method="get">
-                                        <button type="button" class="btn btn-primary me-md-3">
-                                            <i class="fas fa-dollar-sign"></i> Thanh Toán
-                                        </a>
+                                    <form method="POST" action="{{ url('/payment/create/' . $hoadon->id) }}">
+                                        @csrf
+                                        <!-- Thêm các trường thông tin thanh toán tại đây -->
+                                        <button type="submit" class="btn btn-primary me-md-3" name="redirect">Thanh toán qua VNPay</button>
                                     </form>
+                                    
                                 </td>
                                 @endif 
                         </tr>

@@ -17,7 +17,7 @@ use App\Http\Controllers\ToaController;
 use App\Http\Controllers\TTTKController;
 Use App\Http\Controllers\HoaDonCustomerController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,5 +113,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Hoa Don customer
     Route::get('/customer/hoadon',[HoaDonCustomerController::class,'index'])->name('hoadoncustomer');
+    Route::get('/customer/hoadon/thanhtoan/{id}',[HoaDonCustomerController::class,'thanhtoan'])->name('hoadoncustomer-thanhtoan');
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');
+
+//pay
+Route::post('/payment/create/{hoadon_id}', [PaymentController::class, 'createPayment']);
+Route::get('/payment/return', [PaymentController::class, 'returnPayment'])->name('payment.return');
+

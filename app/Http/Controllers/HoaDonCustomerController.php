@@ -31,4 +31,20 @@ class HoaDonCustomerController extends Controller
 
         return view('customer/hoadon/hoadon', compact('title', 'hoadons', 'breadcrumbs'));
     }
+    public function thanhtoan(Request $request)
+    {
+        $title = 'Thanh Toán';
+        $breadcrumbs = [
+            [
+                'name' => 'Thanh Toán',
+                'link' => '../'
+            ], [
+                'name' => 'Thanh Toán',
+                'link' => './' . $request->id
+            ]
+        ];
+        $thanhtoanhd =HoaDon::where('id', $request->id)->get();
+
+        return view('customer/hoadon/thanhtoan', compact('title', 'thanhtoanhd', 'breadcrumbs'));
+    }
 }

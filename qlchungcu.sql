@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 09, 2023 lúc 09:40 PM
+-- Thời gian đã tạo: Th10 12, 2023 lúc 08:01 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -43,6 +43,32 @@ CREATE TABLE `baixe` (
 
 INSERT INTO `baixe` (`id_baixe`, `ms`, `loaixe`, `tinhtrang`, `gia`, `created_at`, `updated_at`) VALUES
 (1, 'A001', 'Xe máy', 0, 300000, '2023-08-28 19:56:14', '2023-08-28 19:56:14');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `baocaosc`
+--
+
+CREATE TABLE `baocaosc` (
+  `id_baocao` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_phong` int(11) NOT NULL,
+  `tieude` varchar(255) DEFAULT NULL,
+  `noidung` varchar(255) DEFAULT NULL,
+  `thoigian` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `baocaosc`
+--
+
+INSERT INTO `baocaosc` (`id_baocao`, `id_user`, `id_phong`, `tieude`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:47:45', '2023-10-12 07:47:45', '2023-10-12 07:47:45'),
+(2, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:48:14', '2023-10-12 07:48:14', '2023-10-12 07:48:14'),
+(3, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:48:52', '2023-10-12 07:48:52', '2023-10-12 07:48:52');
 
 -- --------------------------------------------------------
 
@@ -111,7 +137,16 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`id`, `id_phong`, `thoigian`, `tiendien`, `tiennuoc`, `tienbaixe`, `khac`, `thuthem`, `thanhtien`, `tinhtrang`, `created_at`, `updated_at`) VALUES
-(1, 1, '2023-09-28', 30000, 60000, 30000, 'Sửa chữa', 100000, 220000, 0, '2023-09-27 22:30:08', '2023-09-27 22:30:08');
+(1, 1, '2023-09-28', 30000, 60000, 30000, 'Sửa chữa', 100000, 220000, 1, '2023-09-27 22:30:08', '2023-10-11 08:09:17'),
+(2, 1, '2023-10-11', 30000, 60000, 20000, 'Bảo trì', 100000, 210000, 1, '2023-10-11 08:01:31', '2023-10-11 08:09:21'),
+(3, 1, '2023-10-11', 30000, 60000, 20000, 'dvđzv', 100000, 210000, 1, '2023-10-11 08:11:37', '2023-10-11 08:12:30'),
+(4, 1, '2023-10-11', 30000, 60000, 20000, 'cfdzvgx', 100000, 210000, 1, '2023-10-11 08:11:50', '2023-10-11 08:11:58'),
+(5, 1, '2023-10-11', 30000, 60000, 20000, 'jhvj b hv', 100000, 210000, 1, '2023-10-11 08:20:59', '2023-10-11 08:21:03'),
+(6, 1, '2023-10-11', 30000, 60000, 20000, 'bdfnsdb', 100000, 210000, 1, '2023-10-11 08:48:57', '2023-10-11 08:49:04'),
+(9, 1, '2023-10-11', 30000, 60000, 20000, 'ưadfcasdva', 100000, 210000, 1, '2023-10-11 09:42:33', '2023-10-11 09:43:07'),
+(10, 1, '2023-10-12', 30000, 60000, 20000, 'dsfdsac', 100000, 210000, 1, '2023-10-11 23:58:16', '2023-10-11 23:59:22'),
+(11, 1, '2023-10-12', 30000, 60000, 20000, 'reqvdfv', 100000, 210000, 1, '2023-10-12 00:00:25', '2023-10-12 00:00:54'),
+(12, 1, '2023-09-12', 30000, 60000, 20000, 'jytjnfgnm', 100000, 210000, 1, '2023-10-12 00:58:36', '2023-10-12 01:59:26');
 
 -- --------------------------------------------------------
 
@@ -137,7 +172,8 @@ CREATE TABLE `hopdong` (
 
 INSERT INTO `hopdong` (`id_hopdong`, `id_user`, `id_ql`, `id_phong`, `id_baixe`, `ngaybatdau`, `ngayketthuc`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, 1, 1, '2023-08-29', '2023-08-31', '2023-08-28 19:56:43', '2023-10-09 10:02:08'),
-(2, 2, 1, 1, 1, '2023-10-01', '2023-10-31', '2023-10-09 11:47:58', '2023-10-09 11:47:58');
+(2, 2, 1, 1, 1, '2023-10-01', '2023-10-31', '2023-10-09 11:47:58', '2023-10-09 11:47:58'),
+(3, 3, 1, 2, 1, '2023-09-25', '2023-10-27', '2023-10-12 10:58:19', '2023-10-12 10:58:19');
 
 -- --------------------------------------------------------
 
@@ -166,6 +202,31 @@ INSERT INTO `nuoc` (`id`, `id_phong`, `chiso_cu`, `chiso_moi`, `thoigian`, `dong
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `phanhoi`
+--
+
+CREATE TABLE `phanhoi` (
+  `id_phanhoi` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_baocao` int(11) NOT NULL,
+  `tieude` varchar(255) DEFAULT NULL,
+  `noidung` varchar(255) DEFAULT NULL,
+  `thoigian` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `phanhoi`
+--
+
+INSERT INTO `phanhoi` (`id_phanhoi`, `id_user`, `id_baocao`, `tieude`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'phản hồi', 'ngày 13/10', '2023-10-12 17:07:31', '2023-10-12 10:07:31', '2023-10-12 10:07:31'),
+(2, 1, 2, 'sửa chữa', 'sẽ được sửa ngày 16/10', '2023-10-12 17:37:27', '2023-10-12 10:37:27', '2023-10-12 10:37:27');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `phong`
 --
 
@@ -183,7 +244,8 @@ CREATE TABLE `phong` (
 --
 
 INSERT INTO `phong` (`id_phong`, `ten`, `id_tang`, `tinhtrang`, `created_at`, `updated_at`) VALUES
-(1, 'P101', 1, 1, '2023-08-28 19:54:40', '2023-10-09 11:47:58');
+(1, 'P101', 1, 1, '2023-08-28 19:54:40', '2023-10-09 11:47:58'),
+(2, 'P2', 1, 1, '2023-10-12 10:57:33', '2023-10-12 10:58:19');
 
 -- --------------------------------------------------------
 
@@ -274,7 +336,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `ngaysinh`, `email`, `sdt`, `password`, `quyen`, `STK`, `trangthai`, `created_at`, `updated_at`) VALUES
 (1, 'Nguyen Chien Thang', NULL, 'nguyenchienthang2632001@gmail.com', '0582427509', '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', 0, '6546545466', NULL, NULL, NULL),
-(2, 'Khách Văn B', '1999-11-25', 'a@gmail.com', '02118512', '$2y$10$WdQ97EnrxgHmuDDhQA9afOKwMV6l3BC43H/MC.rBn6eDE8DwCyMMC', 2, '6415684', 1, '2023-10-07 07:26:31', '2023-10-09 11:23:24');
+(2, 'Khách B', '1999-11-25', 'a@gmail.com', '02118512', '$2y$10$WdQ97EnrxgHmuDDhQA9afOKwMV6l3BC43H/MC.rBn6eDE8DwCyMMC', 2, '6415684', 1, '2023-10-07 07:26:31', '2023-10-11 08:17:01'),
+(3, 'Khách Văn A', '2002-10-13', 'b@gmail.com', '024654511', '$2y$10$6VNxhYx3POKU1qSWHTTg9e5jvv5FHM6S4.mWEB6ArDFvL9He9Imse', 2, '6415684152', 1, '2023-10-12 10:56:43', '2023-10-12 10:56:43');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -285,6 +348,12 @@ INSERT INTO `users` (`id`, `name`, `ngaysinh`, `email`, `sdt`, `password`, `quye
 --
 ALTER TABLE `baixe`
   ADD PRIMARY KEY (`id_baixe`);
+
+--
+-- Chỉ mục cho bảng `baocaosc`
+--
+ALTER TABLE `baocaosc`
+  ADD PRIMARY KEY (`id_baocao`);
 
 --
 -- Chỉ mục cho bảng `chungcu`
@@ -315,6 +384,12 @@ ALTER TABLE `hopdong`
 --
 ALTER TABLE `nuoc`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `phanhoi`
+--
+ALTER TABLE `phanhoi`
+  ADD PRIMARY KEY (`id_phanhoi`);
 
 --
 -- Chỉ mục cho bảng `phong`
@@ -357,6 +432,12 @@ ALTER TABLE `baixe`
   MODIFY `id_baixe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT cho bảng `baocaosc`
+--
+ALTER TABLE `baocaosc`
+  MODIFY `id_baocao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT cho bảng `chungcu`
 --
 ALTER TABLE `chungcu`
@@ -372,13 +453,13 @@ ALTER TABLE `dien`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `hopdong`
 --
 ALTER TABLE `hopdong`
-  MODIFY `id_hopdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_hopdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `nuoc`
@@ -387,10 +468,16 @@ ALTER TABLE `nuoc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT cho bảng `phanhoi`
+--
+ALTER TABLE `phanhoi`
+  MODIFY `id_phanhoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT cho bảng `phong`
 --
 ALTER TABLE `phong`
-  MODIFY `id_phong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_phong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `tang`
@@ -414,7 +501,7 @@ ALTER TABLE `toa`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

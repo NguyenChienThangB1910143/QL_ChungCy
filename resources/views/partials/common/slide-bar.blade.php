@@ -36,6 +36,9 @@
         <li class="{{mb_strtolower($title)=='hóa đơn'?'active':''}}">
             <a href="{{route('hoadon')}}">Hóa Đơn</a>
         </li>
+        <li class="{{mb_strtolower($title)=='Báo cáo sự cố'?'active':''}}">
+            <a href="{{route('phanhoi')}}">Báo cáo sự cố</a>
+        </li>
         <li class="{{mb_strtolower($title)=='thống kê'?'active':''}}">
             <a href="{{route('thongke')}}">Thống kê</a>
         </li>

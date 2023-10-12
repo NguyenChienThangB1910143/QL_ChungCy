@@ -18,6 +18,8 @@ use App\Http\Controllers\TTTKController;
 Use App\Http\Controllers\HoaDonCustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\BaoCaoSCController;
+use App\Http\Controllers\PhanHoiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,7 +109,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/tintuc/update/{id}', [TinTucController::class, 'update'])->name('tintuc-update');
     Route::get('/tintuc/chitiet/{id}', [TinTucController::class, 'chitiet'])->name('tintuc-chitiet');
     Route::get('/tintuc/xoa/{id}', [TinTucController::class, 'xoa'])->name('tintuc-xoa');
-
+    // Bao cao su co
+    Route::get('/customer/baocaosc',[BaoCaoSCController::class,'index'])->name('baocaosc');
+    Route::get('/customer/baocaosc/them',[BaoCaoSCController::class,'them'])->name('baocao-them');
+    Route::post('/customer/baocaosc/store',[BaoCaoSCController::class,'store'])->name('baocao-store');
+    Route::get('/customer/baocaosc/phanhoi/{id_baocao}',[BaoCaoSCController::class,'phanhoi'])->name('baocao-phanhoi');
+    //Phan hoi bao cao su co
+    Route::get('/phanhoi', [PhanHoiController::class, 'index'])->name('phanhoi');
+Route::get('/phanhoi/them/{id_baocao}', [PhanHoiController::class, 'them'])->name('phanhoi.them');
+Route::post('/phanhoi/store', [PhanHoiController::class, 'store'])->name('phanhoi.store');
     //customer
     Route::get('/customer/taikhoan',[TTTKController::class,'index'])->name('profile');
     Route::get('/customer/taikhoan/chinhsua/{id}', [TTTKController::class, 'chinhsua'])->name('profile-chinhsua');

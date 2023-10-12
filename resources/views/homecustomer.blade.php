@@ -34,7 +34,7 @@
               <h5>Hợp Đồng</h5>
             </div>
           </a>
-          <a href="" class="icon-box">
+          <a href="{{route('baocaosc')}}" class="icon-box">
             <div>
               <i class="fas fa-bullhorn icon"></i>
               <h5>Báo cáo sự cố</h5>

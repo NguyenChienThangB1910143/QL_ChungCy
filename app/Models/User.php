@@ -39,4 +39,8 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($value);
     }
+    public function baocaoscs()
+    {
+        return $this->hasMany(BaoCaoSC::class, 'id_user');
+    }
 }

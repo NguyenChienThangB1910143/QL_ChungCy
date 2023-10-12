@@ -44,6 +44,8 @@
             <div class="d-grid gap-2 d-md-flex justify-content-md-start ms-3 mt-3">
                     <button class="btn btn-primary me-md-2 mt-1 mb-1" type="button" onclick=them_hoadon()>
                         <i class="fas fa-plus"></i> &nbsp Thêm hóa đơn</button>
+                    <button class="btn btn-warning me-md-2 mt-1 mb-1" type="button" id="btnLocHetHan">
+                            <i class="fas fa-filter"></i> &nbsp Lọc hóa đơn hết hạn</button>
                 </div>
             <div class='p-4 d-flex flex-column' >
                 
@@ -74,11 +76,19 @@
                             <td>{{$hoadon->khac}}</td>
                             <td>{{$hoadon->thuthem}}</td>
                             <td>{{$hoadon->thanhtien}}</td>
+                            @php
+                                $hethan = \Carbon\Carbon::parse($hoadon->thoigian)->addDays(14);
+                                $baygio = \Carbon\Carbon::now();
+                            @endphp
                             @if($hoadon->tinhtrang==0)
-                                <td>Chưa đóng</td> 
+                                @if($baygio->greaterThan($hethan))
+                                    <td style="color: red">Hết hạn</td>
+                                @else
+                                    <td>Chưa thanh toán</td>
+                                @endif
                             @else
-                                <td>Đã đóng</td>
-                            @endif 
+                                <td>Đã thanh toán</td>
+                            @endif
                             <td>
                                 <div class="d-flex ">
                                 </div>
@@ -106,5 +116,9 @@
         });
         $('#addHoadon').modal('show');
     }
+    $('#btnLocHetHan').click(function() {
+    window.location.href = "{{ route('hoadon-hethan') }}";
+    });
+
 </script>
 @endsection

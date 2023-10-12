@@ -96,6 +96,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hoadon',[HoaDonController::class,'index'])->name('hoadon');
     Route::get('/hoadon/them',[HoaDonController::class,'them'])->name('hoadon-them');
     Route::post('/hoadon/them',[HoaDonController::class,'store'])->name('hoadon-store');
+    Route::get('/hoadon/hethan', [HoaDonController::class,'hethan'])->name('hoadon-hethan');
+
 
     //Tin tuc
     Route::get('/tintuc',[TinTucController::class,'index'])->name('tintuc');

@@ -90,5 +90,20 @@ class HoaDonController extends Controller
         return redirect()->back()->with('error', 'Không tìm thấy bản ghi điện hoặc nước cho phòng này.');
     }
 }
+    public function hethan()
+    {
+        $title = 'Hóa Đơn';
+            $breadcrumbs = [
+                [
+                    'name' => 'Hóa Đơn',
+                    'link' => './'
+                ]
+            ];
+        $hoadons = Hoadon::where('tinhtrang', 0)
+                        ->where('thoigian', '<', \Carbon\Carbon::now()->subDays(14))
+                        ->get();
+
+        return view('hoadon/hoadon', compact('title', 'hoadons', 'breadcrumbs'));
+    }
 
 }

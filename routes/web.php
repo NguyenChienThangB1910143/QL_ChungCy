@@ -113,7 +113,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Hoa Don customer
     Route::get('/customer/hoadon',[HoaDonCustomerController::class,'index'])->name('hoadoncustomer');
-    Route::get('/customer/hoadon/thanhtoan/{id}',[HoaDonCustomerController::class,'thanhtoan'])->name('hoadoncustomer-thanhtoan');
+    Route::get('/customer/hoadon/chitiet/{id}',[HoaDonCustomerController::class,'chitiet'])->name('hoadoncustomer-chitiet');
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');
 

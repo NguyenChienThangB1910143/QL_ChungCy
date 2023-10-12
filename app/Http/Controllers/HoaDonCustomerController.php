@@ -27,24 +27,27 @@ class HoaDonCustomerController extends Controller
         $hopdong = HopDong::where('id_user', $user->id)
             ->where('ngayketthuc', '>', Carbon::now())
             ->first();
-        $hoadons = HoaDon::where('id_phong', $hopdong->id_phong)->get();
+
+        $hoadons = HoaDon::where('id_phong', $hopdong->id_phong)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('customer/hoadon/hoadon', compact('title', 'hoadons', 'breadcrumbs'));
     }
-    public function thanhtoan(Request $request)
+    public function chitiet(Request $request)
     {
-        $title = 'Thanh Toán';
+        $title = 'Chi tiết';
         $breadcrumbs = [
             [
-                'name' => 'Thanh Toán',
+                'name' => 'Chi tiết',
                 'link' => '../'
             ], [
-                'name' => 'Thanh Toán',
+                'name' => 'Chi tiết',
                 'link' => './' . $request->id
             ]
         ];
-        $thanhtoanhd =HoaDon::where('id', $request->id)->get();
+        $chitiethd =HoaDon::where('id', $request->id)->get();
 
-        return view('customer/hoadon/thanhtoan', compact('title', 'thanhtoanhd', 'breadcrumbs'));
+        return view('customer/hoadon/chitiet', compact('title', 'chitiethd', 'breadcrumbs'));
     }
 }

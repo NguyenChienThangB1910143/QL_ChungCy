@@ -126,4 +126,35 @@ class TinTucController extends Controller
 
         return redirect()->route('tintuc')->with('success', 'Xóa thành công');
     }
+    public function tintuccustomer()
+    {
+        $title = 'Tin Tức';
+        $breadcrumbs = [
+            [
+                'name' => 'Tin Tức',
+                'link' => './tintuc'
+            ]
+        ];
+        $tintucs = TinTuc::join('users', 'tintuc.id_user', '=', 'users.id')
+            ->select('tintuc.*', 'users.name as ten_user')
+            ->paginate(5);
+
+        return view('customer/tintuc/tintuc', compact('title', 'tintucs', 'breadcrumbs'));
+    }
+    public function chitietcustomer(Request $request)
+    {
+        $title = 'Tin Tức';
+        $breadcrumbs = [
+            [
+                'name' => 'Tin Tức',
+                'link' => '../'
+            ], [
+                'name' => 'Chi tiết',
+                'link' => './' . $request->id
+            ]
+        ];
+        $chitiettintuc =  TinTuc::where('id', $request->id)->get();
+
+        return view('customer/tintuc/chitiet', compact('title', 'chitiettintuc', 'breadcrumbs'));
+    }
 }

@@ -109,6 +109,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/tintuc/update/{id}', [TinTucController::class, 'update'])->name('tintuc-update');
     Route::get('/tintuc/chitiet/{id}', [TinTucController::class, 'chitiet'])->name('tintuc-chitiet');
     Route::get('/tintuc/xoa/{id}', [TinTucController::class, 'xoa'])->name('tintuc-xoa');
+    //tin tuc customer
+
+    Route::get('/customer/tintuc',[TinTucController::class,'tintuccustomer'])->name('tintuccustomer');
+    Route::get('/customer/tintuc/chitiet/{id}', [TinTucController::class, 'chitietcustomer'])->name('tintuccustomer-chitiet');
     // Bao cao su co
     Route::get('/customer/baocaosc',[BaoCaoSCController::class,'index'])->name('baocaosc');
     Route::get('/customer/baocaosc/them',[BaoCaoSCController::class,'them'])->name('baocao-them');

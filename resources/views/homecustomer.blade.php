@@ -42,7 +42,7 @@
           </a>
         </div>
         <div class="icon-row">
-          <a href="" class="icon-box">
+          <a href="{{route('tintuccustomer')}}" class="icon-box">
             <div>
               <i class="fas fa-globe icon"></i>
               <h5>Tin Tức</h5>

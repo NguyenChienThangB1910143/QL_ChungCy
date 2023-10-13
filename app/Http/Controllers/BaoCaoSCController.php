@@ -44,8 +44,8 @@ class BaoCaoSCController extends Controller
 
         $user = Auth::user();
         $hopdong = HopDong::where('id_user', $user->id)
-            ->where('ngayketthuc', '>', Carbon::now())
-            ->first();
+    ->orderBy('created_at', 'desc')
+    ->first();
         $baocaosc = new BaoCaoSC();
         $baocaosc->id_user = $user->id;
         $baocaosc->id_phong = $hopdong->id_phong;
@@ -75,6 +75,6 @@ class BaoCaoSCController extends Controller
         ];
         $phanhoibc =  PhanHoi::where('id_baocao', $request->id_baocao)->get();
 
-        return view('customer/baocaosc/chitiet', compact('title', 'phanhoibc', 'breadcrumbs'));
+        return view('customer/baocaosc/phanhoi', compact('title', 'phanhoibc', 'breadcrumbs'));
     }
 }

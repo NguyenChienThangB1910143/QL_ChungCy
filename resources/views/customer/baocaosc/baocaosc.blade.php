@@ -82,14 +82,14 @@
                             <td>{{$baocao->thoigian}}</td>
                             <td>
                                     <button type="submit" onclick=phanhoi_baocao('{{$baocao->id_baocao}}') class="btn btn-info me-md-1 m-1">
-                                        <i class="fas fa-comment"></i> phản hồi
+                                        <i class="fas fa-comment"></i> xem phản hồi
                                     </button>
                                 </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-               
+
                 
             </div>
     </div>

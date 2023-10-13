@@ -22,7 +22,7 @@ class TTTKController extends Controller
         ];
         $user = Auth::user();
         $hopdong = HopDong::where('id_user', $user->id)
-            ->where('ngayketthuc', '>', Carbon::now())
+            ->orderBy('created_at', 'desc')
             ->first();
 
         return view('customer/taikhoan/profile', compact('title', 'user','hopdong', 'breadcrumbs'));

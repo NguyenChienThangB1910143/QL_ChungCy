@@ -130,6 +130,8 @@ Route::post('/phanhoi/store', [PhanHoiController::class, 'store'])->name('phanho
     //Hoa Don customer
     Route::get('/customer/hoadon',[HoaDonCustomerController::class,'index'])->name('hoadoncustomer');
     Route::get('/customer/hoadon/chitiet/{id}',[HoaDonCustomerController::class,'chitiet'])->name('hoadoncustomer-chitiet');
+    Route::get('/customer/hoadon/filter',[HoaDonCustomerController::class,'filter'])->name('hoadoncustomer-filter');
+
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');
 

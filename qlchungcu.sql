@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 12, 2023 lúc 08:01 PM
+-- Thời gian đã tạo: Th10 13, 2023 lúc 08:00 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -68,7 +68,8 @@ CREATE TABLE `baocaosc` (
 INSERT INTO `baocaosc` (`id_baocao`, `id_user`, `id_phong`, `tieude`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
 (1, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:47:45', '2023-10-12 07:47:45', '2023-10-12 07:47:45'),
 (2, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:48:14', '2023-10-12 07:48:14', '2023-10-12 07:48:14'),
-(3, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:48:52', '2023-10-12 07:48:52', '2023-10-12 07:48:52');
+(3, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:48:52', '2023-10-12 07:48:52', '2023-10-12 07:48:52'),
+(4, 2, 1, 'báo cáo', 'ngày 13/10', '2023-10-13 02:59:33', '2023-10-12 19:59:33', '2023-10-12 19:59:33');
 
 -- --------------------------------------------------------
 
@@ -146,7 +147,8 @@ INSERT INTO `hoadon` (`id`, `id_phong`, `thoigian`, `tiendien`, `tiennuoc`, `tie
 (9, 1, '2023-10-11', 30000, 60000, 20000, 'ưadfcasdva', 100000, 210000, 1, '2023-10-11 09:42:33', '2023-10-11 09:43:07'),
 (10, 1, '2023-10-12', 30000, 60000, 20000, 'dsfdsac', 100000, 210000, 1, '2023-10-11 23:58:16', '2023-10-11 23:59:22'),
 (11, 1, '2023-10-12', 30000, 60000, 20000, 'reqvdfv', 100000, 210000, 1, '2023-10-12 00:00:25', '2023-10-12 00:00:54'),
-(12, 1, '2023-09-12', 30000, 60000, 20000, 'jytjnfgnm', 100000, 210000, 1, '2023-10-12 00:58:36', '2023-10-12 01:59:26');
+(12, 1, '2023-09-12', 30000, 60000, 20000, 'jytjnfgnm', 100000, 210000, 1, '2023-10-12 00:58:36', '2023-10-12 01:59:26'),
+(13, 1, '2023-10-13', 30000, 60000, 20000, 'sửa chữa', 100000, 210000, 1, '2023-10-12 22:20:56', '2023-10-12 22:21:52');
 
 -- --------------------------------------------------------
 
@@ -222,7 +224,9 @@ CREATE TABLE `phanhoi` (
 
 INSERT INTO `phanhoi` (`id_phanhoi`, `id_user`, `id_baocao`, `tieude`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, 'phản hồi', 'ngày 13/10', '2023-10-12 17:07:31', '2023-10-12 10:07:31', '2023-10-12 10:07:31'),
-(2, 1, 2, 'sửa chữa', 'sẽ được sửa ngày 16/10', '2023-10-12 17:37:27', '2023-10-12 10:37:27', '2023-10-12 10:37:27');
+(2, 1, 2, 'sửa chữa', 'sẽ được sửa ngày 16/10', '2023-10-12 17:37:27', '2023-10-12 10:37:27', '2023-10-12 10:37:27'),
+(3, 1, 3, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-13 03:53:57', '2023-10-12 20:53:57', '2023-10-12 20:53:57'),
+(4, 1, 4, 'ưgdfvsd', 'dsvfsv', '2023-10-13 05:23:46', '2023-10-12 22:23:46', '2023-10-12 22:23:46');
 
 -- --------------------------------------------------------
 
@@ -290,7 +294,8 @@ CREATE TABLE `tintuc` (
 
 INSERT INTO `tintuc` (`id`, `tieude`, `id_user`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
 (11, 'Tin 5', 1, '<p>egsbseb<img src=\"http://localhost/QL_ChungCy/public/media/logo_1696874178.png\"></p>', '2023-10-09', '2023-10-09 09:57:12', '2023-10-09 10:56:19'),
-(12, 'Tin 5', 1, NULL, '2023-10-10', '2023-10-09 10:43:18', '2023-10-09 10:43:34');
+(12, 'Tin 5', 1, NULL, '2023-10-10', '2023-10-09 10:43:18', '2023-10-09 10:43:34'),
+(13, 'Sửa chữa', 1, '<h2><strong>Giá heo hơi xuống dưới 50.000 đồng một kg, người nuôi lỗ nặng</strong></h2><p>Nhiều nơi giá heo hơi về mốc 49.000 đồng một kg, giảm 17.000 đồng so với mức đỉnh tháng 7, khiến người nuôi lỗ nặng.</p><p>Dữ liệu từ các hiệp hội chăn nuôi cho thấy tại miền Bắc, giá heo hơi hiện nay xuống 50.000-52.000 đồng một kg.</p><p>Miền Trung và Tây nguyên, có nơi về 49.000 đồng, giảm 2.000 đồng so với ngày trước đó và thấp hơn 17.000 đồng so mức đỉnh tháng 7. Trong đó, giá heo tại Nghệ An có mức thấp nhất.</p><p>Tại khu vực miền Nam, giá heo tại Kiên Giang cũng lao dốc về 49.000 đồng một kg. Riêng các tỉnh thành như TP HCM, Đồng Nai, Bà Rịa-Vũng Tàu, Bình Dương giá quanh 51.000-53.000 đồng một kg.</p><p><picture><source srcset=\"https://i1-kinhdoanh.vnecdn.net/2023/10/12/heo-jpeg-5062-1697090671.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=UozhsCcj-cwwMT_VrxZQHA 1x, https://i1-kinhdoanh.vnecdn.net/2023/10/12/heo-jpeg-5062-1697090671.jpg?w=1020&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=SdlNbv3O1qi8juyhvnKLCw 1.5x, https://i1-kinhdoanh.vnecdn.net/2023/10/12/heo-jpeg-5062-1697090671.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=2&amp;fit=crop&amp;s=Rba6WQsE61ebhozH9I6__g 2x\"><img src=\"https://i1-kinhdoanh.vnecdn.net/2023/10/12/heo-jpeg-5062-1697090671.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=UozhsCcj-cwwMT_VrxZQHA\" alt=\"Mua bán heo hơi ở chợ gia súc An Nội (Bình Lục, Hà Nam). Ảnh:Tất Định\"></picture></p><p>Mua bán heo hơi ở chợ gia súc An Nội (Bình Lục, Hà Nam). Ảnh:<i>Tất Định</i></p><p>Theo ông Thành, thương lái thu mua heo ở miền Nam, giá heo giảm sâu do nguồn cung tăng mạnh. Trước đó, hồi tháng 7 âm lịch, nhiều hộ có tâm lý chờ giá nên đợt này phải bán heo quá trọng lượng ra thị trường ồ ạt.</p><p>Báo cáo của chợ đầu mối Hóc Môn (TP HCM) cũng cho thấy sản lượng heo về chợ tăng đột biến lên gần 5.634 con, tăng gần 600 con so với tháng trước.</p>', '2023-10-13', '2023-10-12 22:31:49', '2023-10-12 22:31:49');
 
 -- --------------------------------------------------------
 
@@ -435,7 +440,7 @@ ALTER TABLE `baixe`
 -- AUTO_INCREMENT cho bảng `baocaosc`
 --
 ALTER TABLE `baocaosc`
-  MODIFY `id_baocao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_baocao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `chungcu`
@@ -453,7 +458,7 @@ ALTER TABLE `dien`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `hopdong`
@@ -471,7 +476,7 @@ ALTER TABLE `nuoc`
 -- AUTO_INCREMENT cho bảng `phanhoi`
 --
 ALTER TABLE `phanhoi`
-  MODIFY `id_phanhoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_phanhoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `phong`
@@ -489,7 +494,7 @@ ALTER TABLE `tang`
 -- AUTO_INCREMENT cho bảng `tintuc`
 --
 ALTER TABLE `tintuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `toa`

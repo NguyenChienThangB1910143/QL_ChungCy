@@ -79,3 +79,7 @@ header, nav, footer {
     color: white; /* Màu đường dẫn trắng */
     text-decoration: none; /* Không gạch chân */
 }
+.pagination {
+    justify-content: center !important;
+    margin: 10px !important;
+}

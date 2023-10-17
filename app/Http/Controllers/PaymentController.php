@@ -17,7 +17,7 @@ class PaymentController extends Controller
         $vnp_HashSecret = "JPYCRFOVQVKJLRAEYOPUAKETUJYUJXRD"; //Chuỗi bí mật
 
         $vnp_TxnRef = $hoadon_id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-        $vnp_OrderInfo = 'Hóa đơn test';
+        $vnp_OrderInfo = 'Hóa đơn hằng tháng';
         $vnp_OrderType = 'billpayment';
         $vnp_Amount =  $hoadon->thanhtien * 100;
         $vnp_Locale = 'vn';
@@ -46,10 +46,7 @@ class PaymentController extends Controller
         if (isset($vnp_BankCode) && $vnp_BankCode != "") {
             $inputData['vnp_BankCode'] = $vnp_BankCode;
         }
-        if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
-            $inputData['vnp_Bill_State'] = $vnp_Bill_State;
-        }
-
+        
         //var_dump($inputData);
         ksort($inputData);
         $query = "";
@@ -81,23 +78,23 @@ class PaymentController extends Controller
             }
     }
     public function returnPayment(Request $request)
-    {
-        // Nhận dữ liệu trả về từ VNPAY
-        $inputData = array();
-        foreach ($request->query() as $key => $value) {
-            if (substr($key, 0, 4) == "vnp_") {
-                $inputData[$key] = $value;
-            }
+{
+    // Nhận dữ liệu trả về từ VNPAY
+    $inputData = array();
+    foreach ($request->query() as $key => $value) {
+        if (substr($key, 0, 4) == "vnp_") {
+            $inputData[$key] = $value;
         }
+    }
 
-        // Xác định mã đơn hàng từ dữ liệu trả về
-        $order_id = $inputData['vnp_TxnRef'];
+    // Xác định mã đơn hàng từ dữ liệu trả về
+    $order_id = $inputData['vnp_TxnRef'];
 
-        // Tìm đơn hàng trong cơ sở dữ liệu
-        $order = HoaDon::find($order_id);
+    // Tìm đơn hàng trong cơ sở dữ liệu
+    $order = HoaDon::find($order_id);
 
-        // Kiểm tra nếu đơn hàng tồn tại
-        if ($order) {
+        // Kiểm tra xem thanh toán có thành công hay không
+        if ($inputData['vnp_ResponseCode'] == '00') {
             // Cập nhật trạng thái thanh toán
             $order->tinhtrang = 1;
             $order->save();
@@ -105,7 +102,9 @@ class PaymentController extends Controller
             // Hiển thị thông tin hóa đơn và kết quả thanh toán
             return view('customer.hoadon.payment_return', ['data' => $request->query()]);
         } else {
-            return 'Không tìm thấy đơn hàng';
+            // Thanh toán không thành công, chuyển hướng người dùng về trang hóa đơn
+            return redirect('customer/hoadon');
         }
-    }
+}
+
 }

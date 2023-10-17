@@ -30,7 +30,7 @@ class HoaDonCustomerController extends Controller
 
         $hoadons = HoaDon::where('id_phong', $hopdong->id_phong)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(5);
 
         return view('customer/hoadon/hoadon', compact('title', 'hoadons', 'breadcrumbs'));
     }
@@ -50,4 +50,16 @@ class HoaDonCustomerController extends Controller
 
         return view('customer/hoadon/chitiet', compact('title', 'chitiethd', 'breadcrumbs'));
     }
+    public function filter(Request $request)
+{
+    $month = $request->get('month');
+    $year = $request->get('year');
+
+    $hoadons = HoaDon::whereYear('created_at', $year)
+                     ->whereMonth('created_at', $month)
+                     ->get();
+
+    return response()->json($hoadons);
+}
+
 }

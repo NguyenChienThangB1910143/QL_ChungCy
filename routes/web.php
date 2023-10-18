@@ -58,6 +58,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hopdong/them', [HopDongController::class, 'them'])->name('hopdong-them');
     Route::post('/hopdong/them', [HopDongController::class, 'store'])->name('hopdong-store');
     Route::get('/hopdong/chitiet/{id_hopdong}', [HopDongController::class, 'chitiet'])->name('hopdong-chitiet');
+    // Trong file routes/web.php
+Route::get('/hopdong/search', [HopDongController::class, 'search'])->name('hopdong.search');
+
     // Tang
     Route::get('/tang', [TangController::class, 'index'])->name('tang');
     Route::get('/tang/them', [TangController::class, 'them'])->name('tang-them');

@@ -79,26 +79,34 @@
                     </div>
                 </div>
             </div>
-                                <!-- start search -->
-                    @include('partials.common.search')
-                    <!-- end search  -->
-                    
-            <!-- Content -->
-            <div class='p-4 d-flex flex-column' >
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <form action="{{ route('hopdong') }}" method="get">
-                        <div class="input-group mb-3">
-                        <select class="form-select" name="status">
-                            <option value="">Chọn tình trạng</option>
-                            <option value="active"{{ request()->status == 'active' ? ' selected' : '' }}>Còn hiệu lực</option>
-                            <option value="expired"{{ request()->status == 'expired' ? ' selected' : '' }}>Hết hiệu lực</option>
-                        </select>
-                        <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-filter"></i></button>
-                        </div>
+            <!-- start search -->
+            <div class="content-search p-2">
+                <div class="d-flex align-items-center justify-content-center flex-column ">
+                    <form class="form-search" method="GET">
+                        @csrf
+                        <input type="text" name="search" id="search-input" placeholder="Tìm kiếm..." class="btn-search">
                     </form>
-                    <button class="btn btn-success me-md-2 mt-1 mb-1" onclick=them_hopdong() type="button">
-                        <i class="fas fa-plus"></i> Thêm</button>
                 </div>
+            </div>        
+            <!-- end search  -->
+                    
+            <!-- Content -->                    <button class="btn btn-success me-md-2 mt-1 mb-1 " onclick=them_hopdong() type="button">
+                <i class="fas fa-plus"></i> Thêm</button>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <form action="{{ route('hopdong') }}" method="get">
+                    <div class="input-group mb-3">
+                    <select class="form-select" name="status">
+                        <option value="">Chọn tình trạng</option>
+                        <option value="active"{{ request()->status == 'active' ? ' selected' : '' }}>Còn hiệu lực</option>
+                        <option value="expired"{{ request()->status == 'expired' ? ' selected' : '' }}>Hết hiệu lực</option>
+                    </select>
+                    <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-filter"></i></button>
+                    </div>
+                </form>
+                </div>
+            
+            <div class='p-4 d-flex flex-column' >
+                
                 <table class="table table-hover mt-3">
                     <thead style="background-color:#0d6efd; color:white;'"> 
                         <tr>
@@ -125,14 +133,12 @@
                             <td>{{$hopdongs->ngayketthuc}}</td>
                             <td>{{ \Carbon\Carbon::parse($hopdongs->ngayketthuc)->isPast() ? 'Hết hiệu lực' : 'Còn hiệu lực' }}</td>
                             <td>
-                            <form action="{{route('hopdong-capnhat', $hopdongs->id_hopdong)}}" method="get">
-                                        <button type="submit" onclick=chitiet_hopdong('{{$hopdongs->id_hopdong}}') class="btn btn-info me-md-1 m-1">
-                                            <i class="fas fa-eye"></i> 
-                                        </button>
-                                        <button type="button" onclick=capnhat_hopdong('{{$hopdongs->id_hopdong}}') class="btn btn-primary me-md-3">
-                                            <i class="fas fa-edit"></i> Sửa
-                                        </a>
-                                    </form>
+                                <button type="submit" onclick=chitiet_hopdong('{{$hopdongs->id_hopdong}}') class="btn btn-info me-md-1 m-1">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button type="button" onclick=capnhat_hopdong('{{$hopdongs->id_hopdong}}') class="btn btn-primary me-md-3">
+                                    <i class="fas fa-edit"></i> Sửa
+                                </button>
                             </td>
                         </tr>
                         @endforeach
@@ -186,5 +192,46 @@
         });
         $('#chitiethopdong').modal('show');
     }
+    //search 
+        $(document).ready(function() {
+            $('#search-input').on('keyup', function() {
+                var query = $(this).val();
+                if (query) {
+                    $.ajax({
+                        url: '{{ route('hopdong.search') }}',
+                        data: {query: query},
+                        success: function(data) {
+                            // Xóa nội dung hiện tại của bảng
+                            $('table tbody').empty();
+
+                            // Duyệt qua mỗi hợp đồng trong dữ liệu trả về
+                            $.each(data, function(i, hopdong) {
+                                // Tạo một hàng mới cho mỗi hợp đồng
+                                var row = $('<tr></tr>');
+                                row.append('<td>' + hopdong.id_hopdong + '</td>');
+                                row.append('<td>' + hopdong.ten_user + '</td>');
+                                row.append('<td>' + hopdong.ten_ql + '</td>');
+                                row.append('<td>' + hopdong.ten_phong + '</td>');
+                                row.append('<td>' + hopdong.ms_baixe + '</td>');
+                                row.append('<td>' + hopdong.ngaybatdau + '</td>');
+                                row.append('<td>' + hopdong.ngayketthuc + '</td>');
+                                row.append('<td>' + (new Date(hopdong.ngayketthuc) < new Date() ? 'Hết hiệu lực' : 'Còn hiệu lực') + '</td>');
+                                var buttons = '<td>';
+                                                buttons += '<button type="submit" onclick="chitiet_hopdong(\'' + hopdong.id_hopdong + '\')" class="btn btn-info me-md-1 m-1"><i class="fas fa-eye"></i></button>';
+                                                buttons += '<button type="button" onclick="capnhat_hopdong(\'' + hopdong.id_hopdong + '\')" class="btn btn-primary me-md-3"><i class="fas fa-edit"></i> Sửa</button>';
+                                                buttons += '</td>';
+                                                
+                                                // Thêm các nút vào hàng
+                                                row.append(buttons);
+                                // Thêm hàng mới vào bảng
+                                $('table tbody').append(row);
+                            });
+                        }
+
+                    });
+                }
+            });
+        });
+
     </script>
 @endsection

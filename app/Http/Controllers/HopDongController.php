@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 class HopDongController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $title = 'Hợp Đồng';
         $breadcrumbs = [
@@ -26,27 +26,8 @@ class HopDongController extends Controller
         $hopdong = HopDong::join('users as user', 'user.id', '=', 'hopdong.id_user')
         ->join('users as ql', 'ql.id', '=', 'hopdong.id_ql')
         ->join('phong', 'phong.id_phong', '=', 'hopdong.id_phong')
-        ->join('baixe', 'baixe.id_baixe', '=', 'hopdong.id_baixe');
-    
-        if ($request->has('search')) {
-            $search = $request->search;
-            $hopdong = $hopdong->where(function ($query) use ($search) {
-                $query->where('id_hopdong', 'like', "%$search%")
-                ->orWhere('user.name', 'like', "%$search%")
-                ->orWhere('ql.name', 'like', "%$search%")
-                ->orWhere('phong.ten', 'like', "%$search%")
-                ->orWhere('baixe.ms', 'like', "%$search%");
-            });
-        }
-        if ($request->has('status')) {
-            $status = $request->status;
-            if ($status == 'active') {
-                $hopdong = $hopdong->whereDate('ngayketthuc', '>=', now());
-            } elseif ($status == 'expired') {
-                $hopdong = $hopdong->whereDate('ngayketthuc', '<', now());
-            }
-        }
-        $hopdong = $hopdong->select(
+        ->join('baixe', 'baixe.id_baixe', '=', 'hopdong.id_baixe')
+        ->select(
             'hopdong.*',
             'user.name as ten_user',
             'ql.name as ten_ql',
@@ -170,4 +151,26 @@ public function chitiet(Request $request)
 
     return view('hopdong/chitiet', compact('title', 'chitiethopdong', 'breadcrumbs'));
 }
+// Trong HopDongController.php
+public function search(Request $request)
+{
+    $query = $request->input('query');
+    // Tìm kiếm hopdong dựa trên tên người dùng
+    $hopdong = HopDong::join('users as user', 'user.id', '=', 'hopdong.id_user')
+        ->join('users as ql', 'ql.id', '=', 'hopdong.id_ql')
+        ->join('phong', 'phong.id_phong', '=', 'hopdong.id_phong')
+        ->join('baixe', 'baixe.id_baixe', '=', 'hopdong.id_baixe')
+        ->select(
+            'hopdong.*',
+            'user.name as ten_user',
+            'ql.name as ten_ql',
+            'phong.ten as ten_phong',
+            'baixe.ms as ms_baixe'
+        )
+        ->where('user.name', 'LIKE', "%{$query}%")
+        ->get();
+    return response()->json($hopdong);
+}
+
+
 }

@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\BaoCaoSCController;
 use App\Http\Controllers\PhanHoiController;
+use App\Http\Controllers\ThongBaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -135,6 +136,10 @@ Route::post('/phanhoi/store', [PhanHoiController::class, 'store'])->name('phanho
     Route::get('/customer/hoadon/chitiet/{id}',[HoaDonCustomerController::class,'chitiet'])->name('hoadoncustomer-chitiet');
     Route::get('/customer/hoadon/filter',[HoaDonCustomerController::class,'filter'])->name('hoadoncustomer-filter');
 
+    //Thông báo
+    Route::get('/thongbao', [ThongBaoController::class, 'index'])->name('thongbao');
+    Route::get('/thongbao/them', [ThongBaoController::class, 'them'])->name('thongbao-them');
+    Route::post('/thongbao/them', [ThongBaoController::class, 'store'])->name('thongbao-store');
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 18, 2023 lúc 08:55 PM
+-- Thời gian đã tạo: Th10 24, 2023 lúc 05:02 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -69,7 +69,23 @@ INSERT INTO `baocaosc` (`id_baocao`, `id_user`, `id_phong`, `tieude`, `noidung`,
 (1, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:47:45', '2023-10-12 07:47:45', '2023-10-12 07:47:45'),
 (2, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:48:14', '2023-10-12 07:48:14', '2023-10-12 07:48:14'),
 (3, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:48:52', '2023-10-12 07:48:52', '2023-10-12 07:48:52'),
-(4, 2, 1, 'báo cáo', 'ngày 13/10', '2023-10-13 02:59:33', '2023-10-12 19:59:33', '2023-10-12 19:59:33');
+(4, 2, 1, 'báo cáo', 'ngày 13/10', '2023-10-13 02:59:33', '2023-10-12 19:59:33', '2023-10-12 19:59:33'),
+(5, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-24 08:04:48', '2023-10-24 01:04:48', '2023-10-24 01:04:48');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `chitietthongbao`
+--
+
+CREATE TABLE `chitietthongbao` (
+  `id_chitiettb` int(11) NOT NULL,
+  `id_thongbao` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `trangthai` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -110,7 +126,8 @@ CREATE TABLE `dien` (
 --
 
 INSERT INTO `dien` (`id`, `id_phong`, `chiso_cu`, `chiso_moi`, `thoigian`, `dongia`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, 3, '2023-09-28', 10000, '2023-09-27 21:46:32', '2023-09-27 21:46:32');
+(1, 1, 0, 3, '2023-09-28', 10000, '2023-09-27 21:46:32', '2023-09-27 21:46:32'),
+(2, 1, 3, 10, '2023-10-24', 7000, '2023-10-24 00:28:34', '2023-10-24 00:28:34');
 
 -- --------------------------------------------------------
 
@@ -150,10 +167,12 @@ INSERT INTO `hoadon` (`id`, `id_phong`, `thoigian`, `tiendien`, `tiennuoc`, `tie
 (12, 1, '2023-09-12', 30000, 60000, 20000, 'jytjnfgnm', 100000, 210000, 1, '2023-10-12 00:58:36', '2023-10-12 01:59:26'),
 (13, 1, '2023-10-13', 30000, 60000, 20000, 'sửa chữa', 100000, 210000, 1, '2023-10-12 22:20:56', '2023-10-12 22:21:52'),
 (14, 1, '2023-10-17', 30000, 60000, 20000, 'ưaqdqf', 100000, 210000, 1, '2023-10-17 05:38:44', '2023-10-17 11:18:39'),
-(15, 1, '2023-10-17', 30000, 60000, 20000, 'jhbnjb j', 100000, 210000, 0, '2023-10-17 07:27:22', '2023-10-17 07:27:34'),
+(15, 1, '2023-10-17', 30000, 60000, 20000, 'jhbnjb j', 100000, 210000, 1, '2023-10-17 07:27:22', '2023-10-24 00:41:09'),
 (16, 1, '2023-10-17', 30000, 60000, 20000, 'sdfcava', 100000, 210000, 1, '2023-10-17 07:33:10', '2023-10-17 11:18:17'),
 (17, 1, '2023-10-17', 30000, 60000, 20000, 'đsfsd', 100000, 210000, 1, '2023-10-17 07:54:14', '2023-10-17 11:17:41'),
-(18, 1, '2023-10-17', 30000, 60000, 20000, 'adv', 100000, 210000, 1, '2023-10-17 08:43:05', '2023-10-17 08:43:39');
+(18, 1, '2023-10-17', 30000, 60000, 20000, 'adv', 100000, 210000, 1, '2023-10-17 08:43:05', '2023-10-17 08:43:39'),
+(19, 1, '2023-10-24', 49000, 40000, 100000, 'Sửa chữa', 100000, 289000, 0, '2023-10-24 00:29:55', '2023-10-24 00:29:55'),
+(20, 1, '2023-10-24', 49000, 40000, 100000, 'Phụ thu', 100000, 289000, 0, '2023-10-24 01:03:59', '2023-10-24 01:03:59');
 
 -- --------------------------------------------------------
 
@@ -204,7 +223,8 @@ CREATE TABLE `nuoc` (
 --
 
 INSERT INTO `nuoc` (`id`, `id_phong`, `chiso_cu`, `chiso_moi`, `thoigian`, `dongia`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, 3, '2023-09-28', 20000, '2023-09-27 22:07:47', '2023-09-27 22:07:47');
+(1, 1, 0, 3, '2023-09-28', 20000, '2023-09-27 22:07:47', '2023-09-27 22:07:47'),
+(2, 1, 3, 7, '2023-10-24', 10000, '2023-10-24 00:29:13', '2023-10-24 00:29:13');
 
 -- --------------------------------------------------------
 
@@ -232,7 +252,9 @@ INSERT INTO `phanhoi` (`id_phanhoi`, `id_user`, `id_baocao`, `tieude`, `noidung`
 (2, 1, 2, 'sửa chữa', 'sẽ được sửa ngày 16/10', '2023-10-12 17:37:27', '2023-10-12 10:37:27', '2023-10-12 10:37:27'),
 (3, 1, 3, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-13 03:53:57', '2023-10-12 20:53:57', '2023-10-12 20:53:57'),
 (4, 1, 4, 'ưgdfvsd', 'dsvfsv', '2023-10-13 05:23:46', '2023-10-12 22:23:46', '2023-10-12 22:23:46'),
-(5, 1, 4, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-17 14:21:39', '2023-10-17 07:21:39', '2023-10-17 07:21:39');
+(5, 1, 4, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-17 14:21:39', '2023-10-17 07:21:39', '2023-10-17 07:21:39'),
+(6, 1, 1, 'sửa chữa', 'sẽ được sửa ngày', '2023-10-24 08:05:40', '2023-10-24 01:05:40', '2023-10-24 01:05:40'),
+(7, 1, 5, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-24 13:09:57', '2023-10-24 06:09:57', '2023-10-24 06:09:57');
 
 -- --------------------------------------------------------
 
@@ -255,7 +277,8 @@ CREATE TABLE `phong` (
 
 INSERT INTO `phong` (`id_phong`, `ten`, `id_tang`, `tinhtrang`, `created_at`, `updated_at`) VALUES
 (1, 'P101', 1, 1, '2023-08-28 19:54:40', '2023-10-09 11:47:58'),
-(2, 'P2', 1, 1, '2023-10-12 10:57:33', '2023-10-12 10:58:19');
+(2, 'P2', 1, 1, '2023-10-12 10:57:33', '2023-10-12 10:58:19'),
+(3, 'P101-2', 2, 0, '2023-10-24 00:57:36', '2023-10-24 00:57:36');
 
 -- --------------------------------------------------------
 
@@ -276,7 +299,38 @@ CREATE TABLE `tang` (
 --
 
 INSERT INTO `tang` (`id_tang`, `ten`, `id_toa`, `created_at`, `updated_at`) VALUES
-(1, 'Tầng 1', 1, '2023-08-28 19:50:30', '2023-08-28 19:50:30');
+(1, 'Tầng 1-1', 1, '2023-08-28 19:50:30', '2023-10-24 00:53:18'),
+(2, 'Tầng 2-2', 2, '2023-10-24 00:52:44', '2023-10-24 00:53:06');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `thongbao`
+--
+
+CREATE TABLE `thongbao` (
+  `id_thongbao` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `tieude` varchar(255) DEFAULT NULL,
+  `noidung` varchar(255) DEFAULT NULL,
+  `thoigian` datetime DEFAULT NULL,
+  `nhan` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `thongbao`
+--
+
+INSERT INTO `thongbao` (`id_thongbao`, `id_user`, `tieude`, `noidung`, `thoigian`, `nhan`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Thông báo', 'Phòng cháy', '2023-10-24 14:42:18', 0, '2023-10-24 07:42:18', '2023-10-24 07:42:18'),
+(2, 1, 'Thông báo', 'An toàn', '2023-10-24 14:45:41', 0, '2023-10-24 07:45:41', '2023-10-24 07:45:41'),
+(3, 1, 'Thông báo', 'avd', '2023-10-24 14:47:23', 0, '2023-10-24 07:47:23', '2023-10-24 07:47:23'),
+(4, 1, 'Thông báo', 'sầdvs', '2023-10-24 14:49:13', 0, '2023-10-24 07:49:13', '2023-10-24 07:49:13'),
+(5, 1, 'Thông báo', 'ầvsav', '2023-10-24 14:50:13', 0, '2023-10-24 07:50:13', '2023-10-24 07:50:13'),
+(6, 1, 'Thông báo', 'ấvadvdv', '2023-10-24 15:00:54', 1, '2023-10-24 08:00:54', '2023-10-24 08:00:54'),
+(7, 1, 'Thông báo', 'ácvdava', '2023-10-24 15:01:13', 2, '2023-10-24 08:01:13', '2023-10-24 08:01:13');
 
 -- --------------------------------------------------------
 
@@ -299,9 +353,7 @@ CREATE TABLE `tintuc` (
 --
 
 INSERT INTO `tintuc` (`id`, `tieude`, `id_user`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
-(11, 'Tin 5', 1, '<p>egsbseb<img src=\"http://localhost/QL_ChungCy/public/media/logo_1696874178.png\"></p>', '2023-10-09', '2023-10-09 09:57:12', '2023-10-09 10:56:19'),
-(12, 'Tin 5', 1, NULL, '2023-10-10', '2023-10-09 10:43:18', '2023-10-09 10:43:34'),
-(13, 'Sửa chữa', 1, '<h2><strong>Giá heo hơi xuống dưới 50.000 đồng một kg, người nuôi lỗ nặng</strong></h2><p>Nhiều nơi giá heo hơi về mốc 49.000 đồng một kg, giảm 17.000 đồng so với mức đỉnh tháng 7, khiến người nuôi lỗ nặng.</p><p>Dữ liệu từ các hiệp hội chăn nuôi cho thấy tại miền Bắc, giá heo hơi hiện nay xuống 50.000-52.000 đồng một kg.</p><p>Miền Trung và Tây nguyên, có nơi về 49.000 đồng, giảm 2.000 đồng so với ngày trước đó và thấp hơn 17.000 đồng so mức đỉnh tháng 7. Trong đó, giá heo tại Nghệ An có mức thấp nhất.</p><p>Tại khu vực miền Nam, giá heo tại Kiên Giang cũng lao dốc về 49.000 đồng một kg. Riêng các tỉnh thành như TP HCM, Đồng Nai, Bà Rịa-Vũng Tàu, Bình Dương giá quanh 51.000-53.000 đồng một kg.</p><p><picture><source srcset=\"https://i1-kinhdoanh.vnecdn.net/2023/10/12/heo-jpeg-5062-1697090671.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=UozhsCcj-cwwMT_VrxZQHA 1x, https://i1-kinhdoanh.vnecdn.net/2023/10/12/heo-jpeg-5062-1697090671.jpg?w=1020&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=SdlNbv3O1qi8juyhvnKLCw 1.5x, https://i1-kinhdoanh.vnecdn.net/2023/10/12/heo-jpeg-5062-1697090671.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=2&amp;fit=crop&amp;s=Rba6WQsE61ebhozH9I6__g 2x\"><img src=\"https://i1-kinhdoanh.vnecdn.net/2023/10/12/heo-jpeg-5062-1697090671.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=UozhsCcj-cwwMT_VrxZQHA\" alt=\"Mua bán heo hơi ở chợ gia súc An Nội (Bình Lục, Hà Nam). Ảnh:Tất Định\"></picture></p><p>Mua bán heo hơi ở chợ gia súc An Nội (Bình Lục, Hà Nam). Ảnh:<i>Tất Định</i></p><p>Theo ông Thành, thương lái thu mua heo ở miền Nam, giá heo giảm sâu do nguồn cung tăng mạnh. Trước đó, hồi tháng 7 âm lịch, nhiều hộ có tâm lý chờ giá nên đợt này phải bán heo quá trọng lượng ra thị trường ồ ạt.</p><p>Báo cáo của chợ đầu mối Hóc Môn (TP HCM) cũng cho thấy sản lượng heo về chợ tăng đột biến lên gần 5.634 con, tăng gần 600 con so với tháng trước.</p>', '2023-10-13', '2023-10-12 22:31:49', '2023-10-12 22:31:49');
+(14, 'Gía chung cư', 1, '<p><strong>(VTC News) -</strong></p><h2><strong>Từ năm 2015 đến nay, chỉ số tăng giá chung cư ở Hà Nội và TP.HCM đã vượt tốc độ tăng thu nhập của người dân, khiến loại hình bất động sản này ngày càng đắt đỏ.</strong></h2><p>Báo cáo của batdongsan.com.vn vừa công bố cho thấy, Quý III/2023, nhu cầu tìm mua chung cư tiếp tục tăng 1% và tìm thuê tăng 6% so với quý trước. Trong đó, các căn hộ có giá 2 - 4 tỷ đồng được tìm kiếm nhiều nhất.</p><p>Trong năm 2023, giá rao bán chung cư không có nhiều thay đổi, tăng từ 1 - 5% tại Hà Nội và gần như đi ngang ở TP.HCM. Tuy nhiên, xét trong giai đoạn dài từ năm 2015 đến nay, chỉ số tăng giá chung cư Hà Nội và TP.HCM đã vượt tốc độ tăng thu nhập của người dân. Sau 8 năm, giá chung cư TP.HCM và Hà Nội tăng lần lượt là 82% và 56%, trong khi thu nhập của người dân khu vực thành thị chỉ tăng 39%.&nbsp;</p><p>Ông Lê Bảo Long, Giám đốc chiến lược của Batdongsan.com.vn nhận định: “<i>Việc mua chung cư đang ngày càng khó đối với người dân khi tốc độ tăng thu nhập không bắt kịp tốc độ tăng giá nhà. Trong tương lai, các dự án chung cư sơ cấp cũng sẽ có mặt bằng giá cao vì chủ đầu tư phải tối ưu lợi nhuận khi các chi phí bị đẩy lên. Theo báo cáo của Batdongsan.com.vn về tâm lý người </i><a href=\"https://vtc.vn/bao-ve-nguoi-tieu-dung-51.html\"><i>tiêu dùng</i></a><i> bất động sản, trong bối cảnh giá nhà neo cao, người dân đang chuyển sang hướng đi thuê hoặc tìm cách vay mua nhà. Nhưng hiện tại, nhiều người mua vẫn chưa tiến hành vay mua vì họ còn quan ngại về lãi suất</i>”.</p>', '2023-10-24', '2023-10-24 00:35:58', '2023-10-24 00:35:58');
 
 -- --------------------------------------------------------
 
@@ -311,15 +363,18 @@ INSERT INTO `tintuc` (`id`, `tieude`, `id_user`, `noidung`, `thoigian`, `created
 
 CREATE TABLE `toa` (
   `id_toa` int(11) NOT NULL,
-  `ten` varchar(255) NOT NULL
+  `ten` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `toa`
 --
 
-INSERT INTO `toa` (`id_toa`, `ten`) VALUES
-(1, 'T1');
+INSERT INTO `toa` (`id_toa`, `ten`, `created_at`, `updated_at`) VALUES
+(1, 'T1', NULL, NULL),
+(2, 'T2', '2023-10-24 00:52:20', '2023-10-24 00:52:20');
 
 -- --------------------------------------------------------
 
@@ -348,7 +403,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `ngaysinh`, `email`, `sdt`, `password`, `quyen`, `STK`, `trangthai`, `created_at`, `updated_at`) VALUES
 (1, 'Nguyen Chien Thang', NULL, 'nguyenchienthang2632001@gmail.com', '0582427509', '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', 0, '6546545466', NULL, NULL, NULL),
 (2, 'Khách B', '1999-11-25', 'a@gmail.com', '02118512', '$2y$10$WdQ97EnrxgHmuDDhQA9afOKwMV6l3BC43H/MC.rBn6eDE8DwCyMMC', 2, '6415684', 1, '2023-10-07 07:26:31', '2023-10-11 08:17:01'),
-(3, 'Khách Văn A', '2002-10-13', 'b@gmail.com', '024654511', '$2y$10$6VNxhYx3POKU1qSWHTTg9e5jvv5FHM6S4.mWEB6ArDFvL9He9Imse', 2, '6415684152', 1, '2023-10-12 10:56:43', '2023-10-12 10:56:43');
+(3, 'Khách Văn A', '2002-10-13', 'b@gmail.com', '024654511', '$2y$10$6VNxhYx3POKU1qSWHTTg9e5jvv5FHM6S4.mWEB6ArDFvL9He9Imse', 2, '6415684152', 1, '2023-10-12 10:56:43', '2023-10-12 10:56:43'),
+(4, 'Văn C', '1999-12-24', 'c@gmail.com', '0154651554', '$2y$10$znNHeK2uGgahTBKVdrkp0OGU638f8EKQ3914uRZFmCqSmRM/VJnSy', 2, '564532154', 1, '2023-10-24 00:54:38', '2023-10-24 01:00:54');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -365,6 +421,12 @@ ALTER TABLE `baixe`
 --
 ALTER TABLE `baocaosc`
   ADD PRIMARY KEY (`id_baocao`);
+
+--
+-- Chỉ mục cho bảng `chitietthongbao`
+--
+ALTER TABLE `chitietthongbao`
+  ADD PRIMARY KEY (`id_chitiettb`);
 
 --
 -- Chỉ mục cho bảng `chungcu`
@@ -415,6 +477,12 @@ ALTER TABLE `tang`
   ADD PRIMARY KEY (`id_tang`);
 
 --
+-- Chỉ mục cho bảng `thongbao`
+--
+ALTER TABLE `thongbao`
+  ADD PRIMARY KEY (`id_thongbao`);
+
+--
 -- Chỉ mục cho bảng `tintuc`
 --
 ALTER TABLE `tintuc`
@@ -446,7 +514,13 @@ ALTER TABLE `baixe`
 -- AUTO_INCREMENT cho bảng `baocaosc`
 --
 ALTER TABLE `baocaosc`
-  MODIFY `id_baocao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_baocao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `chitietthongbao`
+--
+ALTER TABLE `chitietthongbao`
+  MODIFY `id_chitiettb` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `chungcu`
@@ -458,13 +532,13 @@ ALTER TABLE `chungcu`
 -- AUTO_INCREMENT cho bảng `dien`
 --
 ALTER TABLE `dien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `hopdong`
@@ -476,43 +550,49 @@ ALTER TABLE `hopdong`
 -- AUTO_INCREMENT cho bảng `nuoc`
 --
 ALTER TABLE `nuoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `phanhoi`
 --
 ALTER TABLE `phanhoi`
-  MODIFY `id_phanhoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_phanhoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `phong`
 --
 ALTER TABLE `phong`
-  MODIFY `id_phong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_phong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `tang`
 --
 ALTER TABLE `tang`
-  MODIFY `id_tang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_tang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `thongbao`
+--
+ALTER TABLE `thongbao`
+  MODIFY `id_thongbao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `tintuc`
 --
 ALTER TABLE `tintuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `toa`
 --
 ALTER TABLE `toa`
-  MODIFY `id_toa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_toa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -19,7 +19,7 @@ class PhanHoiController extends Controller
                     'link' => './baocaosc'
                 ]
             ];
-            $bcsc =BaoCaoSC::get();
+            $bcsc =BaoCaoSC::orderBy('created_at', 'desc')->get();
             return view('/phanhoi/phanhoi', compact('title', 'bcsc', 'breadcrumbs'));
     }
     public function them($id_baocao){

@@ -20,8 +20,7 @@ class BaoCaoSCController extends Controller
         ];
         // Lấy người dùng hiện tại đã xác thực
         $user = Auth::user();
-        $baocaosc = $user->baocaoscs;
-
+        $baocaosc = $user->baocaoscs()->orderBy('created_at', 'desc')->get();
 
         return view('customer/baocaosc/baocaosc', compact('title', 'baocaosc', 'breadcrumbs'));
     }

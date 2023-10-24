@@ -1,6 +1,5 @@
 
 <nav id="sidebar" class="show-window hide-mobile" >
-    <hr/>
     <ul class="list-unstyled">
         <li class="{{mb_strtolower($title)=='trang chủ'?'active':''}}">
             <a href="{{route('home')}}">Trang Chủ</a>
@@ -25,6 +24,9 @@
         </li>
         <li class="{{mb_strtolower($title)=='tin tức'?'active':''}}">
             <a href="{{route('tintuc')}}">Tin Tức</a>
+        </li>
+        <li class="{{mb_strtolower($title)=='thông báo'?'active':''}}">
+            <a href="{{route('thongbao')}}">Thông báo</a>
         </li>
         <li class="{{mb_strtolower($title)=='điện nước'?'active':''}}">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Điện Nước</a>

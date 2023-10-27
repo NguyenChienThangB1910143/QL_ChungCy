@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class='p-4 d-flex flex-column' >
+            <div class='d-flex flex-column' >
                 <div class="modal fade" id="addBaoCaoSC">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                <table class="table table-hover mt-3">
+                <table class="table table-hover ">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start ms-3 mt-3">
                         <button class="btn btn-primary me-md-2 mt-1 mb-1" type="button" onclick=them_baocao()>
                             <i class="fas fa-plus"></i> &nbsp Gửi báo cáo sự cố</button>
@@ -89,7 +89,7 @@
                         @endforeach
                     </tbody>
                 </table>
-
+                {{ $baocaosc->links() }}
                 
             </div>
     </div>

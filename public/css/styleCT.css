@@ -1,7 +1,16 @@
+body {
+    background-image: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
 .container {
     width: 80%;
     margin: auto;
     overflow: auto;
+
 }
 .header {
     display: flex;
@@ -17,23 +26,25 @@ nav{
     align-items: center;
     color: white;
     padding: 5px;
-    margin-bottom: 20px;
+
 }
 nav a {
     color: white; /* Màu đường dẫn trắng */
     text-decoration: none; /* Không gạch chân */
 }
 footer {
-    padding: 20px;
-    margin-top: auto;
+
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    height: 100px;
+    height: 75px;
+    position:fixed;
+    bottom: 0;
+    width: 100%;
 }
 header, nav, footer {
-    background-color: #007bff;
+    background-color: #8cb8e8;
     border: 1px solid black;
     border-radius: 10px ;
 }
@@ -82,4 +93,8 @@ header, nav, footer {
 .pagination {
     justify-content: center !important;
     margin: 10px !important;
+}
+table{
+    background-color:azure;
+    border-radius: 5px 5px !important;
 }

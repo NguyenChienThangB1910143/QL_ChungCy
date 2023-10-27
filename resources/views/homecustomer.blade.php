@@ -6,7 +6,7 @@
 @include('customer.partials.messages')
 @endsection
 @section('content')
-<div class="container">
+<div class="p-4 container">
       <!-- Page Content  -->
       <div id="content">
         @php

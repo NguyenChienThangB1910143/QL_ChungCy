@@ -55,12 +55,12 @@
                 <table class="table table-hover mt-3">
                     <thead style="background-color:#0d6efd; color:white;'"> 
                     <tr>
-                        <th scope="col-6 col-md-4">Mã Hóa Đơn</th>
-                        <th scope="col-6 col-md-4">Mã phòng</th>
-                        <th scope="col-6 col-md-4">Thời gian</th>
-                        <th scope="col-6 col-md-4">Tổng</th>
-                        <th scope="col-6 col-md-4">Tình Trạng</th>
-                        <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                        <th >Mã Hóa Đơn</th>
+                        <th >Mã phòng</th>
+                        <th >Thời gian</th>
+                        <th >Tổng</th>
+                        <th >Tình Trạng</th>
+                        <th >Tùy chỉnh</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -85,19 +85,18 @@
                             @endif
                             
 
-                            <td>
-                                    <button type="submit" onclick=chitiet_hoadon('{{$hoadon->id}}') class="btn btn-info me-md-1 m-1">
-                                        <i class="fas fa-eye"></i> 
-                                    </button>
-                                    @if($hoadon->tinhtrang==0)
-                                    <form method="POST" action="{{ url('/payment/create/' . $hoadon->id) }}">
-                                        @csrf
-                                        <!-- Thêm các trường thông tin thanh toán tại đây -->
-                                        <button type="submit" class="btn btn-primary me-md-3" name="redirect">Thanh toán qua VNPay</button>
-                                    </form>
-                                    @endif 
-                                    
-                                </td>
+                            <td style="display: flex;">
+                                <button type="submit" onclick=chitiet_hoadon('{{$hoadon->id}}') class="btn btn-info me-md-3">
+                                    <i class="fas fa-eye"></i> 
+                                </button>
+                                @if($hoadon->tinhtrang==0)
+                                <form method="POST" action="{{ url('/payment/create/' . $hoadon->id) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary me-md-3" name="redirect">Thanh toán</button>
+                                </form>
+                                @endif 
+                            </td>
+                            
                         </tr>
                         @endforeach
                     </tbody>

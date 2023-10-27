@@ -56,6 +56,6 @@ class TTTKController extends Controller
             return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']); 
         }
 
-        return redirect()->route('profile')->with('success', 'Sửa không thành công, không được chỉnh sửa mã người dùng');
+        return redirect()->route('profile')->with('error', 'Sửa không thành công, không được chỉnh sửa mã người dùng');
     }
 }

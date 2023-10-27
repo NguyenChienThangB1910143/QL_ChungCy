@@ -9,10 +9,6 @@
 <div class="p-4 container">
       <!-- Page Content  -->
       <div id="content">
-        @php
-        if(auth()->user()){
-        }
-        @endphp
         <div class="icon-row">
           <a href="{{route('profile')}}" class="icon-box">
             <div>

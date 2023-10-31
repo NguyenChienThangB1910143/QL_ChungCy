@@ -21,7 +21,7 @@ class NuocController extends Controller
         ];
         $nuocs = Nuoc::join('phong', 'nuoc.id_phong', '=', 'phong.id_phong')
             ->select('nuoc.*', 'phong.ten as ten_phong')
-            ->paginate(5);
+            ->get();
 
         return view('nuoc/nuoc', compact('title', 'nuocs', 'breadcrumbs'));
     }

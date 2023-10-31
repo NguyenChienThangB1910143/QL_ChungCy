@@ -21,7 +21,7 @@ class DienController extends Controller
         ];
         $diens = Dien::join('phong', 'dien.id_phong', '=', 'phong.id_phong')
             ->select('dien.*', 'phong.ten as ten_phong')
-            ->paginate(5);
+            ->get();
 
         return view('dien/dien', compact('title', 'diens', 'breadcrumbs'));
     }

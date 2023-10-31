@@ -19,7 +19,7 @@ class TaiKhoanController extends Controller
                 'link' => './taikhoan'
             ]
         ];
-        $taikhoans = User::paginate(5);
+        $taikhoans = User::get();
 
         return view('taikhoan/taikhoan', compact('title', 'taikhoans', 'breadcrumbs'));
     }

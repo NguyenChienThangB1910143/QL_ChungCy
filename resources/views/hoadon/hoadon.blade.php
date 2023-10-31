@@ -49,19 +49,19 @@
                 </div>
             <div class='p-4 d-flex flex-column' >
                 
-                <table class="table table-hover mt-3">
+                <table id="tbhoadonad" class="table table-striped" style="width:100%">
                     <thead style="background-color:#0d6efd; color:white;'"> 
                         <tr>
-                            <th scope="col-6 col-md-4">id</th>
-                            <th scope="col-6 col-md-4">Tên Phòng</th>
-                            <th scope="col-6 col-md-4">Thời gian</th>
-                            <th scope="col-6 col-md-4">Tiền điện</th>
-                            <th scope="col-6 col-md-4">Tiền nước</th>
-                            <th scope="col-6 col-md-4">Tiền bãi xe</th>
-                            <th scope="col-6 col-md-4">Khác</th>
-                            <th scope="col-6 col-md-4">Thu thêm</th>
-                            <th scope="col-6 col-md-4">Thành tiền</th>
-                            <th scope="col-6 col-md-4">Tình trạng</th>
+                            <th >id</th>
+                            <th >Tên Phòng</th>
+                            <th >Thời gian</th>
+                            <th >Tiền điện</th>
+                            <th >Tiền nước</th>
+                            <th >Tiền bãi xe</th>
+                            <th >Khác</th>
+                            <th >Thu thêm</th>
+                            <th >Thành tiền</th>
+                            <th >Tình trạng</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -89,10 +89,6 @@
                             @else
                                 <td>Đã thanh toán</td>
                             @endif
-                            <td>
-                                <div class="d-flex ">
-                                </div>
-                            </td>
                         </tr>
                         @endforeach
                     </tbody>

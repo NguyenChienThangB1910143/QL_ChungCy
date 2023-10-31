@@ -38,7 +38,7 @@ class PhongController extends Controller
     if ($request->has('tinhtrang')) {
         $phong = $phong->where('phong.tinhtrang', $request->tinhtrang);
     }
-    $phong = $phong->select('phong.*', 'tang.ten as ten_tang', 'toa.ten as ten_toa')->paginate(5);
+    $phong = $phong->select('phong.*', 'tang.ten as ten_tang', 'toa.ten as ten_toa')->get();
 
     return view('phong/phong', compact('title', 'phong', 'breadcrumbs', 'toa', 'tang'));
 }

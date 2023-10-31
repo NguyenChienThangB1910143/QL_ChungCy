@@ -85,14 +85,14 @@
                     <button class="btn btn-success me-md-2 mt-1 mb-1" onclick=them_tintuc() type="button">
                         <i class="fas fa-plus"></i> Thêm</button>
                 </div>
-                <table class="table table-hover mt-3">
+                <table id="tbtintuc" class="table table-striped" style="width:100%">
                     <thead style="background-color:#0d6efd; color:white;'"> 
                         <tr>
-                            <th scope="col-6 col-md-4">Mã tin</th>
-                            <th scope="col-6 col-md-4">Tiêu đề</th>
-                            <th scope="col-6 col-md-4">Tên người viết</th>
-                            <th scope="col-6 col-md-4">Thời gian</th>
-                            <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                            <th >Mã tin</th>
+                            <th >Tiêu đề</th>
+                            <th >Tên người viết</th>
+                            <th >Thời gian</th>
+                            <th >Tùy chỉnh</th>
                         </tr>
                     </thead>
                     <tbody>

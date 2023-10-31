@@ -19,7 +19,7 @@ class TangController extends Controller
             ]
         ];
         $tang  = Tang::join('toa as toas', 'toas.id_toa', '=', 'tang.id_toa')
-                ->select('tang.*', 'toas.ten as ten_toa')->paginate(5);
+                ->select('tang.*', 'toas.ten as ten_toa')->get();
         return view('tang/tang', compact('title', 'tang', 'breadcrumbs'));
     }
     public function them()

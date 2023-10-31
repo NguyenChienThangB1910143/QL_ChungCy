@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2023 lúc 05:02 PM
+-- Thời gian đã tạo: Th10 31, 2023 lúc 05:21 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -56,6 +56,7 @@ CREATE TABLE `baocaosc` (
   `id_phong` int(11) NOT NULL,
   `tieude` varchar(255) DEFAULT NULL,
   `noidung` varchar(255) DEFAULT NULL,
+  `hinh` varchar(255) NOT NULL,
   `thoigian` datetime DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -65,12 +66,17 @@ CREATE TABLE `baocaosc` (
 -- Đang đổ dữ liệu cho bảng `baocaosc`
 --
 
-INSERT INTO `baocaosc` (`id_baocao`, `id_user`, `id_phong`, `tieude`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
-(1, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:47:45', '2023-10-12 07:47:45', '2023-10-12 07:47:45'),
-(2, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:48:14', '2023-10-12 07:48:14', '2023-10-12 07:48:14'),
-(3, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-12 14:48:52', '2023-10-12 07:48:52', '2023-10-12 07:48:52'),
-(4, 2, 1, 'báo cáo', 'ngày 13/10', '2023-10-13 02:59:33', '2023-10-12 19:59:33', '2023-10-12 19:59:33'),
-(5, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-24 08:04:48', '2023-10-24 01:04:48', '2023-10-24 01:04:48');
+INSERT INTO `baocaosc` (`id_baocao`, `id_user`, `id_phong`, `tieude`, `noidung`, `hinh`, `thoigian`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '', '2023-10-12 14:47:45', '2023-10-12 07:47:45', '2023-10-12 07:47:45'),
+(2, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '', '2023-10-12 14:48:14', '2023-10-12 07:48:14', '2023-10-12 07:48:14'),
+(3, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '', '2023-10-12 14:48:52', '2023-10-12 07:48:52', '2023-10-12 07:48:52'),
+(4, 2, 1, 'báo cáo', 'ngày 13/10', '', '2023-10-13 02:59:33', '2023-10-12 19:59:33', '2023-10-12 19:59:33'),
+(5, 2, 1, 'Sửa chữa', 'hệ thống vòi sen', '', '2023-10-24 08:04:48', '2023-10-24 01:04:48', '2023-10-24 01:04:48'),
+(6, 2, 1, 'Tin 6', 'acsac', '', '2023-10-27 07:37:55', '2023-10-27 00:37:55', '2023-10-27 00:37:55'),
+(7, 2, 1, 'Tin 3', 'sằe', 'C:\\xampp\\tmp\\php3B71.tmp', '2023-10-31 11:04:08', '2023-10-31 04:04:08', '2023-10-31 04:04:08'),
+(8, 2, 1, 'Tin 3', 'sẽ được sửa ngày 16/10', 'C:\\xampp\\tmp\\php77AC.tmp', '2023-10-31 11:08:46', '2023-10-31 04:08:46', '2023-10-31 04:08:46'),
+(9, 2, 1, 'Tin 3', 'sadfasf', 'uploads/1698751428.png', '2023-10-31 11:23:48', '2023-10-31 04:23:48', '2023-10-31 04:23:48'),
+(10, 2, 1, 'sfa', 'àvasd', 'uploads/1698751710.jpg', '2023-10-31 11:28:30', '2023-10-31 04:28:30', '2023-10-31 04:28:30');
 
 -- --------------------------------------------------------
 
@@ -254,7 +260,8 @@ INSERT INTO `phanhoi` (`id_phanhoi`, `id_user`, `id_baocao`, `tieude`, `noidung`
 (4, 1, 4, 'ưgdfvsd', 'dsvfsv', '2023-10-13 05:23:46', '2023-10-12 22:23:46', '2023-10-12 22:23:46'),
 (5, 1, 4, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-17 14:21:39', '2023-10-17 07:21:39', '2023-10-17 07:21:39'),
 (6, 1, 1, 'sửa chữa', 'sẽ được sửa ngày', '2023-10-24 08:05:40', '2023-10-24 01:05:40', '2023-10-24 01:05:40'),
-(7, 1, 5, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-24 13:09:57', '2023-10-24 06:09:57', '2023-10-24 06:09:57');
+(7, 1, 5, 'Sửa chữa', 'hệ thống vòi sen', '2023-10-24 13:09:57', '2023-10-24 06:09:57', '2023-10-24 06:09:57'),
+(8, 1, 10, 'ưdf', 'fdswfvds', '2023-10-31 12:28:26', '2023-10-31 05:28:26', '2023-10-31 05:28:26');
 
 -- --------------------------------------------------------
 
@@ -402,7 +409,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `ngaysinh`, `email`, `sdt`, `password`, `quyen`, `STK`, `trangthai`, `created_at`, `updated_at`) VALUES
 (1, 'Nguyen Chien Thang', NULL, 'nguyenchienthang2632001@gmail.com', '0582427509', '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', 0, '6546545466', NULL, NULL, NULL),
-(2, 'Khách B', '1999-11-25', 'a@gmail.com', '02118512', '$2y$10$WdQ97EnrxgHmuDDhQA9afOKwMV6l3BC43H/MC.rBn6eDE8DwCyMMC', 2, '6415684', 1, '2023-10-07 07:26:31', '2023-10-11 08:17:01'),
+(2, 'Khách Văn A', '1999-11-25', 'a@gmail.com', '02118512', '$2y$10$WdQ97EnrxgHmuDDhQA9afOKwMV6l3BC43H/MC.rBn6eDE8DwCyMMC', 2, '6415684', 1, '2023-10-07 07:26:31', '2023-10-27 07:30:54'),
 (3, 'Khách Văn A', '2002-10-13', 'b@gmail.com', '024654511', '$2y$10$6VNxhYx3POKU1qSWHTTg9e5jvv5FHM6S4.mWEB6ArDFvL9He9Imse', 2, '6415684152', 1, '2023-10-12 10:56:43', '2023-10-12 10:56:43'),
 (4, 'Văn C', '1999-12-24', 'c@gmail.com', '0154651554', '$2y$10$znNHeK2uGgahTBKVdrkp0OGU638f8EKQ3914uRZFmCqSmRM/VJnSy', 2, '564532154', 1, '2023-10-24 00:54:38', '2023-10-24 01:00:54');
 
@@ -514,7 +521,7 @@ ALTER TABLE `baixe`
 -- AUTO_INCREMENT cho bảng `baocaosc`
 --
 ALTER TABLE `baocaosc`
-  MODIFY `id_baocao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_baocao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `chitietthongbao`
@@ -556,7 +563,7 @@ ALTER TABLE `nuoc`
 -- AUTO_INCREMENT cho bảng `phanhoi`
 --
 ALTER TABLE `phanhoi`
-  MODIFY `id_phanhoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_phanhoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `phong`

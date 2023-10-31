@@ -57,19 +57,20 @@
                     </div>
                 </div>
 
-                <table class="table table-hover ">
+                <table id="tbbaocaosc" class="table table-striped" style="width:100%">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start ms-3 mt-3">
                         <button class="btn btn-primary me-md-2 mt-1 mb-1" type="button" onclick=them_baocao()>
                             <i class="fas fa-plus"></i> &nbsp Gửi báo cáo sự cố</button>
                     </div>
                     <thead style="background-color:#0d6efd; color:white;'"> 
                     <tr>
-                        <th scope="col-6 col-md-4">Mã báo cáo</th>
-                        <th scope="col-6 col-md-4">Mã phòng</th>
-                        <th scope="col-6 col-md-4">Tiêu đề</th>
-                        <th scope="col-6 col-md-4">Nội dung</th>
-                        <th scope="col-6 col-md-4">Thời gian</th>
-                        <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                        <th >Mã báo cáo</th>
+                        <th >Mã phòng</th>
+                        <th >Tiêu đề</th>
+                        <th >Nội dung</th>
+                        <th>Hình</th>
+                        <th >Thời gian</th>
+                        <th >Tùy chỉnh</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -79,6 +80,9 @@
                             <td>{{$baocao->id_phong}}</td>
                             <td>{{$baocao->tieude}}</td>
                             <td>{{$baocao->noidung}}</td>
+                            <td><img src="{{ asset('/' . $baocao->hinh) }}" alt="Hình ảnh" width="50px" height="50px">
+                                </td>
+
                             <td>{{$baocao->thoigian}}</td>
                             <td>
                                     <button type="submit" onclick=phanhoi_baocao('{{$baocao->id_baocao}}') class="btn btn-info me-md-1 m-1">
@@ -89,7 +93,6 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $baocaosc->links() }}
                 
             </div>
     </div>

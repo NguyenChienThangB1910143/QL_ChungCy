@@ -16,6 +16,7 @@ class BaoCaoSC extends Model
         'id_user',
         'id_phong',
         'tieude',
+        'hinh',
         'noidung',
         'thoigian'
     ];

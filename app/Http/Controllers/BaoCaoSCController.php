@@ -20,7 +20,7 @@ class BaoCaoSCController extends Controller
         ];
         // Lấy người dùng hiện tại đã xác thực
         $user = Auth::user();
-        $baocaosc = $user->baocaoscs()->orderBy('created_at', 'desc')->paginate(5);
+        $baocaosc = $user->baocaoscs()->orderBy('created_at', 'desc')->get();
 
         return view('customer/baocaosc/baocaosc', compact('title', 'baocaosc', 'breadcrumbs'));
     }
@@ -40,26 +40,41 @@ class BaoCaoSCController extends Controller
         return view('customer/baocaosc/them', compact('title', 'breadcrumbs','baocao'));
     }
     public function store(Request $request){
-
         $user = Auth::user();
         $hopdong = HopDong::where('id_user', $user->id)
-    ->orderBy('created_at', 'desc')
-    ->first();
+            ->orderBy('created_at', 'desc')
+            ->first();
         $baocaosc = new BaoCaoSC();
         $baocaosc->id_user = $user->id;
         $baocaosc->id_phong = $hopdong->id_phong;
-
+    
         // tieude được người dùng nhập vào
         $baocaosc->tieude = $request->tieude;
-
+    
         // noidung được người dùng nhập vào
         $baocaosc->noidung = $request->noidung;
-
+    
+        // Kiểm tra xem yêu cầu có chứa hình không
+        if ($request->hasFile('hinh')) {
+            // Lấy tệp từ yêu cầu
+            $file = $request->file('hinh');
+    
+            // Tạo một tên duy nhất cho tệp
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+    
+            // Di chuyển tệp đã tải lên vào thư mục public / img
+            $file->move(public_path('uploads'), $filename);
+    
+            // Lưu đường dẫn của hình vào cơ sở dữ liệu
+            $baocaosc->hinh = 'uploads/' . $filename;
+        }
+    
         // thoigian lúc người dùng them báo cáo
         $baocaosc->thoigian = now();
         $baocaosc->save();
         return redirect()->route('baocaosc')->with('success', 'Gửi thành công');
     }
+    
     public function phanhoi(Request $request)
     {
         $title = 'Tin Tức';

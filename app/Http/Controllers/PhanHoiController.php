@@ -19,7 +19,10 @@ class PhanHoiController extends Controller
                     'link' => './baocaosc'
                 ]
             ];
-            $bcsc =BaoCaoSC::orderBy('created_at', 'desc')->get();
+            $bcsc = BaoCaoSC::join('users', 'baocaosc.id_user', '=', 'users.id')
+        ->select('baocaosc.*', 'users.name')
+        ->orderBy('baocaosc.created_at', 'desc')
+        ->get();
             return view('/phanhoi/phanhoi', compact('title', 'bcsc', 'breadcrumbs'));
     }
     public function them($id_baocao){

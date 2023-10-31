@@ -14,6 +14,12 @@
             </label>
             <input required class="form-control" type="text" name="noidung" placeholder="Vui lòng nhập nội dung">
         </div>
+        <div class="mb-3">
+            <label for="imageUpload" class="form-label">Hình:
+                <span id="colorIcon">*</span>
+            </label>
+            <input type="file" id="imageUpload" name="hinh" accept="uploads/*" required class="form-control">
+        </div>        
         
         <div class="row justify-content-center">
             <button type="submit" class="btn btn-success col-md-5" id="side123">Gửi</button>

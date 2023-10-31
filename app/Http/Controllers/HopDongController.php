@@ -33,7 +33,7 @@ class HopDongController extends Controller
             'ql.name as ten_ql',
             'phong.ten as ten_phong',
             'baixe.ms as ms_baixe'
-    )->paginate(5);
+    )->get();
         return view('hopdong/hopdong', compact('title', 'hopdong', 'breadcrumbs'));
     }
     public function capnhat(Request $request)
@@ -150,26 +150,6 @@ public function chitiet(Request $request)
     )->where('id_hopdong', $request->id_hopdong)->get();
 
     return view('hopdong/chitiet', compact('title', 'chitiethopdong', 'breadcrumbs'));
-}
-// Trong HopDongController.php
-public function search(Request $request)
-{
-    $query = $request->input('query');
-    // Tìm kiếm hopdong dựa trên tên người dùng
-    $hopdong = HopDong::join('users as user', 'user.id', '=', 'hopdong.id_user')
-        ->join('users as ql', 'ql.id', '=', 'hopdong.id_ql')
-        ->join('phong', 'phong.id_phong', '=', 'hopdong.id_phong')
-        ->join('baixe', 'baixe.id_baixe', '=', 'hopdong.id_baixe')
-        ->select(
-            'hopdong.*',
-            'user.name as ten_user',
-            'ql.name as ten_ql',
-            'phong.ten as ten_phong',
-            'baixe.ms as ms_baixe'
-        )
-        ->where('user.name', 'LIKE', "%{$query}%")
-        ->get();
-    return response()->json($hopdong);
 }
 
 

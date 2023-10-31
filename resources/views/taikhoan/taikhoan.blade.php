@@ -65,16 +65,16 @@
                 </div>
             <div class='p-4 d-flex flex-column' >
                 
-                <table class="table table-hover mt-3">
+                <table id="tbtaikhoan" class="table table-striped" style="width:100%">
                     <thead style="background-color:#0d6efd; color:white;'"> 
                         <tr>
-                            <th scope="col-6 col-md-4">Mã người dùng</th>
-                            <th scope="col-6 col-md-4">Họ Tên</th>
-                            <th scope="col-6 col-md-4">Ngày sinh</th>
-                            <th scope="col-6 col-md-4">email</th>
-                            <th scope="col-6 col-md-4">SĐT</th>
-                            <th scope="col-6 col-md-4">STK</th>
-                            <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                            <th >Mã người dùng</th>
+                            <th >Họ Tên</th>
+                            <th >Ngày sinh</th>
+                            <th >email</th>
+                            <th >SĐT</th>
+                            <th >STK</th>
+                            <th >Tùy chỉnh</th>
                         </tr>
                     </thead>
                     <tbody>

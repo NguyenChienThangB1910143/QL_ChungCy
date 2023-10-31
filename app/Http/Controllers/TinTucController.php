@@ -20,7 +20,7 @@ class TinTucController extends Controller
         ];
         $tintucs = TinTuc::join('users', 'tintuc.id_user', '=', 'users.id')
             ->select('tintuc.*', 'users.name as ten_user')
-            ->paginate(5);
+            ->get();
 
         return view('tintuc/tintuc', compact('title', 'tintucs', 'breadcrumbs'));
     }

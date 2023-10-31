@@ -59,8 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hopdong/them', [HopDongController::class, 'them'])->name('hopdong-them');
     Route::post('/hopdong/them', [HopDongController::class, 'store'])->name('hopdong-store');
     Route::get('/hopdong/chitiet/{id_hopdong}', [HopDongController::class, 'chitiet'])->name('hopdong-chitiet');
-    // Trong file routes/web.php
-Route::get('/hopdong/search', [HopDongController::class, 'search'])->name('hopdong.search');
+
 
     // Tang
     Route::get('/tang', [TangController::class, 'index'])->name('tang');
@@ -124,8 +123,8 @@ Route::get('/hopdong/search', [HopDongController::class, 'search'])->name('hopdo
     Route::get('/customer/baocaosc/phanhoi/{id_baocao}',[BaoCaoSCController::class,'phanhoi'])->name('baocao-phanhoi');
     //Phan hoi bao cao su co
     Route::get('/phanhoi', [PhanHoiController::class, 'index'])->name('phanhoi');
-Route::get('/phanhoi/them/{id_baocao}', [PhanHoiController::class, 'them'])->name('phanhoi.them');
-Route::post('/phanhoi/store', [PhanHoiController::class, 'store'])->name('phanhoi.store');
+    Route::get('/phanhoi/them/{id_baocao}', [PhanHoiController::class, 'them'])->name('phanhoi.them');
+    Route::post('/phanhoi/store', [PhanHoiController::class, 'store'])->name('phanhoi.store');
     //customer
     Route::get('/customer/taikhoan',[TTTKController::class,'index'])->name('profile');
     Route::get('/customer/taikhoan/chinhsua/{id}', [TTTKController::class, 'chinhsua'])->name('profile-chinhsua');
@@ -134,7 +133,6 @@ Route::post('/phanhoi/store', [PhanHoiController::class, 'store'])->name('phanho
     //Hoa Don customer
     Route::get('/customer/hoadon',[HoaDonCustomerController::class,'index'])->name('hoadoncustomer');
     Route::get('/customer/hoadon/chitiet/{id}',[HoaDonCustomerController::class,'chitiet'])->name('hoadoncustomer-chitiet');
-    Route::get('/customer/hoadon/filter',[HoaDonCustomerController::class,'filter'])->name('hoadoncustomer-filter');
 
     //Thông báo
     Route::get('/thongbao', [ThongBaoController::class, 'index'])->name('thongbao');

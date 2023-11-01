@@ -29,6 +29,7 @@ class HoaDonCustomerController extends Controller
             ->first();
 
         $hoadons = HoaDon::where('id_phong', $hopdong->id_phong)
+        ->orderBy('created_at', 'desc')
             ->get();
 
         return view('customer/hoadon/hoadon', compact('title', 'hoadons', 'breadcrumbs'));

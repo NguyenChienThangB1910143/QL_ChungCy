@@ -49,6 +49,19 @@ class TinTucController extends Controller
         $addtintuc = new TinTuc();
         $addtintuc->tieude = $request->input('tieude');
         $addtintuc->id_user = $id_ql;
+        if ($request->hasFile('hinhanh')) {
+            // Lấy tệp từ yêu cầu
+            $file = $request->file('hinhanh');
+    
+            // Tạo một tên duy nhất cho tệp
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+    
+            // Di chuyển tệp đã tải lên vào thư mục public / img
+            $file->move(public_path('upload'), $filename);
+    
+            // Lưu đường dẫn của hình vào cơ sở dữ liệu
+            $addtintuc->hinhanh = 'upload/' . $filename;
+        }
         $addtintuc->noidung = $request->input('noidung');
         $addtintuc->thoigian = $request ->input('thoigian');
         $addtintuc->save();
@@ -103,21 +116,35 @@ class TinTucController extends Controller
     }
     public function update(Request $request){
         $id_ql = Auth::user()->id;
+        $hinhanh = '';
+        if($request->hasFile('hinhanh')) {
+            // Lấy tệp từ yêu cầu
+            $file = $request->file('hinhanh');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            // Di chuyển tệp đã tải lên vào thư mục public / img
+            $file->move(public_path('upload'), $filename);
+        
+            // Lưu đường dẫn của hình vào cơ sở dữ liệu
+            $hinhanh = 'upload/' . $filename;
+        }
+    
         $suatintuc = TinTuc::where('id', $request->id)->update([
             'id' => $request->id,
             'tieude' => $request->tieude,
             'thoigian' => $request->thoigian,
             'id_user' => $id_ql,
+            'hinhanh' => $hinhanh,
             'noidung' => $request->noidung,
-
         ]);
+    
         if ($suatintuc) {
             Session::flash('success', 'Cập nhật thành công.');
             return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']); 
         }
-
+    
         return redirect()->route('tintuc')->with('success', 'Sửa không thành công, không được chỉnh sửa mã trạm');
     }
+    
     public function xoa(Request $request)
     {
         $deletetintuc = TinTuc::where('id', $request->id)->first();

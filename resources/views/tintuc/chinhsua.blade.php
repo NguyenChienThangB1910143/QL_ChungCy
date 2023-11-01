@@ -21,6 +21,13 @@
                 </label>
                 <input required class="form-control" name="tieude" id="tieude" value="{{$suatin->tieude}}" >
             </div>
+            <div class="mb-3 option-hinhanh">
+                <label for="imageUpload" class="form-label">Hình:
+                    <span id="colorIcon">*</span>
+                </label>
+                <input type="file" id="imageUpload" name="hinhanh" accept="upload/*" required class="form-control" onchange="previewImage(event)">
+                <img id="imagePreview" src="" alt="Image preview" style="display: none; width: 100px; height: 100px; padding:5px;">
+            </div>
             <div class="mb-3 option-noidung">
                 <label class="form-label">Nội dung
                     <span id="colorIcon">*</span>
@@ -43,7 +50,7 @@
 <script>
     let editorInstance;  // Biến toàn cục để lưu thể hiện của CKEditor
 
-ClassicEditor
+    ClassicEditor
     .create( document.querySelector( '#noidung' ), {
         ckfinder: {
             uploadUrl: "{{route('ckeditor.upload',['_token'=>csrf_token()])}}",
@@ -56,5 +63,14 @@ ClassicEditor
         console.error( error );
     } );
 
+    function previewImage(event) {
+    var reader = new FileReader();
+    reader.onload = function() {
+        var output = document.getElementById('imagePreview');
+        output.src = reader.result;
+        output.style.display = 'block';
+    };
+    reader.readAsDataURL(event.target.files[0]);
+}
 </script>
     

@@ -6,12 +6,12 @@
 @include('customer.partials.messages')
 @endsection
 @section('content')
-<div class="p-4 container">
+<div class="pt-5 container">
       <!-- Page Content  -->
       <div id="content" class="row">
         <!-- Left side with automatic running banner -->
         <div class="col-md-6">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div id="carouselExampleIndicators" class="carousel slide shadow" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
@@ -38,16 +38,16 @@
         </div>
 
         <!-- Right side with icons -->
-        <div class="col-md-6">
+        <div class=" pt-2 col-md-6">
           <!-- Your existing icon code goes here -->
           <div class="icon-row">
-            <a href="{{route('profile')}}" class="icon-box">
+            <a href="{{route('profile')}}" class="icon-box shadow">
               <div>
                 <i class="	fas fa-address-card icon"></i>
                 <h5>Thông tin cá nhân</h5>
               </div>
             </a>
-            <a href="{{route('hoadoncustomer')}}" class="icon-box">
+            <a href="{{route('hoadoncustomer')}}" class="icon-box shadow">
               <div>
                 <i class="fas fa-file-alt icon" ></i>
                 <h5>Hóa đơn</h5>
@@ -55,13 +55,13 @@
             </a>
           </div>
           <div class="icon-row">
-            <a href="" class="icon-box">
+            <a href="" class="icon-box shadow">
               <div>
                 <i class="fas fa-clipboard icon"></i>
                 <h5>Hợp Đồng</h5>
               </div>
             </a>
-            <a href="{{route('baocaosc')}}" class="icon-box">
+            <a href="{{route('baocaosc')}}" class="icon-box shadow">
               <div>
                 <i class="fas fa-bullhorn icon"></i>
                 <h5>Báo cáo sự cố</h5>
@@ -69,13 +69,13 @@
             </a>
           </div>
           <div class="icon-row">
-            <a href="{{route('tintuccustomer')}}" class="icon-box">
+            <a href="{{route('tintuccustomer')}}" class="icon-box shadow">
               <div>
                 <i class="fas fa-globe icon"></i>
                 <h5>Tin Tức</h5>
               </div>
             </a>
-            <a href="" class="icon-box">
+            <a href="" class="icon-box shadow">
               <div>
                 <i class="fas fa-phone icon"></i>
                 <h5>Liên Hệ</h5>

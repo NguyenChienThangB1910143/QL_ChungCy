@@ -70,6 +70,7 @@ a:hover {
     background: #1050aa;
     color: #fff;
     transition: all 0.3s;
+    height: auto;
 }
 
 #sidebar.active {

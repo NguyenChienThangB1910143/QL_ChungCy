@@ -33,8 +33,14 @@
                                     <div style="cursor: default;" class="col-6 col-sm-6">Thời gian viết:</div>
                                     <label name="thoigian" class="col-6 col-sm-6 text-view">{{$chitiet->thoigian}}</label>
                                 </div>
+                                <div class="">
+                                    <div style="cursor: default;" class="col-6 col-sm-6"></div>
+                                    <label name="hinhanh" class="col-6 col-sm-6 text-view">
+                                        <img name="hinhanh" src="{{ asset('/' . $chitiet->hinhanh) }}" alt="Hình ảnh" width="360px" height="300px">
+                                    </label>
+                                </div>
                                 <div class="row mb-1">
-                                    <div style="cursor: default; width:50px; height:50px;" class="col-6 col-sm-6">Nội dung:</div>
+                                    <div style="cursor: default;" class="col-6 col-sm-6">Nội dung:</div>
                                     <p name="noidung" class="col-6 col-sm-6 text-view">{!! $chitiet->noidung !!}</p>
                                 </div>
                             </div>

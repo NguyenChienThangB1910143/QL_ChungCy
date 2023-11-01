@@ -21,7 +21,7 @@
             <!-- Content -->
             <div class='p-4 d-flex flex-column' >
                 <table id="tbthongbaoCT" class="table table-striped" style="width:100%">
-                    <thead class="me-md-3"> 
+                    <thead class="table-primary"> 
                         <tr>
                             <th>Mã Thông Báo</th>
                             <th>Người Gửi</th>

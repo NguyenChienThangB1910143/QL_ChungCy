@@ -63,10 +63,10 @@ class BaoCaoSCController extends Controller
             $filename = time() . '.' . $file->getClientOriginalExtension();
     
             // Di chuyển tệp đã tải lên vào thư mục public / img
-            $file->move(public_path('uploads'), $filename);
+            $file->move(public_path('upload'), $filename);
     
             // Lưu đường dẫn của hình vào cơ sở dữ liệu
-            $baocaosc->hinh = 'uploads/' . $filename;
+            $baocaosc->hinh = 'upload/' . $filename;
         }
     
         // thoigian lúc người dùng them báo cáo

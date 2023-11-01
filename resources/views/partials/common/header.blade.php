@@ -6,5 +6,13 @@
         <div  style="flex-grow: 1; text-align: center;">
             <div class="title-logo">Hệ thống quản lý chung cư</div>
         </div>
+        <a href="{{route('logout')}}">
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Đăng xuất
+                </span>
+            </div>
+        </a>
     </div>
 </header>

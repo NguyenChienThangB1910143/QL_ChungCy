@@ -62,7 +62,7 @@
                         <button class="btn btn-primary me-md-2 mt-1 mb-1" type="button" onclick=them_baocao()>
                             <i class="fas fa-plus"></i> &nbsp Gửi báo cáo sự cố</button>
                     </div>
-                    <thead style="background-color:#0d6efd; color:white;'"> 
+                    <thead class="table-primary"> 
                     <tr>
                         <th >Mã báo cáo</th>
                         <th >Mã phòng</th>
@@ -85,10 +85,13 @@
 
                             <td>{{$baocao->thoigian}}</td>
                             <td>
+                                @if( \App\Models\PhanHoi::where('id_baocao', $baocao->id_baocao)->exists())
                                     <button type="submit" onclick=phanhoi_baocao('{{$baocao->id_baocao}}') class="btn btn-info">
                                         <i class="fas fa-comment"></i> xem phản hồi
                                     </button>
-                                </td>
+                                @endif
+                            </td>
+                            
                         </tr>
                         @endforeach
                     </tbody>

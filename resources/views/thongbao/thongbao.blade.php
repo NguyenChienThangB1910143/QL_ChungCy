@@ -65,7 +65,7 @@
                         <i class="fas fa-plus"></i> Thêm</button>
                 </div>
                 <table id="tbthongbao" class="table table-striped" style="width:100%">
-                    <thead class="me-md-3">  
+                    <thead class="table-primary">  
                         <tr>
                             <th scope="col-6 col-md-4">Mã Thông Báo</th>
                             <th scope="col-6 col-md-4">Người Gửi</th>

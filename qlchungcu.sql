@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 31, 2023 lúc 05:21 PM
+-- Thời gian đã tạo: Th10 01, 2023 lúc 03:58 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -284,7 +284,7 @@ CREATE TABLE `phong` (
 
 INSERT INTO `phong` (`id_phong`, `ten`, `id_tang`, `tinhtrang`, `created_at`, `updated_at`) VALUES
 (1, 'P101', 1, 1, '2023-08-28 19:54:40', '2023-10-09 11:47:58'),
-(2, 'P2', 1, 1, '2023-10-12 10:57:33', '2023-10-12 10:58:19'),
+(2, 'P2', 1, 0, '2023-10-12 10:57:33', '2023-10-31 23:10:11'),
 (3, 'P101-2', 2, 0, '2023-10-24 00:57:36', '2023-10-24 00:57:36');
 
 -- --------------------------------------------------------
@@ -337,7 +337,8 @@ INSERT INTO `thongbao` (`id_thongbao`, `id_user`, `tieude`, `noidung`, `thoigian
 (4, 1, 'Thông báo', 'sầdvs', '2023-10-24 14:49:13', 0, '2023-10-24 07:49:13', '2023-10-24 07:49:13'),
 (5, 1, 'Thông báo', 'ầvsav', '2023-10-24 14:50:13', 0, '2023-10-24 07:50:13', '2023-10-24 07:50:13'),
 (6, 1, 'Thông báo', 'ấvadvdv', '2023-10-24 15:00:54', 1, '2023-10-24 08:00:54', '2023-10-24 08:00:54'),
-(7, 1, 'Thông báo', 'ácvdava', '2023-10-24 15:01:13', 2, '2023-10-24 08:01:13', '2023-10-24 08:01:13');
+(7, 1, 'Thông báo', 'ácvdava', '2023-10-24 15:01:13', 2, '2023-10-24 08:01:13', '2023-10-24 08:01:13'),
+(8, 1, 'Thông báo mới', 'Thực hiện PCCC', '2023-11-01 14:29:34', 0, '2023-11-01 07:29:34', '2023-11-01 07:29:34');
 
 -- --------------------------------------------------------
 
@@ -349,6 +350,7 @@ CREATE TABLE `tintuc` (
   `id` int(11) NOT NULL,
   `tieude` varchar(255) NOT NULL,
   `id_user` int(11) DEFAULT NULL,
+  `hinhanh` varchar(255) DEFAULT NULL,
   `noidung` text DEFAULT NULL,
   `thoigian` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -359,8 +361,10 @@ CREATE TABLE `tintuc` (
 -- Đang đổ dữ liệu cho bảng `tintuc`
 --
 
-INSERT INTO `tintuc` (`id`, `tieude`, `id_user`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
-(14, 'Gía chung cư', 1, '<p><strong>(VTC News) -</strong></p><h2><strong>Từ năm 2015 đến nay, chỉ số tăng giá chung cư ở Hà Nội và TP.HCM đã vượt tốc độ tăng thu nhập của người dân, khiến loại hình bất động sản này ngày càng đắt đỏ.</strong></h2><p>Báo cáo của batdongsan.com.vn vừa công bố cho thấy, Quý III/2023, nhu cầu tìm mua chung cư tiếp tục tăng 1% và tìm thuê tăng 6% so với quý trước. Trong đó, các căn hộ có giá 2 - 4 tỷ đồng được tìm kiếm nhiều nhất.</p><p>Trong năm 2023, giá rao bán chung cư không có nhiều thay đổi, tăng từ 1 - 5% tại Hà Nội và gần như đi ngang ở TP.HCM. Tuy nhiên, xét trong giai đoạn dài từ năm 2015 đến nay, chỉ số tăng giá chung cư Hà Nội và TP.HCM đã vượt tốc độ tăng thu nhập của người dân. Sau 8 năm, giá chung cư TP.HCM và Hà Nội tăng lần lượt là 82% và 56%, trong khi thu nhập của người dân khu vực thành thị chỉ tăng 39%.&nbsp;</p><p>Ông Lê Bảo Long, Giám đốc chiến lược của Batdongsan.com.vn nhận định: “<i>Việc mua chung cư đang ngày càng khó đối với người dân khi tốc độ tăng thu nhập không bắt kịp tốc độ tăng giá nhà. Trong tương lai, các dự án chung cư sơ cấp cũng sẽ có mặt bằng giá cao vì chủ đầu tư phải tối ưu lợi nhuận khi các chi phí bị đẩy lên. Theo báo cáo của Batdongsan.com.vn về tâm lý người </i><a href=\"https://vtc.vn/bao-ve-nguoi-tieu-dung-51.html\"><i>tiêu dùng</i></a><i> bất động sản, trong bối cảnh giá nhà neo cao, người dân đang chuyển sang hướng đi thuê hoặc tìm cách vay mua nhà. Nhưng hiện tại, nhiều người mua vẫn chưa tiến hành vay mua vì họ còn quan ngại về lãi suất</i>”.</p>', '2023-10-24', '2023-10-24 00:35:58', '2023-10-24 00:35:58');
+INSERT INTO `tintuc` (`id`, `tieude`, `id_user`, `hinhanh`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
+(14, 'Gía chung cư', 1, 'upload/1698844968.jpg', '<p>Bạn cần phải làm gì để đầu tư Bất động sản hiệu quả? Đây là câu hỏi luôn được đặt ra nhiều năm trở lại đây.</p><p>Ai cũng biết rằng, các tỉ phú thế giới hiện nay. Có rất nhiều người xuất thân từ Bất động sản. Bất động sản không phải là lĩnh vực mới, mang lại lợi nhuận cao và rủi ro cũng cao.</p><p>Luôn có nhiều và đầy đủ nguồn thông tin. Chúng tôi xử lý và đánh giá thông tin liên quan tới thị trường, xu hướng,… Vinh dự luôn cùng đồng hành với nhiều đối tác, bạn bè để cùng đầu tư sinh lợi nhuận trong lĩnh vực Bất động sản.</p><p>Liên hệ ngay 0916.199.656 để tham gia câu lạc bộ đầu tư Bất động sản. Bạn có thể tham khảo các dự án Bất động sản bằng cách sử dụng chức năng tìm kiếm bên dưới.</p>', '2023-10-24', '2023-10-24 00:35:58', '2023-11-01 06:22:48'),
+(15, 'Thông báo', 1, 'upload/1698844980.png', '<p>Bạn cần phải làm gì để đầu tư Bất động sản hiệu quả? Đây là câu hỏi luôn được đặt ra nhiều năm trở lại đây.</p><p>Ai cũng biết rằng, các tỉ phú thế giới hiện nay. Có rất nhiều người xuất thân từ Bất động sản. Bất động sản không phải là lĩnh vực mới, mang lại lợi nhuận cao và rủi ro cũng cao.</p><p>Luôn có nhiều và đầy đủ nguồn thông tin. Chúng tôi xử lý và đánh giá thông tin liên quan tới thị trường, xu hướng,… Vinh dự luôn cùng đồng hành với nhiều đối tác, bạn bè để cùng đầu tư sinh lợi nhuận trong lĩnh vực Bất động sản.</p><p>Liên hệ ngay 0916.199.656 để tham gia câu lạc bộ đầu tư Bất động sản. Bạn có thể tham khảo các dự án Bất động sản bằng cách sử dụng chức năng tìm kiếm bên dưới.</p>', '2023-11-01', '2023-11-01 03:57:13', '2023-11-01 06:23:00'),
+(16, 'ĐỂ ĐẦU TƯ BẤT ĐỘNG SẢN HIỆU QUẢ', 1, 'upload/1698839724.jpg', '<p>Bạn cần phải làm gì để đầu tư Bất động sản hiệu quả? Đây là câu hỏi luôn được đặt ra nhiều năm trở lại đây.</p><p>Ai cũng biết rằng, các tỉ phú thế giới hiện nay. Có rất nhiều người xuất thân từ Bất động sản. Bất động sản không phải là lĩnh vực mới, mang lại lợi nhuận cao và rủi ro cũng cao.</p><p>Luôn có nhiều và đầy đủ nguồn thông tin. Chúng tôi xử lý và đánh giá thông tin liên quan tới thị trường, xu hướng,… Vinh dự luôn cùng đồng hành với nhiều đối tác, bạn bè để cùng đầu tư sinh lợi nhuận trong lĩnh vực Bất động sản.</p><p>Liên hệ ngay 0916.199.656 để tham gia câu lạc bộ đầu tư Bất động sản. Bạn có thể tham khảo các dự án Bất động sản bằng cách sử dụng chức năng tìm kiếm bên dưới.</p>', '2023-11-01', '2023-11-01 04:55:24', '2023-11-01 04:55:24');
 
 -- --------------------------------------------------------
 
@@ -581,13 +585,13 @@ ALTER TABLE `tang`
 -- AUTO_INCREMENT cho bảng `thongbao`
 --
 ALTER TABLE `thongbao`
-  MODIFY `id_thongbao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_thongbao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `tintuc`
 --
 ALTER TABLE `tintuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `toa`

@@ -71,13 +71,13 @@
                             
                             
                             <td style="display: flex;">
-                                <button type="submit" onclick=chitiet_hoadon('{{$hoadon->id}}') class="btn btn-info me-md-3">
+                                <button type="submit" onclick=chitiet_hoadon('{{$hoadon->id}}') class="btn btn-info">
                                     <i class="fas fa-eye"></i> 
                                 </button>
                                 @if($hoadon->tinhtrang==0)
                                 <form method="POST" action="{{ url('/payment/create/' . $hoadon->id) }}">
                                     @csrf
-                                    <button type="submit" class="btn btn-primary me-md-3" name="redirect">Thanh toán</button>
+                                    <button type="submit" class="btn btn-primary" name="redirect">Thanh toán</button>
                                 </form>
                                 @endif 
                             </td>

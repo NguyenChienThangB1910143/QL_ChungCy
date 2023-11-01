@@ -21,6 +21,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\BaoCaoSCController;
 use App\Http\Controllers\PhanHoiController;
 use App\Http\Controllers\ThongBaoController;
+use App\Http\Controllers\ThongBaoCustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -138,6 +139,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/thongbao', [ThongBaoController::class, 'index'])->name('thongbao');
     Route::get('/thongbao/them', [ThongBaoController::class, 'them'])->name('thongbao-them');
     Route::post('/thongbao/them', [ThongBaoController::class, 'store'])->name('thongbao-store');
+
+    //Thông báo Customer
+    Route::get('/customer/thongbao', [ThongBaoCustomerController::class, 'index'])->name('thongbaoCT');
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');
 

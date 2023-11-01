@@ -24,7 +24,6 @@ class HoaDonController extends Controller
         ];
         $hoadons = HoaDon::join('phong', 'hoadon.id_phong', '=', 'phong.id_phong')
             ->select('hoadon.*', 'phong.ten as ten_phong')
-            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('hoadon/hoadon', compact('title', 'hoadons', 'breadcrumbs'));

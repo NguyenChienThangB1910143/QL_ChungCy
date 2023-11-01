@@ -17,7 +17,7 @@ class BaiXeController extends Controller
                 'link' => './baixe'
             ]
         ];
-        $baixe = BaiXe::paginate(5);
+        $baixe = BaiXe::get();
         return view('baixe/baixe', compact('title', 'baixe', 'breadcrumbs'));
     }
     public function them()
@@ -58,7 +58,6 @@ class BaiXeController extends Controller
                 'link' => './' . $request->id_baixe
             ]
         ];
-        // dd($request);
         $suabaixe = BaiXe::where('id_baixe', $request->id_baixe)->get();
 
         return view('baixe/chinhsua', compact('title', 'suabaixe', 'breadcrumbs'));
@@ -66,7 +65,6 @@ class BaiXeController extends Controller
 
     public function update(Request $request)
     {
-        // dd($request);
         $suabaixe = BaiXe::where('id_baixe', $request->id_baixe)->update([
             'id_baixe'=>$request->id_baixe,
             'ms'=>$request->ms,

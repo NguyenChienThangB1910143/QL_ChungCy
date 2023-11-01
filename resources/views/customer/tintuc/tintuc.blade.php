@@ -59,7 +59,7 @@
                             <td>{{$tintuc->thoigian}}</td>
                             <td>
                                 
-                                    <button type="submit" onclick=chitiet_tintuc('{{$tintuc->id}}') class="btn btn-info me-md-1 m-1">
+                                    <button type="submit" onclick=chitiet_tintuc('{{$tintuc->id}}') class="btn btn-info">
                                         <i class="fas fa-eye"></i> 
                                     </button>
                             </td>

@@ -85,7 +85,7 @@
 
                             <td>{{$baocao->thoigian}}</td>
                             <td>
-                                    <button type="submit" onclick=phanhoi_baocao('{{$baocao->id_baocao}}') class="btn btn-info me-md-1 m-1">
+                                    <button type="submit" onclick=phanhoi_baocao('{{$baocao->id_baocao}}') class="btn btn-info">
                                         <i class="fas fa-comment"></i> xem phản hồi
                                     </button>
                                 </td>

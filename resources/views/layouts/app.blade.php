@@ -91,6 +91,10 @@
         new DataTable('#tbtaikhoan');
         new DataTable('#tbtintuc');        
         new DataTable('#tbbaocaosc');
+        new DataTable('#tbnuoc');
+        new DataTable('#tbdien');
+        new DataTable('#tbthongbao');
+
     </script>
     @yield('JS')
 </body>

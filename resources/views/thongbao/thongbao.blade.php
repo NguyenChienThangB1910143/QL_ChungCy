@@ -64,8 +64,8 @@
                     <button class="btn btn-success me-md-2 mt-1 mb-1" onclick=them_thongbao() type="button">
                         <i class="fas fa-plus"></i> Thêm</button>
                 </div>
-                <table class="table table-hover mt-3">
-                    <thead style="background-color:#0d6efd; color:white;'"> 
+                <table id="tbthongbao" class="table table-striped" style="width:100%">
+                    <thead class="me-md-3">  
                         <tr>
                             <th scope="col-6 col-md-4">Mã Thông Báo</th>
                             <th scope="col-6 col-md-4">Người Gửi</th>
@@ -80,11 +80,19 @@
                         @foreach($thongbao as $thongbaos)
                         <tr>
                             <td>{{$thongbaos->id_thongbao}}</td>
-                            <td>{{$thongbaos->id_user}}</td>
+                            <td>{{ \App\Models\User::find($thongbaos->id_user)->name }}</td>
+
                             <td>{{$thongbaos->tieude}}</td>
                             <td>{{$thongbaos->noidung}}</td>
                             <td>{{$thongbaos->thoigian}}</td>
-                            <td>{{$thongbaos->nhan}}</td>
+                            <td>
+                                @if($thongbaos->nhan == 0)
+                                    Tất cả
+                                @else
+                                    {{ \App\Models\Phong::find($thongbaos->nhan)->ten }}
+                                @endif
+                            </td>
+                            
                             <td>
                                 {{-- <form action="{{route('thongbao-chinhsua', $thongbao->id_thongbao)}}" method="get">
                                         <button type="button" onclick=capnhat_thongbao('{{$thongbao->id_thongbao}}') class="btn btn-primary me-md-3">

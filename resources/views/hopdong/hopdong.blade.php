@@ -98,7 +98,7 @@
             <div class='p-4 d-flex flex-column' >
                 
                 <table id="tbhopdong" class="table table-striped" style="width:100%">
-                    <thead style="background-color:#0d6efd; color:white;'"> 
+                    <thead class="table-primary"> 
                         <tr>
                             <th scope="col-6 col-md-4">Mã HĐ</th>
                             <th scope="col-6 col-md-4">Tên khách</th>

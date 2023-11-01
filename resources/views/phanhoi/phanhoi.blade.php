@@ -43,7 +43,7 @@
             <div class='p-4 d-flex flex-column' >
                 
                 <table id="tbbaocaosc" class="table table-striped" style="width:100%">
-                    <thead style="background-color:#0d6efd; color:white;'"> 
+                    <thead class="table-primary"> 
                         <tr>
                             <th>Họ Tên</th>
                             <th>Mã phòng</th>

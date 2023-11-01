@@ -16,10 +16,6 @@
     <!-- Page Content  -->
     <div id="content">
       @include('partials.common.tieude')
-      @php
-      if(auth()->user()){
-      }
-      @endphp
       <div class="container text-center p-2">
         <div class="row align-items-center gx-2  row-item-home">
           <div class="col-6 col-md-4 rounded-3 border border-dark">
@@ -51,6 +47,38 @@
               <div>
                 <i class="fas fa-users"></i>
                 <h4>Tài khoản</h4>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4 rounded-3 border border-dark">
+            <a href="dien" class="item-home d-flex align-items-center justify-content-center">
+              <div>
+                <i class="fas fa-users"></i>
+                <h4>Điện</h4>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4 rounded-3 border border-dark">
+            <a href="nuoc" class="item-home d-flex align-items-center justify-content-center">
+              <div>
+                <i class="fas fa-users"></i>
+                <h4>Nước</h4>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4 rounded-3 border border-dark">
+            <a href="baixe" class="item-home d-flex align-items-center justify-content-center">
+              <div>
+                <i class="fas fa-users"></i>
+                <h4>Bãi xe</h4>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-4 rounded-3 border border-dark">
+            <a href="tintuc" class="item-home d-flex align-items-center justify-content-center">
+              <div>
+                <i class="fas fa-users"></i>
+                <h4>Tin Tức</h4>
               </div>
             </a>
           </div>

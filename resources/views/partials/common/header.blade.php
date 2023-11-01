@@ -8,18 +8,3 @@
         </div>
     </div>
 </header>
-
-
-<script>
-    window.addEventListener('resize', () => {
-        const logoutButtonDesktop = document.getElementById('logoutButtonDesktop');
-
-        // Kiểm tra kích thước màn hình khi trang được tải
-        const isDesktop = window.matchMedia('(max-width: 767px)').matches;
-
-        // Ẩn nút đăng xuất nếu là giao diện di động
-        if (isDesktop) {
-            logoutButtonDesktop.style.display = 'none';
-        }
-    });
-</script>

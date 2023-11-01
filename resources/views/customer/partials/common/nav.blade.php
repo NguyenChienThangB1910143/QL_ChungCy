@@ -7,7 +7,7 @@
         <a href="{{route('tintuccustomer')}}">Tin Tức</a>
     </div>
     <div>
-        <a href="">
+        <a href="{{route('thongbaoCT')}}">
             Thông báo 
             <i class="fas fa-bell"></i> <!-- Biểu tượng thông báo -->
         </a>

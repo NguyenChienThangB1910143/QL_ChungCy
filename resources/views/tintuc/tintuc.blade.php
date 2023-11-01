@@ -86,7 +86,7 @@
                         <i class="fas fa-plus"></i> Thêm</button>
                 </div>
                 <table id="tbtintuc" class="table table-striped" style="width:100%">
-                    <thead style="background-color:#0d6efd; color:white;'"> 
+                    <thead class="table-primary"> 
                         <tr>
                             <th >Mã tin</th>
                             <th >Tiêu đề</th>
@@ -102,22 +102,22 @@
                             <td>{{$tintuc->tieude}}</td>
                             <td>{{$tintuc->ten_user}}</td>
                             <td>{{$tintuc->thoigian}}</td>
-                            <td>
-                                
-                                    <button type="submit" onclick=chitiet_tintuc('{{$tintuc->id}}') class="btn btn-info me-md-1 m-1">
-                                        <i class="fas fa-eye"></i> 
-                                    </button>
-                                <form action="{{route('tintuc-chinhsua', $tintuc->id)}}" method="get">
-                                    <button type="button" onclick=capnhat_tintuc('{{$tintuc->id}}') class="btn btn-primary me-md-3">
+                            <td class="d-flex justify-content-start">
+                                <button type="submit" onclick=chitiet_tintuc('{{$tintuc->id}}') class="btn btn-info me-md-3">
+                                    <i class="fas fa-eye"></i> 
+                                </button>
+                                <form action="{{route('tintuc-chinhsua', $tintuc->id)}}" method="get" class="me-md-3">
+                                    <button type="button" onclick=capnhat_tintuc('{{$tintuc->id}}') class="btn btn-primary">
                                         <i class="fas fa-edit"></i> Sửa
                                     </button>
                                 </form>
-                                <form action="{{route('tintuc-xoa', $tintuc->id)}}" method="get">
-                                    <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">
-                                            <i class="fas fa-trash-alt"></i> Xóa
-                                        </button>
-                                    </form>
+                                <form action="{{route('tintuc-xoa', $tintuc->id)}}" method="get" class="me-md-3">
+                                    <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger">
+                                        <i class="fas fa-trash-alt"></i> Xóa
+                                    </button>
+                                </form>
                             </td>
+                            
                         </tr>
                         @endforeach
                     </tbody>

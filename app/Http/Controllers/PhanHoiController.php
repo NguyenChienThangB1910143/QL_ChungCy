@@ -21,7 +21,6 @@ class PhanHoiController extends Controller
             ];
             $bcsc = BaoCaoSC::join('users', 'baocaosc.id_user', '=', 'users.id')
         ->select('baocaosc.*', 'users.name')
-        ->orderBy('baocaosc.created_at', 'desc')
         ->get();
             return view('/phanhoi/phanhoi', compact('title', 'bcsc', 'breadcrumbs'));
     }

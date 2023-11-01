@@ -47,17 +47,17 @@
                 </div>
             <div class='p-4 d-flex flex-column' >
                 
-                <table class="table table-hover mt-3">
-                    <thead style="background-color:#0d6efd; color:white;'"> 
+                <table id="tbnuoc" class="table table-striped" style="width:100%">
+                    <thead class="table-primary"> 
                         <tr>
-                            <th scope="col-6 col-md-4">id</th>
-                            <th scope="col-6 col-md-4">Tên Phòng</th>
-                            <th scope="col-6 col-md-4">Chỉ số cũ</th>
-                            <th scope="col-6 col-md-4">Chỉ số mới</th>
-                            <th scope="col-6 col-md-4">Thời gian</th>
-                            <th scope="col-6 col-md-4">Đơn giá</th>
-                            <th scope="col-6 col-md-4">Thành tiền</th>
-                            <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                            <th >id</th>
+                            <th >Tên Phòng</th>
+                            <th >Chỉ số cũ</th>
+                            <th >Chỉ số mới</th>
+                            <th >Thời gian</th>
+                            <th >Đơn giá</th>
+                            <th >Thành tiền</th>
+                            <th >Tùy chỉnh</th>
                         </tr>
                     </thead>
                     <tbody>

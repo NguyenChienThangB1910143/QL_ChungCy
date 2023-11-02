@@ -23,16 +23,21 @@ class HoaDonCustomerController extends Controller
         // Lấy người dùng hiện tại đã xác thực
         $user = Auth::user();
 
-        // Lấy hợp đồng của người dùng có ngày kết thúc lớn hơn ngày hiện tại
+        // Lấy hợp đồng cuối cùng của người dùng
         $hopdong = HopDong::where('id_user', $user->id)
-            ->where('ngayketthuc', '>', Carbon::now())
+            ->orderBy('created_at', 'desc')
             ->first();
 
-        $hoadons = HoaDon::where('id_phong', $hopdong->id_phong)
-        ->orderBy('created_at', 'desc')
-            ->get();
+        if ($hopdong) {
+            $hoadons = HoaDon::where('id_phong', $hopdong->id_phong)
+                ->orderBy('created_at', 'desc')
+                ->get();
+        } else {
+            $hoadons = null;
+        }
 
         return view('customer/hoadon/hoadon', compact('title', 'hoadons', 'breadcrumbs'));
+
     }
     public function chitiet(Request $request)
     {

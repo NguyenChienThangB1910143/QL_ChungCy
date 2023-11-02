@@ -55,7 +55,7 @@
             </a>
           </div>
           <div class="icon-row">
-            <a href="" class="icon-box shadow">
+            <a href="{{route('hopdongCT')}}" class="icon-box shadow">
               <div>
                 <i class="fas fa-clipboard icon"></i>
                 <h5>Hợp Đồng</h5>

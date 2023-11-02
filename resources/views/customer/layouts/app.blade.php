@@ -58,6 +58,7 @@
         new DataTable('#tbhoadon');
         new DataTable('#tbbaocaosc');
         new DataTable('#tbthongbaoCT');
+        new DataTable('#tbhopdongCT');
 
     </script>
 

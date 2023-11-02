@@ -37,6 +37,16 @@
                     </div>
                 </div>
                 <div class="mb-5">
+            @if($hoadons==null)
+            <div class="card text-center shadow" style="width: 18rem; margin: auto; border-radius: 25px;">
+                <div class="card-body">
+                  <h4  class="card-title bg-info rounded">Thông báo</h4>
+                  <p class="card-text">Người dùng chưa có hợp đồng.</p>
+                </div>
+              </div>
+              
+              
+                @else
                 <table  id="tbhoadon" class="table table-striped" style="width:100%">
                     <thead class="table-primary"> 
                         <tr>
@@ -86,7 +96,8 @@
                         @endforeach
                     </tbody>
                 </table>                
-
+                    
+                @endif
                 </div>
             </div>
     </div>

@@ -22,6 +22,7 @@ use App\Http\Controllers\BaoCaoSCController;
 use App\Http\Controllers\PhanHoiController;
 use App\Http\Controllers\ThongBaoController;
 use App\Http\Controllers\ThongBaoCustomerController;
+use App\Http\Controllers\HopDongCustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -142,6 +143,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Thông báo Customer
     Route::get('/customer/thongbao', [ThongBaoCustomerController::class, 'index'])->name('thongbaoCT');
+
+    //Hợp đồng Customer
+    Route::get('/customer/hopdong', [HopDongCustomerController::class, 'index'])->name('hopdongCT');
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');
 

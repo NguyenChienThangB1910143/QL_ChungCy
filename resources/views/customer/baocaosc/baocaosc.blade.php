@@ -56,7 +56,15 @@
                         </div>
                     </div>
                 </div>
-
+                @if($hopdong==null)
+                    <div class="mt-4 card text-center shadow" style="width: 18rem; margin: auto; border-radius: 25px;">
+                        <div class="card-body">
+                        <h4  class="card-title bg-info rounded">Thông báo</h4>
+                        <p class="card-text">Người dùng chưa có hợp đồng.</p>
+                        </div>
+                    </div>
+              
+                @else
                 <table id="tbbaocaosc" class="table table-striped" style="width:100%">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start ms-3 mt-3">
                         <button class="btn btn-primary me-md-2 mt-1 mb-1" type="button" onclick=them_baocao()>
@@ -96,7 +104,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                
+                @endif
             </div>
     </div>
     <!-- end body -->

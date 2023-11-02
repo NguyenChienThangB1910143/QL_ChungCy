@@ -4,7 +4,8 @@
         <a href="{{route('profile')}}">Thông tin TK</a> |
         <a href="{{route('hoadoncustomer')}}">Hóa đơn</a> |
         <a href="{{route('baocaosc')}}">Báo cáo sự cố</a> |
-        <a href="{{route('tintuccustomer')}}">Tin Tức</a>
+        <a href="{{route('tintuccustomer')}}">Tin Tức</a> |
+        <a href="{{route('hopdongCT')}}">Hợp Đồng</a>
     </div>
     @php
         $thoiGianKiemTra = \Carbon\Carbon::now()->subDay(); // Thay đổi theo nhu cầu của bạn

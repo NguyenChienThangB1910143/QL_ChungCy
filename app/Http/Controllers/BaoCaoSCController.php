@@ -21,8 +21,10 @@ class BaoCaoSCController extends Controller
         // Lấy người dùng hiện tại đã xác thực
         $user = Auth::user();
         $baocaosc = $user->baocaoscs()->get();
-
-        return view('customer/baocaosc/baocaosc', compact('title', 'baocaosc', 'breadcrumbs'));
+        $hopdong = HopDong::where('id_user', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->first();
+        return view('customer/baocaosc/baocaosc', compact('title', 'baocaosc','hopdong', 'breadcrumbs'));
     }
     public function them(){
         $title = 'Báo cáo sự cố';

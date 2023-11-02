@@ -86,8 +86,15 @@
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Phòng:</div>
-                                    <label name="STK" class="col-6 col-sm-6 text-view">{{$hopdong->id_phong}}</label>
+                                    <label name="STK" class="col-6 col-sm-6 text-view">
+                                        @if($hopdong==null)
+                                            CHƯA CÓ HỢP ĐỒNG
+                                        @else
+                                            {{$hopdong->id_phong}}
+                                        @endif
+                                    </label>
                                 </div>
+                                
                             </div>
                         </div>
                     </form>

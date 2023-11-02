@@ -146,6 +146,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Hợp đồng Customer
     Route::get('/customer/hopdong', [HopDongCustomerController::class, 'index'])->name('hopdongCT');
+
+    Route::get('/hoadon/getDienNuoc', [HoaDonController::class,'getDienNuoc'])->name('getDienNuoc');
+    Route::get('/hoadon/getBaixe', [HoaDonController::class,'getBaixe'])->name('getBaixe');
+
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');
 

@@ -122,6 +122,7 @@ class HopDongController extends Controller
             $addhopdong->save();
             //cap nhat tinh trang phong
             Phong::where('id_phong', $request->input('phong'))->update(['tinhtrang' => 1]);
+            Baixe::where('id_baixe', $request->input('baixe'))->update(['tinhtrang' => 1]);
     // Hiển thị danh sách hợp đồng
     return redirect()->route('hopdong')->with('success', 'Thêm thành công');
 }

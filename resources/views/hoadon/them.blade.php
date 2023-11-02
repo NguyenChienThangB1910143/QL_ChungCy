@@ -65,16 +65,13 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Khác
-                <span id="colorIcon">*</span>
             </label>
-            <textarea name='khac'>
-            </textarea>
+            <input  class="form-control" type="text" name="khac">
         </div>
         <div class="mb-3">
             <label class="form-label">Thu thêm
-                <span id="colorIcon">*</span>
             </label>
-            <input required class="form-control" type="text" name="thuthem">
+            <input  class="form-control" type="text" name="thuthem">
         </div>
         <div class="row justify-content-center">
             <button type="submit" class="btn btn-success col-md-5" id="side123">Thêm</button>
@@ -107,5 +104,30 @@
         });
     });
 
-
+    $(document).ready(function(){
+    $('#phong').change(function(){
+        var id_phong = $(this).val();
+        $.ajax({
+            url : './hoadon/getDienNuoc',
+            type : 'GET',
+            data : {'id_phong': id_phong},
+            success: function(data) {
+                $('input[name="tiendien"]').val(data.dien);
+                $('input[name="tiennuoc"]').val(data.nuoc);
+            }
+        });
+    });
+    
+    $('#phong').change(function(){
+        var id_phong = $(this).val();
+        $.ajax({
+            url : './hoadon/getBaixe',
+            type : 'GET',
+            data : {'id_phong': id_phong},
+            success: function(data) {
+                $('input[name="tienbaixe"]').val(data.gia);
+            }
+        });
+    });
+});
 </script>

@@ -80,35 +80,38 @@
                 </div>
             </div>
                     
-            <!-- Content -->                    <button class="btn btn-success me-md-2 mt-1 mb-1 " onclick=them_hopdong() type="button">
-                <i class="fas fa-plus"></i> Thêm</button>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <form action="{{ route('hopdong') }}" method="get">
-                    <div class="input-group mb-3">
-                    <select class="form-select" name="status">
-                        <option value="">Chọn tình trạng</option>
-                        <option value="active"{{ request()->status == 'active' ? ' selected' : '' }}>Còn hiệu lực</option>
-                        <option value="expired"{{ request()->status == 'expired' ? ' selected' : '' }}>Hết hiệu lực</option>
-                    </select>
-                    <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-filter"></i></button>
+            <!-- Content -->                    
+            <div class="d-flex align-items-center justify-content-between">
+                <button class="btn btn-success me-md-2 m-2 " onclick=them_hopdong() type="button">
+                    <i class="fas fa-plus"></i> Thêm
+                </button>
+                <form action="{{ route('hopdong') }}" method="get" class="d-flex align-items-center m-2">
+                    <div class="input-group">
+                        <select class="form-select" name="status">
+                            <option value="">Chọn tình trạng</option>
+                            <option value="active"{{ request()->status == 'active' ? ' selected' : '' }}>Còn hiệu lực</option>
+                            <option value="expired"{{ request()->status == 'expired' ? ' selected' : '' }}>Hết hiệu lực</option>
+                        </select>
+                        <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-filter"></i></button>
                     </div>
                 </form>
-                </div>
+            </div>
             
-            <div class='p-4 d-flex flex-column' >
+            
+            <div class='p-2 d-flex flex-column' >
                 
                 <table id="tbhopdong" class="table table-striped" style="width:100%">
                     <thead class="table-primary"> 
                         <tr>
-                            <th scope="col-6 col-md-4">Mã HĐ</th>
-                            <th scope="col-6 col-md-4">Tên khách</th>
-                            <th scope="col-6 col-md-4">Tên quản lý</th>
-                            <th scope="col-6 col-md-4">Mã phòng</th>
-                            <th scope="col-6 col-md-4">Mã bãi xe</th>
-                            <th scope="col-6 col-md-4">Ngày ký</th>
-                            <th scope="col-6 col-md-4">Ngày hết hạn</th>
-                            <th scope="col-6 col-md-4">Tình trạng</th>
-                            <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                            <th >Mã HĐ</th>
+                            <th >Tên khách</th>
+                            <th >Tên quản lý</th>
+                            <th >Mã phòng</th>
+                            <th >Mã bãi xe</th>
+                            <th >Ngày ký</th>
+                            <th >Ngày hết hạn</th>
+                            <th >Tình trạng</th>
+                            <th >Tùy chỉnh</th>
                         </tr>
                     </thead>
                     <tbody>

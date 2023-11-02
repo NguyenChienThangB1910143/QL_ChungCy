@@ -41,7 +41,7 @@
                         <i class="fas fa-plus"></i> Cập nhật</button>
                 </div>
                 </form>
-                <div class="alert alert-primary">
+                <div class="alert alert-primary shadow">
                     <h5 class="text-center" id="side12">THÔNG TIN TÀI KHOẢN</h5>
                     <form method="post" action="{{route('profile', $user->id)}}">
                         @csrf

@@ -59,6 +59,7 @@ class NuocController extends Controller
         $nuoc->chiso_moi = $request->chiso_moi;
         $nuoc->thoigian = $request->thoigian;
         $nuoc->dongia = $request->dongia;
+        $nuoc->thanhtien = (($nuoc->chiso_moi)- ($nuoc->chiso_cu))*($nuoc->dongia);
         $nuoc->save();
 
         return redirect()->route('nuoc')->with('success', 'Thêm thành công');

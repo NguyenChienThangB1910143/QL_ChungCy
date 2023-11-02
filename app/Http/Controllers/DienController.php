@@ -61,6 +61,7 @@ class DienController extends Controller
     $dien->chiso_moi = $request->chiso_moi;
     $dien->thoigian = $request->thoigian;
     $dien->dongia = $request->dongia;
+    $dien->thanhtien = (($dien->chiso_moi)- ($dien->chiso_cu))*($dien->dongia);
     $dien->save();
 
     return redirect()->route('dien')->with('success', 'Thêm thành công');

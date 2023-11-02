@@ -17,7 +17,8 @@ class Nuoc extends Model
         'chiso_cu',
         'chiso_moi',
         'thoigian',
-        'dongia'
+        'dongia',
+        'thanhtien'
     ];
 
     public function nuoc_phong()
@@ -25,8 +26,5 @@ class Nuoc extends Model
         return $this->belongsTo(Phong::class, 'id_phong', 'id_phong');
     }
 
-    public function getThanhTienAttribute()
-    {
-        return ($this->chiso_moi - $this->chiso_cu) * $this->dongia;
-    }
+
 }

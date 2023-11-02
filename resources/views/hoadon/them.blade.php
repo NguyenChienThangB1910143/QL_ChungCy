@@ -46,6 +46,18 @@
             <input required class="form-control" type="date" name="thoigian">
         </div>
         <div class="mb-3">
+            <label class="form-label">Tiền điện
+                <span id="colorIcon">*</span>
+            </label>
+            <input required class="form-control" type="text" name="tiendien">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tiền nước
+                <span id="colorIcon">*</span>
+            </label>
+            <input required class="form-control" type="text" name="tiennuoc">
+        </div>
+        <div class="mb-3">
             <label class="form-label">Tiền bãi xe
                 <span id="colorIcon">*</span>
             </label>

@@ -86,11 +86,18 @@
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Phòng:</div>
-                                    <label name="STK" class="col-6 col-sm-6 text-view">
+                                    <label name="phong" class="col-6 col-sm-6 text-view">
                                         @if($hopdong==null)
                                             CHƯA CÓ HỢP ĐỒNG
                                         @else
-                                            {{$hopdong->id_phong}}
+                                            @php
+                                                $phong = App\Models\Phong::find($hopdong->id_phong);
+                                                $tang = App\Models\Tang::find($phong->id_tang);
+                                                $toa = App\Models\Toa::find($tang->id_toa);
+                                            @endphp
+                                            {{$phong->ten}},
+                                            {{$tang->ten}},
+                                             Tòa {{$toa->ten}}
                                         @endif
                                     </label>
                                 </div>

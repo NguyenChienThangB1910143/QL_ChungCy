@@ -150,6 +150,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hoadon/getDienNuoc', [HoaDonController::class,'getDienNuoc'])->name('getDienNuoc');
     Route::get('/hoadon/getBaixe', [HoaDonController::class,'getBaixe'])->name('getBaixe');
 
+    Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');
 

@@ -15,117 +15,128 @@ use Session;
 class HopDongController extends Controller
 {
     public function index()
-    {
-        $title = 'Hợp Đồng';
-        $breadcrumbs = [
-            [
-                'name' => 'Hợp Đồng',
-                'link' => './hopdong'
-            ]
-        ];
-        $hopdong = HopDong::join('users as user', 'user.id', '=', 'hopdong.id_user')
-        ->join('users as ql', 'ql.id', '=', 'hopdong.id_ql')
-        ->join('phong', 'phong.id_phong', '=', 'hopdong.id_phong')
-        ->join('baixe', 'baixe.id_baixe', '=', 'hopdong.id_baixe')
-        ->select(
-            'hopdong.*',
-            'user.name as ten_user',
-            'ql.name as ten_ql',
-            'phong.ten as ten_phong',
-            'baixe.ms as ms_baixe'
-    )->get();
-        return view('hopdong/hopdong', compact('title', 'hopdong', 'breadcrumbs'));
-    }
-    public function capnhat(Request $request)
-    {
-        $title = 'Hợp Đồng';
+{
+    $title = 'Hợp Đồng';
+    $breadcrumbs = [
+        [
+            'name' => 'Hợp Đồng',
+            'link' => './hopdong'
+        ]
+    ];
+    $hopdong = HopDong::join('users as user', 'user.id', '=', 'hopdong.id_user')
+    ->join('users as ql', 'ql.id', '=', 'hopdong.id_ql')
+    ->join('phong', 'phong.id_phong', '=', 'hopdong.id_phong')
+    ->leftJoin('baixe', 'baixe.id_baixe', '=', 'hopdong.id_baixe') // Sử dụng leftJoin thay vì join
+    ->select(
+        'hopdong.*',
+        'user.name as ten_user',
+        'ql.name as ten_ql',
+        'phong.ten as ten_phong',
+        'baixe.ms as ms_baixe' // Nếu id_baixe là null, ms_baixe cũng sẽ là null
+)->get();
+    return view('hopdong/hopdong', compact('title', 'hopdong', 'breadcrumbs'));
+}
 
-        $breadcrumbs = [
-            [
-                'name' => 'Hợp đồng',
-                'link' => '../'
-            ], [
-                'name' => 'Cập nhật',
-                'link' => './' . $request->id_hopdong
-            ]
-        ];
-        $capnhathopdong = HopDong::join('users as user', 'user.id', '=', 'hopdong.id_user')
-        ->join('users as ql', 'ql.id', '=', 'hopdong.id_ql')
-        ->join('phong', 'phong.id_phong', '=', 'hopdong.id_phong')
-        ->join('baixe', 'baixe.id_baixe', '=', 'hopdong.id_baixe')
-        ->select(
-            'hopdong.*',
-            'user.name as ten_user',
-            'ql.name as ten_ql',
-            'phong.ten as ten_phong',
-            'baixe.ms as ms_baixe'
-        )->where('id_hopdong', $request->id_hopdong)->get();
+public function capnhat(Request $request)
+{
+    $title = 'Hợp Đồng';
 
-        return view('hopdong/capnhat', compact('title', 'capnhathopdong', 'breadcrumbs'));
-    }
-    public function update(Request $request)
-    {
-        // dd($request);
-        $user = User::where('name', $request->ten_user)->first();
-        $userql= User::Where('name',$request->ten_ql)->first();
-        $phong = Phong::where('ten', $request->ten_phong)->first();
-        $baixe = Baixe::where('ms', $request->ms_baixe)->first();
-        $suahopdong = HopDong::where('id_hopdong', $request->id_hopdong)->update([
-            'id_hopdong' => $request->id_hopdong,
-            'id_user' => $user->id,
-            'id_ql' => $userql->id,
-            'id_phong' => $phong->id_phong,
-            'id_baixe' => $baixe->id_baixe,
-            'ngaybatdau' => $request->ngaybatdau,
-            'ngayketthuc' => $request->ngayketthuc,
-        ]);
-        if ($suahopdong) {
-            Session::flash('success', 'Cập nhật thành công.');
-            return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']); 
-        }
+    $breadcrumbs = [
+        [
+            'name' => 'Hợp đồng',
+            'link' => '../'
+        ], [
+            'name' => 'Cập nhật',
+            'link' => './' . $request->id_hopdong
+        ]
+    ];
+    $capnhathopdong = HopDong::join('users as user', 'user.id', '=', 'hopdong.id_user')
+    ->join('users as ql', 'ql.id', '=', 'hopdong.id_ql')
+    ->join('phong', 'phong.id_phong', '=', 'hopdong.id_phong')
+    ->leftJoin('baixe', 'baixe.id_baixe', '=', 'hopdong.id_baixe') // Sử dụng leftJoin thay vì join
+    ->select(
+        'hopdong.*',
+        'user.name as ten_user',
+        'ql.name as ten_ql',
+        'phong.ten as ten_phong',
+        'baixe.ms as ms_baixe' // Nếu id_baixe là null, ms_baixe cũng sẽ là null
+    )->where('id_hopdong', $request->id_hopdong)->get();
 
-        return redirect()->route('hopdong')->with('success', 'Sửa không thành công, không được chỉnh sửa mã hợp đồng');
+    return view('hopdong/capnhat', compact('title', 'capnhathopdong', 'breadcrumbs'));
+}
+
+public function update(Request $request)
+{
+    // dd($request);
+    $user = User::where('name', $request->ten_user)->first();
+    $userql= User::Where('name',$request->ten_ql)->first();
+    $phong = Phong::where('ten', $request->ten_phong)->first();
+    $baixe = Baixe::where('ms', $request->ms_baixe)->first();
+    $suahopdong = HopDong::where('id_hopdong', $request->id_hopdong)->update([
+        'id_hopdong' => $request->id_hopdong,
+        'id_user' => $user->id,
+        'id_ql' => $userql->id,
+        'id_phong' => $phong->id_phong,
+        'id_baixe' => $baixe ? $baixe->id_baixe : null, // Nếu baixe là null, id_baixe cũng sẽ là null
+        'noidung' => $request->noidung,
+        'gia' => $request->gia,
+        'ngaybatdau' => $request->ngaybatdau,
+        'ngayketthuc' => $request->ngayketthuc,
+    ]);
+    if ($suahopdong) {
+        Session::flash('success', 'Cập nhật thành công.');
+        return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']); 
     }
-    public function them()
-    {
-        $title = 'Hợp đồng';
-        $breadcrumbs = [
-            [
-                'name' => 'Hợp đồng',
-                'link' => './'
-            ], [
-                'name' => 'Thêm',
-                'link' => './them'
-            ]
-        ];
-        $hopdong = hopdong::get();
-        $user =User::get();
-        $baixe=BaiXe::get();
-        $phong=Phong::get();
-        $tang=Tang::get();
-        $toa= Toa::get();
-        return view('hopdong/them', compact('title', 'breadcrumbs', 'hopdong','user','toa','tang', 'phong', 'baixe'));
+
+    return redirect()->route('hopdong')->with('success', 'Sửa không thành công, không được chỉnh sửa mã hợp đồng');
+}
+
+public function them()
+{
+    $title = 'Hợp đồng';
+    $breadcrumbs = [
+        [
+            'name' => 'Hợp đồng',
+            'link' => './'
+        ], [
+            'name' => 'Thêm',
+            'link' => './them'
+        ]
+    ];
+    $hopdong = hopdong::get();
+    $user =User::get();
+    $baixe=BaiXe::get();
+    $phong=Phong::get();
+    $tang=Tang::get();
+    $toa= Toa::get();
+    return view('hopdong/them', compact('title', 'breadcrumbs', 'hopdong','user','toa','tang', 'phong', 'baixe'));
+}
+
+public function store(Request $request)
+{
+    // Lấy id người dùng đang đăng nhập
+    $id_ql = Auth::user()->id;
+    // Tạo hợp đồng mới
+    $addhopdong = new HopDong();
+
+    $addhopdong->id_user = $request->user;
+    $addhopdong->id_ql = $id_ql;
+    $addhopdong->id_phong = $request->phong;
+    $addhopdong->id_baixe = $request->baixe ? $request->baixe : null; // Nếu baixe là null, id_baixe cũng sẽ là null
+    $addhopdong->noidung = $request->noidung;
+    $addhopdong->gia = $request->gia;
+    $addhopdong->ngaybatdau = $request->input('ngaybatdau');
+    $addhopdong->ngayketthuc = $request->input('ngayketthuc');
+    $addhopdong->save();
+    //cap nhat tinh trang phong
+    Phong::where('id_phong', $request->input('phong'))->update(['tinhtrang' => 1]);
+    if ($request->baixe) {
+        Baixe::where('id_baixe', $request->input('baixe'))->update(['tinhtrang' => 1]);
     }
-    public function store(Request $request)
-    {
-        // Lấy id người dùng đang đăng nhập
-         $id_ql = Auth::user()->id;
-        // Tạo hợp đồng mới
-            $addhopdong = new HopDong();
-        
-            $addhopdong->id_user = $request->user;
-            $addhopdong->id_ql = $id_ql;
-            $addhopdong->id_phong = $request->phong;
-            $addhopdong->id_baixe = $request->baixe;
-            $addhopdong->ngaybatdau = $request->input('ngaybatdau');
-            $addhopdong->ngayketthuc = $request->input('ngayketthuc');
-            $addhopdong->save();
-            //cap nhat tinh trang phong
-            Phong::where('id_phong', $request->input('phong'))->update(['tinhtrang' => 1]);
-            Baixe::where('id_baixe', $request->input('baixe'))->update(['tinhtrang' => 1]);
     // Hiển thị danh sách hợp đồng
     return redirect()->route('hopdong')->with('success', 'Thêm thành công');
 }
+
 public function chitiet(Request $request)
 {
     $title = 'Hợp đồng';
@@ -141,17 +152,18 @@ public function chitiet(Request $request)
     $chitiethopdong = HopDong::join('users as user', 'user.id', '=', 'hopdong.id_user')
     ->join('users as ql', 'ql.id', '=', 'hopdong.id_ql')
     ->join('phong', 'phong.id_phong', '=', 'hopdong.id_phong')
-    ->join('baixe', 'baixe.id_baixe', '=', 'hopdong.id_baixe')
+    ->leftJoin('baixe', 'baixe.id_baixe', '=', 'hopdong.id_baixe') // Sử dụng leftJoin thay vì join
     ->select(
         'hopdong.*',
         'user.name as ten_user',
         'ql.name as ten_ql',
         'phong.ten as ten_phong',
-        'baixe.ms as ms_baixe'
+        'baixe.ms as ms_baixe' // Nếu id_baixe là null, ms_baixe cũng sẽ là null
     )->where('id_hopdong', $request->id_hopdong)->get();
 
     return view('hopdong/chitiet', compact('title', 'chitiethopdong', 'breadcrumbs'));
 }
+
 
 
 }

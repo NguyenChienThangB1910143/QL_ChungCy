@@ -15,7 +15,6 @@
                         <option value="{{$user->id}}">{{ $user->name }}</option>
                         @endforeach
                     </datalist>
-                </input>
         </div>
         <div class="mb-3">
             <label class="form-label">Tên Khách Hàng</label>
@@ -89,6 +88,19 @@
                     @endif
                 @endforeach
             </select>
+        </div>
+        <div class="mb-3 option-noidung">
+            <label class="form-label">Nội dung
+                <span id="colorIcon">*</span>
+            </label>
+            <textarea required class="form-control" name="noidung" id="noidung">
+            </textarea>
+        </div>
+        <div class="mb-3 option-tieude">
+            <label class="form-label">Gía thuê
+                <span id="colorIcon">*</span>
+            </label>
+            <input required class="form-control" name="gia" id="gia">
         </div>
         <div class="mb-3 option-ngaybatdau">
             <label class="form-label">Ngày Bắt Đầu

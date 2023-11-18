@@ -16,6 +16,8 @@ class HopDong extends Model
         'id_user',
         'id_phong',
         'id_baixe',
+        'noidung',
+        'gia',
         'ngaybatdau',
         'ngayketthuc'
     ];

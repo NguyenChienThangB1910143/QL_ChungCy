@@ -146,6 +146,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Hợp đồng Customer
     Route::get('/customer/hopdong', [HopDongCustomerController::class, 'index'])->name('hopdongCT');
+    Route::get('/customer/hopdong/chitiet/{id_hopdong}', [HopDongCustomerController::class, 'chitiet'])->name('hopdong-chitietCT');
 
     Route::get('/hoadon/getDienNuoc', [HoaDonController::class,'getDienNuoc'])->name('getDienNuoc');
     Route::get('/hoadon/getBaixe', [HoaDonController::class,'getBaixe'])->name('getBaixe');

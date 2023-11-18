@@ -57,7 +57,6 @@
                             <th >Thời gian</th>
                             <th >Đơn giá</th>
                             <th >Thành tiền</th>
-                            <th >Tùy chỉnh</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,10 +69,7 @@
                             <td>{{$nuoc->thoigian}}</td>
                             <td>{{$nuoc->dongia}}</td>
                             <td>{{$nuoc->thanhtien}}</td>
-                            <td>
-                                <div class="d-flex ">
-                                </div>
-                            </td>
+
                         </tr>
                         @endforeach
                     </tbody>

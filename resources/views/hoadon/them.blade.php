@@ -59,9 +59,8 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Tiền bãi xe
-                <span id="colorIcon">*</span>
             </label>
-            <input required class="form-control" type="text" name="tienbaixe">
+            <input  class="form-control" type="text" name="tienbaixe">
         </div>
         <div class="mb-3">
             <label class="form-label">Khác

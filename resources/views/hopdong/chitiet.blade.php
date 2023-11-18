@@ -41,7 +41,14 @@
                                     <div style="cursor: default;" class="col-6 col-sm-6">Bãi xe:</div>
                                     <label name="ms_baixe" class="col-6 col-sm-6 text-view">{{$chitiet->ms_baixe}}</label>
                                 </div>
-
+                                <div class="row mb-1">
+                                    <div style="cursor: default;" class="col-6 col-sm-6">Nội dung:</div>
+                                    <label name="noidung" class="col-6 col-sm-6 text-view">{{$chitiet->noidung}}</label>
+                                </div>
+                                <div class="row mb-1">
+                                    <div style="cursor: default;" class="col-6 col-sm-6">Gía thuê:</div>
+                                    <label name="gia" class="col-6 col-sm-6 text-view">{{$chitiet->gia}}</label>
+                                </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Ngày bắt đầu:</div>
                                     <label name="ngaybatdau" class="col-6 col-sm-6 text-view">{{$chitiet->ngaybatdau}}</label>

@@ -135,6 +135,7 @@ footer {
     padding: 0;
     background: #0574cb;
     line-height: 150%;
+    z-index: 999999;
 }
 
 .footer {

@@ -16,7 +16,8 @@ class PaymentController extends Controller
         $vnp_TmnCode = "C5QOU4ZM";//Mã website tại VNPAY 
         $vnp_HashSecret = "JPYCRFOVQVKJLRAEYOPUAKETUJYUJXRD"; //Chuỗi bí mật
 
-        $vnp_TxnRef = $hoadon_id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+        $vnp_TxnRef = $hoadon_id . rand(0, 9); // Số ngẫu nhiên từ 1000 đến 9999
+ //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = 'Hóa đơn hằng tháng';
         $vnp_OrderType = 'billpayment';
         $vnp_Amount =  $hoadon->thanhtien * 100;
@@ -88,7 +89,7 @@ class PaymentController extends Controller
     }
 
     // Xác định mã đơn hàng từ dữ liệu trả về
-    $order_id = $inputData['vnp_TxnRef'];
+    $order_id = substr($inputData['vnp_TxnRef'], 0, -1);
 
     // Tìm đơn hàng trong cơ sở dữ liệu
     $order = HoaDon::find($order_id);

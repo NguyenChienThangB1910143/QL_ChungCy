@@ -15,6 +15,27 @@
         <!-- Sidebar  -->
 
         <!-- Page Content  -->
+        <div class="modal fade" id="chitiethopdongCT">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Chi Tiết Hợp Đồng</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="alert alert-danger" style="display:none"></div>
+                        <form method="GET" id="body_chitietCT"  enctype="multipart/form-data">
+                            @csrf
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <div id="content">
             <!-- Tieu de -->
             
@@ -41,6 +62,7 @@
                             <th>Ngày ký</th>
                             <th>Ngày hết hạn</th>
                             <th>Tình trạng</th>
+                            <th >Tùy chỉnh</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,6 +76,11 @@
                             <td>{{$hd->ngaybatdau}}</td>
                             <td>{{$hd->ngayketthuc}}</td>
                             <td>{{ \Carbon\Carbon::parse($hd->ngayketthuc)->isPast() ? 'Hết hiệu lực' : 'Còn hiệu lực' }}</td>
+                            <td>
+                                <button type="submit" onclick=chitiet_hopdongCT('{{$hd->id_hopdong}}') class="btn btn-info me-md-1 m-1">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -65,4 +92,15 @@
     </div>
     @endsection
     @section('JS')
+    <script>
+        $('.close').click(function() {
+            $('.modal').modal('hide');
+        });
+        function chitiet_hopdongCT(id_hopdong) {
+        $.get('./hopdong/chitiet/' + id_hopdong, function(data) {
+            $("#body_chitietCT").html(data);
+        });
+        $('#chitiethopdongCT').modal('show');
+    }
+    </script>
 @endsection

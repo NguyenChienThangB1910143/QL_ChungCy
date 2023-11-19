@@ -6,6 +6,7 @@
         <div  style="flex-grow: 1; text-align: center;">
             <div class="title-logo">Hệ thống quản lý chung cư</div>
         </div>
+        @if(Auth::check())
         <a href="{{route('logout')}}">
             <div class="input-group">
                 <span class="input-group-text">
@@ -14,5 +15,6 @@
                 </span>
             </div>
         </a>
+        @endif
     </div>
 </header>

@@ -71,7 +71,7 @@ class LoginController extends Controller
         }
     } else {
         return redirect()->to('login')
-            ->withErrors(trans('app.login-false'));
+            ->withErrors(trans('Thông tin không chính xác'));
     }
 }
 

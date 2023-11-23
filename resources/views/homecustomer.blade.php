@@ -11,7 +11,7 @@
       <div id="content" class="row">
         <!-- Left side with automatic running banner -->
         <div class="col-md-6">
-          <div id="carouselExampleIndicators" class="carousel slide shadow" data-ride="carousel">
+          {{-- <div id="carouselExampleIndicators" class="carousel slide shadow" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
@@ -34,6 +34,9 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only"></span>
             </a>
+          </div> --}}
+          <div class="carousel-item active">
+            <img src="{{ asset('img/animation2.gif') }}" class="d-block w-100 rounded" alt="..." height="336px" >
           </div>
         </div>
 

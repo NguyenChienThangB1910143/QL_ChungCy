@@ -9,7 +9,7 @@
         <!-- Khách hàng -->
         <div class="mb-3 option-user">
                 <label class="form-label">Nhập id Khách Hàng</label>
-                <input type="text" class="form-control" id="search" placeholder="Nhập id" list="userList" name="user">
+                <input required type="text" class="form-control" id="search" placeholder="Nhập id" list="userList" name="user">
                     <datalist id="userList">
                         @foreach($user as $user)
                         <option value="{{$user->id}}">{{ $user->name }}</option>
@@ -18,7 +18,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Tên Khách Hàng</label>
-                <input type="text" class="form-control" id="userName" placeholder="Tên Khách Hàng" disabled>
+                <input required type="text" class="form-control" id="userName" placeholder="Tên Khách Hàng" disabled>
         </div>
         <!-- Nhân viên tạo hợp đồng -->
         <div class="mb-3 option-ql">
@@ -32,7 +32,7 @@
             <label class="form-label">Tòa
                 <span id="colorIcon">*</span>
             </label>
-            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="toa" name="toa">
+            <select required style="cursor: pointer;" class="form-control" aria-label="Default select example" id="toa" name="toa">
                 <option value="">Chọn Tòa</option>
                 @foreach($toa as $toa)
                 <option value="{{$toa->id_toa}}">{{$toa->ten}}</option>
@@ -44,7 +44,7 @@
             <label class="form-label">Tầng
                 <span id="colorIcon">*</span>
             </label>
-            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tang" name="tang">
+            <select required style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tang" name="tang">
                 <option value="">Chọn Tầng</option>
                 @foreach($tang as $tang)
                 <option value="{{$tang->id_tang}}" data-id-toa="{{$tang->id_toa}}">{{$tang->ten}}</option>
@@ -56,11 +56,11 @@
             <label class="form-label">Phòng
                 <span id="colorIcon">*</span>
             </label>
-            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="phong" name="phong">
-            <option value="">Chọn phòng</option>
+            <select required style="cursor: pointer;" class="form-control" aria-label="Default select example" id="phong" name="phong">
+            <option  value="">Chọn phòng</option>
                 @foreach($phong as $phong)
                     @if($phong->tinhtrang == 0)
-                    <option value="{{$phong->id_phong}}" data-id-tang="{{$phong->id_tang}}">{{$phong->ten}}</option>
+                    <option  value="{{$phong->id_phong}}" data-id-tang="{{$phong->id_tang}}">{{$phong->ten}}</option>
                     @endif
                 @endforeach
             </select>
@@ -93,8 +93,7 @@
             <label class="form-label">Nội dung
                 <span id="colorIcon">*</span>
             </label>
-            <textarea required class="form-control" name="noidung" id="noidung">
-            </textarea>
+            <textarea required class="form-control" name="noidung" id="noidung"></textarea>
         </div>
         <div class="mb-3 option-tieude">
             <label class="form-label">Gía thuê

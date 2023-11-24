@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 18, 2023 lúc 05:51 PM
+-- Thời gian đã tạo: Th10 24, 2023 lúc 05:20 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -42,7 +42,8 @@ CREATE TABLE `baixe` (
 --
 
 INSERT INTO `baixe` (`id_baixe`, `ms`, `loaixe`, `tinhtrang`, `gia`, `created_at`, `updated_at`) VALUES
-(1, 'A001', 'Xe máy', 1, 300000, '2023-08-28 19:56:14', '2023-11-16 06:47:23');
+(1, 'A001', 'Xe máy', 1, 300000, '2023-08-28 19:56:14', '2023-11-16 06:47:23'),
+(2, 'A002', 'Ô tô', 1, 200000, '2023-11-23 09:27:55', '2023-11-23 09:33:05');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,8 @@ CREATE TABLE `dien` (
 INSERT INTO `dien` (`id`, `id_phong`, `chiso_cu`, `chiso_moi`, `thoigian`, `dongia`, `thanhtien`, `created_at`, `updated_at`) VALUES
 (1, 1, 0, 3, '2023-09-28', 10000, NULL, '2023-09-27 21:46:32', '2023-09-27 21:46:32'),
 (2, 1, 3, 10, '2023-10-24', 7000, NULL, '2023-10-24 00:28:34', '2023-10-24 00:28:34'),
-(3, 4, 0, 7, '2023-11-18', 10000, 70000, '2023-11-18 09:41:40', '2023-11-18 09:41:40');
+(3, 4, 0, 7, '2023-11-18', 10000, 70000, '2023-11-18 09:41:40', '2023-11-18 09:41:40'),
+(4, 5, 0, 7, '2023-11-23', 10000, 70000, '2023-11-23 09:37:03', '2023-11-23 09:37:03');
 
 -- --------------------------------------------------------
 
@@ -149,7 +151,8 @@ INSERT INTO `hoadon` (`id`, `id_phong`, `thoigian`, `tiendien`, `tiennuoc`, `tie
 (18, 1, '2023-10-17', 30000, 60000, 20000, 'adv', 100000, 210000, 1, '2023-10-17 08:43:05', '2023-10-17 08:43:39'),
 (19, 1, '2023-10-24', 49000, 40000, 100000, 'Sửa chữa', 100000, 289000, 0, '2023-10-24 00:29:55', '2023-10-24 00:29:55'),
 (20, 1, '2023-10-24', 49000, 40000, 100000, 'Phụ thu', 100000, 289000, 0, '2023-10-24 01:03:59', '2023-10-24 01:03:59'),
-(21, 4, '2023-11-18', 70000, 100000, NULL, '', 0, 170000, 1, '2023-11-18 09:43:33', '2023-11-18 09:50:49');
+(21, 4, '2023-11-18', 70000, 100000, NULL, '', 0, 170000, 1, '2023-11-18 09:43:33', '2023-11-18 09:50:49'),
+(22, 5, '2023-11-23', 70000, 70000, 200000, '', 0, 340000, 0, '2023-11-23 09:38:05', '2023-11-23 09:38:05');
 
 -- --------------------------------------------------------
 
@@ -182,7 +185,8 @@ INSERT INTO `hopdong` (`id_hopdong`, `id_user`, `id_ql`, `id_phong`, `id_baixe`,
 (4, 4, 1, 2, 1, NULL, NULL, '2023-11-16', '2023-12-10', '2023-11-16 06:47:23', '2023-11-16 06:47:23'),
 (5, 4, 1, 3, NULL, 'Đã thuê phòng xxx chấp nhận điều khoản,....', '200000/tháng', '2023-11-18', '2023-11-18', '2023-11-18 07:58:33', '2023-11-18 08:13:16'),
 (6, 2, 1, 4, NULL, 'Ông Văn A đã chấp nhận mọi điều khoản,....', '1000000000/năm', '2023-11-18', '2023-11-19', '2023-11-18 08:17:54', '2023-11-18 08:17:54'),
-(7, 4, 1, 1, NULL, 'ằdvsdvs', '200.000.000/năm', '2023-11-16', '2023-11-17', '2023-11-18 08:19:39', '2023-11-18 08:19:39');
+(7, 4, 1, 1, NULL, 'ằdvsdvs', '200.000.000/năm', '2023-11-16', '2023-11-17', '2023-11-18 08:19:39', '2023-11-18 08:19:39'),
+(8, 5, 1, 5, 2, 'Hợp đồng thuê được cả hai bên chấp nhận mọi .......', '1000000000/năm', '2023-11-23', '2023-11-23', '2023-11-23 09:33:05', '2023-11-23 09:33:05');
 
 -- --------------------------------------------------------
 
@@ -209,7 +213,8 @@ CREATE TABLE `nuoc` (
 INSERT INTO `nuoc` (`id`, `id_phong`, `chiso_cu`, `chiso_moi`, `thoigian`, `dongia`, `thanhtien`, `created_at`, `updated_at`) VALUES
 (1, 1, 0, 3, '2023-09-28', 20000, NULL, '2023-09-27 22:07:47', '2023-09-27 22:07:47'),
 (2, 1, 3, 7, '2023-10-24', 10000, NULL, '2023-10-24 00:29:13', '2023-10-24 00:29:13'),
-(3, 4, 0, 10, '2023-11-18', 10000, 100000, '2023-11-18 09:41:58', '2023-11-18 09:41:58');
+(3, 4, 0, 10, '2023-11-18', 10000, 100000, '2023-11-18 09:41:58', '2023-11-18 09:41:58'),
+(4, 5, 0, 10, '2023-11-23', 7000, 70000, '2023-11-23 09:37:38', '2023-11-23 09:37:38');
 
 -- --------------------------------------------------------
 
@@ -265,7 +270,8 @@ INSERT INTO `phong` (`id_phong`, `ten`, `id_tang`, `tinhtrang`, `created_at`, `u
 (1, 'P101', 1, 0, '2023-08-28 19:54:40', '2023-11-18 08:20:05'),
 (2, 'P2', 1, 1, '2023-10-12 10:57:33', '2023-11-16 06:47:23'),
 (3, 'P101-2', 2, 0, '2023-10-24 00:57:36', '2023-11-18 08:20:05'),
-(4, 'P201-2', 2, 1, '2023-11-18 08:15:40', '2023-11-18 08:17:54');
+(4, 'P201-2', 2, 1, '2023-11-18 08:15:40', '2023-11-18 08:17:54'),
+(5, 'P101-3', 3, 1, '2023-11-23 09:27:03', '2023-11-23 09:33:05');
 
 -- --------------------------------------------------------
 
@@ -287,7 +293,8 @@ CREATE TABLE `tang` (
 
 INSERT INTO `tang` (`id_tang`, `ten`, `id_toa`, `created_at`, `updated_at`) VALUES
 (1, 'Tầng 1-1', 1, '2023-08-28 19:50:30', '2023-10-24 00:53:18'),
-(2, 'Tầng 2-2', 2, '2023-10-24 00:52:44', '2023-10-24 00:53:06');
+(2, 'Tầng 2-2', 2, '2023-10-24 00:52:44', '2023-10-24 00:53:06'),
+(3, 'T1-3', 3, '2023-11-23 09:26:35', '2023-11-23 09:26:35');
 
 -- --------------------------------------------------------
 
@@ -318,7 +325,8 @@ INSERT INTO `thongbao` (`id_thongbao`, `id_user`, `tieude`, `noidung`, `thoigian
 (5, 1, 'Thông báo', 'ầvsav', '2023-10-24 14:50:13', 0, '2023-10-24 07:50:13', '2023-10-24 07:50:13'),
 (6, 1, 'Thông báo', 'ấvadvdv', '2023-10-24 15:00:54', 1, '2023-10-24 08:00:54', '2023-10-24 08:00:54'),
 (7, 1, 'Thông báo', 'ácvdava', '2023-10-24 15:01:13', 2, '2023-10-24 08:01:13', '2023-10-24 08:01:13'),
-(8, 1, 'Thông báo mới', 'Thực hiện PCCC', '2023-11-01 14:29:34', 0, '2023-11-01 07:29:34', '2023-11-01 07:29:34');
+(8, 1, 'Thông báo mới', 'Thực hiện PCCC', '2023-11-01 14:29:34', 0, '2023-11-01 07:29:34', '2023-11-01 07:29:34'),
+(9, 1, 'Thông báo 23/11', 'Thông báo phòng P101-3 ồn ào', '2023-11-23 16:36:22', 5, '2023-11-23 09:36:22', '2023-11-23 09:36:22');
 
 -- --------------------------------------------------------
 
@@ -344,7 +352,8 @@ CREATE TABLE `tintuc` (
 INSERT INTO `tintuc` (`id`, `tieude`, `id_user`, `hinhanh`, `noidung`, `thoigian`, `created_at`, `updated_at`) VALUES
 (14, 'Gía chung cư', 1, 'upload/1698844968.jpg', '<p>Bạn cần phải làm gì để đầu tư Bất động sản hiệu quả? Đây là câu hỏi luôn được đặt ra nhiều năm trở lại đây.</p><p>Ai cũng biết rằng, các tỉ phú thế giới hiện nay. Có rất nhiều người xuất thân từ Bất động sản. Bất động sản không phải là lĩnh vực mới, mang lại lợi nhuận cao và rủi ro cũng cao.</p><p>Luôn có nhiều và đầy đủ nguồn thông tin. Chúng tôi xử lý và đánh giá thông tin liên quan tới thị trường, xu hướng,… Vinh dự luôn cùng đồng hành với nhiều đối tác, bạn bè để cùng đầu tư sinh lợi nhuận trong lĩnh vực Bất động sản.</p><p>Liên hệ ngay 0916.199.656 để tham gia câu lạc bộ đầu tư Bất động sản. Bạn có thể tham khảo các dự án Bất động sản bằng cách sử dụng chức năng tìm kiếm bên dưới.</p>', '2023-10-24', '2023-10-24 00:35:58', '2023-11-01 06:22:48'),
 (15, 'Thông báo', 1, 'upload/1698844980.png', '<p>Bạn cần phải làm gì để đầu tư Bất động sản hiệu quả? Đây là câu hỏi luôn được đặt ra nhiều năm trở lại đây.</p><p>Ai cũng biết rằng, các tỉ phú thế giới hiện nay. Có rất nhiều người xuất thân từ Bất động sản. Bất động sản không phải là lĩnh vực mới, mang lại lợi nhuận cao và rủi ro cũng cao.</p><p>Luôn có nhiều và đầy đủ nguồn thông tin. Chúng tôi xử lý và đánh giá thông tin liên quan tới thị trường, xu hướng,… Vinh dự luôn cùng đồng hành với nhiều đối tác, bạn bè để cùng đầu tư sinh lợi nhuận trong lĩnh vực Bất động sản.</p><p>Liên hệ ngay 0916.199.656 để tham gia câu lạc bộ đầu tư Bất động sản. Bạn có thể tham khảo các dự án Bất động sản bằng cách sử dụng chức năng tìm kiếm bên dưới.</p>', '2023-11-01', '2023-11-01 03:57:13', '2023-11-01 06:23:00'),
-(16, 'ĐỂ ĐẦU TƯ BẤT ĐỘNG SẢN HIỆU QUẢ', 1, 'upload/1698839724.jpg', '<p>Bạn cần phải làm gì để đầu tư Bất động sản hiệu quả? Đây là câu hỏi luôn được đặt ra nhiều năm trở lại đây.</p><p>Ai cũng biết rằng, các tỉ phú thế giới hiện nay. Có rất nhiều người xuất thân từ Bất động sản. Bất động sản không phải là lĩnh vực mới, mang lại lợi nhuận cao và rủi ro cũng cao.</p><p>Luôn có nhiều và đầy đủ nguồn thông tin. Chúng tôi xử lý và đánh giá thông tin liên quan tới thị trường, xu hướng,… Vinh dự luôn cùng đồng hành với nhiều đối tác, bạn bè để cùng đầu tư sinh lợi nhuận trong lĩnh vực Bất động sản.</p><p>Liên hệ ngay 0916.199.656 để tham gia câu lạc bộ đầu tư Bất động sản. Bạn có thể tham khảo các dự án Bất động sản bằng cách sử dụng chức năng tìm kiếm bên dưới.</p>', '2023-11-01', '2023-11-01 04:55:24', '2023-11-01 04:55:24');
+(16, 'ĐỂ ĐẦU TƯ BẤT ĐỘNG SẢN HIỆU QUẢ', 1, 'upload/1698839724.jpg', '<p>Bạn cần phải làm gì để đầu tư Bất động sản hiệu quả? Đây là câu hỏi luôn được đặt ra nhiều năm trở lại đây.</p><p>Ai cũng biết rằng, các tỉ phú thế giới hiện nay. Có rất nhiều người xuất thân từ Bất động sản. Bất động sản không phải là lĩnh vực mới, mang lại lợi nhuận cao và rủi ro cũng cao.</p><p>Luôn có nhiều và đầy đủ nguồn thông tin. Chúng tôi xử lý và đánh giá thông tin liên quan tới thị trường, xu hướng,… Vinh dự luôn cùng đồng hành với nhiều đối tác, bạn bè để cùng đầu tư sinh lợi nhuận trong lĩnh vực Bất động sản.</p><p>Liên hệ ngay 0916.199.656 để tham gia câu lạc bộ đầu tư Bất động sản. Bạn có thể tham khảo các dự án Bất động sản bằng cách sử dụng chức năng tìm kiếm bên dưới.</p>', '2023-11-01', '2023-11-01 04:55:24', '2023-11-01 04:55:24'),
+(17, 'Tin tức 23/11/2023', 1, 'upload/1700757319.png', '<p>tình hình chung cư</p>', '2023-11-23', '2023-11-23 09:35:19', '2023-11-23 09:35:19');
 
 -- --------------------------------------------------------
 
@@ -365,7 +374,8 @@ CREATE TABLE `toa` (
 
 INSERT INTO `toa` (`id_toa`, `ten`, `created_at`, `updated_at`) VALUES
 (1, 'T1', NULL, NULL),
-(2, 'T2', '2023-10-24 00:52:20', '2023-10-24 00:52:20');
+(2, 'T2', '2023-10-24 00:52:20', '2023-10-24 00:52:20'),
+(3, 'T3', '2023-11-23 09:26:09', '2023-11-23 09:26:09');
 
 -- --------------------------------------------------------
 
@@ -395,7 +405,8 @@ INSERT INTO `users` (`id`, `name`, `ngaysinh`, `email`, `sdt`, `password`, `quye
 (1, 'Nguyen Chien Thang', NULL, 'nguyenchienthang2632001@gmail.com', '0582427509', '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', 0, '6546545466', NULL, NULL, NULL),
 (2, 'Khách Văn A', '1999-11-25', 'a@gmail.com', '02118512', '$2y$10$WdQ97EnrxgHmuDDhQA9afOKwMV6l3BC43H/MC.rBn6eDE8DwCyMMC', 2, '6415684', 1, '2023-10-07 07:26:31', '2023-10-27 07:30:54'),
 (3, 'Khách Văn A', '2002-10-13', 'b@gmail.com', '024654511', '$2y$10$6VNxhYx3POKU1qSWHTTg9e5jvv5FHM6S4.mWEB6ArDFvL9He9Imse', 2, '6415684152', 1, '2023-10-12 10:56:43', '2023-10-12 10:56:43'),
-(4, 'Văn C', '1999-12-24', 'c@gmail.com', '0154651554', '$2y$10$znNHeK2uGgahTBKVdrkp0OGU638f8EKQ3914uRZFmCqSmRM/VJnSy', 2, '564532154', 1, '2023-10-24 00:54:38', '2023-10-24 01:00:54');
+(4, 'Văn C', '1999-12-24', 'c@gmail.com', '0154651554', '$2y$10$znNHeK2uGgahTBKVdrkp0OGU638f8EKQ3914uRZFmCqSmRM/VJnSy', 2, '564532154', 1, '2023-10-24 00:54:38', '2023-10-24 01:00:54'),
+(5, 'Nguyễn Văn D', '1999-01-01', 'd@gmail.com', '0254651515', '$2y$10$f8KKbCYmfrM/fLfD8mIc9.fRaLTz92pZptGptAXFvhIJ3iYlMyX2C', 2, '21561665452554', 1, '2023-11-23 09:31:49', '2023-11-23 09:31:49');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -487,7 +498,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `baixe`
 --
 ALTER TABLE `baixe`
-  MODIFY `id_baixe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_baixe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `baocaosc`
@@ -499,25 +510,25 @@ ALTER TABLE `baocaosc`
 -- AUTO_INCREMENT cho bảng `dien`
 --
 ALTER TABLE `dien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `hopdong`
 --
 ALTER TABLE `hopdong`
-  MODIFY `id_hopdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_hopdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `nuoc`
 --
 ALTER TABLE `nuoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `phanhoi`
@@ -529,37 +540,37 @@ ALTER TABLE `phanhoi`
 -- AUTO_INCREMENT cho bảng `phong`
 --
 ALTER TABLE `phong`
-  MODIFY `id_phong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_phong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `tang`
 --
 ALTER TABLE `tang`
-  MODIFY `id_tang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_tang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `thongbao`
 --
 ALTER TABLE `thongbao`
-  MODIFY `id_thongbao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_thongbao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `tintuc`
 --
 ALTER TABLE `tintuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `toa`
 --
 ALTER TABLE `toa`
-  MODIFY `id_toa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_toa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

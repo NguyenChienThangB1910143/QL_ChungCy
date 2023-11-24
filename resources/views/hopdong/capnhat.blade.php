@@ -15,39 +15,39 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Tên Khách</label>
-                <input style="cursor: not-allowed;" name="ten_user" class="form-control" value="{{$capnhat->ten_user}}">
+                <input required style="cursor: not-allowed;" name="ten_user" class="form-control" value="{{$capnhat->ten_user}}">
             </div>
             <div class="mb-3">
                 <label class="form-label">Tên Quản Lý</label>
-                <input style="cursor: not-allowed;" name="ten_ql" class="form-control" value="{{$capnhat->ten_ql}}">
+                <input required style="cursor: not-allowed;" name="ten_ql" class="form-control" value="{{$capnhat->ten_ql}}">
             </div>
             <div class="mb-3">
                 <label class="form-label">Mã phòng</label>
-                <input style="cursor: not-allowed;" name="ten_phong" class="form-control" value="{{$capnhat->ten_phong}}">
+                <input required style="cursor: not-allowed;" name="ten_phong" class="form-control" value="{{$capnhat->ten_phong}}">
             </div>
             <div class="mb-3">
                 <label class="form-label">Mã BX</label>
-                <input style="cursor: not-allowed;" name="ms_baixe" class="form-control" value="{{$capnhat->ms_baixe}}">
+                <input  name="ms_baixe" class="form-control" value="{{$capnhat->ms_baixe}}">
             </div>
             <div class="mb-3">
                 <label class="form-label">Nội dung</label>
-                <textarea  name="noidung" class="form-control" value="{{$capnhat->noidung}}"></textarea>
+                <textarea required  name="noidung" class="form-control" value="{{$capnhat->noidung}}"></textarea>
             </div>
             <div class="mb-3">
                 <label class="form-label">Gía thuê</label>
-                <input  name="gia" class="form-control" value="{{$capnhat->gia}}">
+                <input required  name="gia" class="form-control" value="{{$capnhat->gia}}">
             </div>
             <div class="mb-3 text-left">
                 <label class="form-label">Ngày ký
-                    <span id="colorIcon">*</span>
+                    <span  id="colorIcon">*</span>
                 </label>
-                <input style="cursor: pointer;" required value="{{$capnhat->ngaybatdau}}" name="ngaybatdau" class="form-control" type="date">
+                <input required style="cursor: pointer;" required value="{{$capnhat->ngaybatdau}}" name="ngaybatdau" class="form-control" type="date">
             </div>
             <div class="mb-3 text-left">
                 <label class="form-label">Ngày hết hạn
                     <span id="colorIcon">*</span>
                 </label>
-                <input style="cursor: pointer;" required value="{{$capnhat->ngayketthuc}}" name="ngayketthuc" class="form-control" type="date">
+                <input required style="cursor: pointer;" required value="{{$capnhat->ngayketthuc}}" name="ngayketthuc" class="form-control" type="date">
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success col-md-5" id="side123">Chỉnh sửa</button>

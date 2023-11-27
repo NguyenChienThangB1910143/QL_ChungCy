@@ -10,7 +10,7 @@
             <label class="form-label">Tòa
                 <span id="colorIcon">*</span>
             </label>
-            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="toa" name="toa">
+            <select required style="cursor: pointer;" class="form-control" aria-label="Default select example" id="toa" name="toa">
                 <option value="">Chọn Tòa</option>
                 @foreach($toa as $toa)
                 <option value="{{$toa->id_toa}}">{{$toa->ten}}</option>
@@ -22,7 +22,7 @@
             <label class="form-label">Tầng
                 <span id="colorIcon">*</span>
             </label>
-            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tang" name="tang">
+            <select required style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tang" name="tang">
                 <option value="">Chọn Tầng</option>
                 @foreach($tang as $tang)
                 <option value="{{$tang->id_tang}}" data-id-toa="{{$tang->id_toa}}">{{$tang->ten}}</option>

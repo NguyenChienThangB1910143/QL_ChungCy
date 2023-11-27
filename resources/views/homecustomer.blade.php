@@ -78,10 +78,10 @@
                 <h5>Tin Tức</h5>
               </div>
             </a>
-            <a href="" class="icon-box shadow">
+            <a href="{{route('thongbaoCT')}}" class="icon-box shadow">
               <div>
-                <i class="fas fa-phone icon"></i>
-                <h5>Liên Hệ</h5>
+                <i class="fas fa-bell icon"></i>
+                <h5>Thông báo</h5>
               </div>
             </a>
           </div>

@@ -44,7 +44,6 @@
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h4 class="modal-title">Thêm Phòng</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -59,32 +58,37 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between me-md-2 mt-1 mb-1">
-            <!-- Lọc theo tòa -->
-            <div class="form-group">
-                <select class="form-control" id="toa" onchange="location = this.value;">
-                    <option value="{{ route('phong') }}">Chọn Tòa</option>
-                    @foreach ($toa as $item)
-                    <option value="{{ route('phong', ['toa' => $item->id_toa]) }}" {{ request()->toa == $item->id_toa ? 'selected' : '' }}>{{ $item->ten }}</option>
-                   @endforeach
-                </select>
-            </div>
-            <!-- Lọc theo tầng -->
-            <div class="form-group">
-                <select class="form-control" id="tang" onchange="location = this.value;">
-                    <option value="{{ route('phong') }}">Chọn Tầng</option>
-                    @foreach ($tang as $item)
-                        <option value="{{ route('phong', ['toa' => request()->toa, 'tang' => $item->id_tang]) }}" {{ request()->tang == $item->id_tang ? 'selected' : '' }}>{{ $item->ten }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <!-- Lọc theo tình trạng -->
-            <div class="form-group">
-                <select class="form-control" id="tinhtrang" onchange="location = this.value;">
-                    <option value="{{ route('phong') }}">Tình Trạng</option>
-                    <option value="{{ route('phong', ['toa' => request()->toa, 'tang' => request()->tang, 'tinhtrang' => 0]) }}" {{ request()->tinhtrang == '0' ? 'selected' : '' }}>Còn trống</option>
-                    <option value="{{ route('phong', ['toa' => request()->toa, 'tang' => request()->tang, 'tinhtrang' => 1]) }}" {{ request()->tinhtrang == '1' ? 'selected' : '' }}>Đã thuê</option>
-                </select>
-            </div>
+                <div class="row">
+                    <!-- Lọc theo tòa -->
+                    <div class="form-group col-md-4 ml-3 text-left">
+                        <select class="form-control" id="toa" onchange="location = this.value;">
+                            <option value="{{ route('phong') }}">Chọn Tòa</option>
+                            @foreach ($toa as $item)
+                                <option value="{{ route('phong', ['toa' => $item->id_toa]) }}" {{ request()->toa == $item->id_toa ? 'selected' : '' }}>{{ $item->ten }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                
+                    <!-- Lọc theo tầng -->
+                    <div class="form-group col-md-4 ml-3 text-left">
+                        <select class="form-control" id="tang" onchange="location = this.value;">
+                            <option value="{{ route('phong') }}">Chọn Tầng</option>
+                            @foreach ($tang as $item)
+                                <option value="{{ route('phong', ['toa' => request()->toa, 'tang' => $item->id_tang]) }}" {{ request()->tang == $item->id_tang ? 'selected' : '' }}>{{ $item->ten }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                
+                    <!-- Lọc theo tình trạng -->
+                    <div class="form-group col-md-4 ml-3 text-left">
+                        <select class="form-control" id="tinhtrang" onchange="location = this.value;">
+                            <option value="{{ route('phong') }}">Tình Trạng</option>
+                            <option value="{{ route('phong', ['toa' => request()->toa, 'tang' => request()->tang, 'tinhtrang' => 0]) }}" {{ request()->tinhtrang == '0' ? 'selected' : '' }}>Còn trống</option>
+                            <option value="{{ route('phong', ['toa' => request()->toa, 'tang' => request()->tang, 'tinhtrang' => 1]) }}" {{ request()->tinhtrang == '1' ? 'selected' : '' }}>Đã thuê</option>
+                        </select>
+                    </div>
+                </div>
+                
             <div>
                     <button class="btn btn-success" onclick=them_phong() type="button">
                         <i class="fas fa-plus"></i> Thêm</button>

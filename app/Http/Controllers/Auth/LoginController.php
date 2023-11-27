@@ -93,7 +93,7 @@ class LoginController extends Controller
                     'password' => Hash::make($request->input('new-password')) // Hashing passwords
                 ]);
                 
-                return redirect()->route('forgot-password')->withSuccess('Lấy lại mật khẩu thành công.');
+                return redirect()->route('forgot-password')->withSuccess('Đổi mật khẩu thành công.');
             }else{
                 return redirect()->route('forgot-password')->withErrors('Mật khẩu cũ không đúng.');
             }

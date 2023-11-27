@@ -24,11 +24,12 @@
                     <label for="year">Năm:</label>
                     <select id="year" name="year" required onchange="updateChart(this.value)">
                         @for ($i = 2000; $i <= date('Y'); $i++)
-                            <option value="{{ $i }}">{{ $i }}</option>
+                            <option value="{{ $i }}" {{ $i == date('Y') ? 'selected' : '' }}>{{ $i }}</option>
                         @endfor
                     </select>
                 </div>
             </form>
+            
             
 <!-- Chart container -->
             <div class="container">

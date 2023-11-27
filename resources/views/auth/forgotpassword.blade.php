@@ -9,7 +9,7 @@
   <!-- start content-login -->
   <div class="content-login">
     <div class="box-forgot-password">
-      <h3>Quên mật khẩu</h3></h3>
+      <h3>Đổi mật khẩu</h3></h3>
       <form action="{{route('forgot-password')}}" method="post" class="d-flex align-items-center justify-content-center form-login">
         {{ csrf_field() }}
         <div class="container mt-3 ">
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="d-grid gap-2 col-12 mx-auto">
-            <button type="submit" class="btn btn-primary-login mb-3  form-rounded-1">Lấy lại mật khẩu</button>
+            <button type="submit" class="btn btn-primary-login mb-3  form-rounded-1">Đổi mật khẩu</button>
           </div>
           <div class="d-grid align-items-center justify-content-center ">
             <a href="{{route('login')}}" style="color: #000!important" class="text-danger text-decoration-none">Đăng nhập</a>

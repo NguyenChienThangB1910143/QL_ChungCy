@@ -9,7 +9,6 @@ use App\Http\Controllers\HomeCustomerController;
 use App\Http\Controllers\HopDongController;
 use App\Http\Controllers\NuocController;
 use App\Http\Controllers\PhongController;
-use App\Http\Controllers\ThongKeController;
 use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\TangController;
 use App\Http\Controllers\TinTucController;
@@ -75,8 +74,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/taikhoan/them', [TaiKhoanController::class, 'store'])->name('taikhoan-store');
     Route::get('/taikhoan/chinhsua/{id}', [TaiKhoanController::class, 'chinhsua'])->name('taikhoan-chinhsua');
     Route::post('/taikhoan/update/{id}', [TaiKhoanController::class, 'update'])->name('taikhoan-update');
-    // thong ke
-    Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
     // bai xe
     Route::get('/baixe', [BaiXeController::class, 'index'])->name('baixe');
     Route::get('/baixe/them', [BaiXeController::class, 'them'])->name('baixe-them');
@@ -151,7 +148,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hoadon/getDienNuoc', [HoaDonController::class,'getDienNuoc'])->name('getDienNuoc');
     Route::get('/hoadon/getBaixe', [HoaDonController::class,'getBaixe'])->name('getBaixe');
 
-    Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
 });
 route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload');
 

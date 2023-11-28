@@ -10,7 +10,7 @@
             <a href="{{route('home')}}">Trang Chủ</a>
         </li>
         <li class="{{mb_strtolower($title)=='Chung cư'?'active':''}}">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Chung cư</a>
+            <a href="#"  data-toggle="dropdown">Chung cư</a>
                 <ul class="dropdown-menu">
                     <li class="{{mb_strtolower($title)=='tòa'?'active':''}}">
                         <a href="{{route('toa')}}">Tòa</a>
@@ -39,7 +39,7 @@
             <a href="{{route('thongbao')}}">Thông báo</a>
         </li>
         <li class="{{mb_strtolower($title)=='điện nước'?'active':''}}">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Điện Nước</a>
+            <a href="#" data-toggle="dropdown">Điện Nước</a>
                 <ul class="dropdown-menu">
                     <li><a href="{{route('dien')}}">Điện</a></li>
                     <li><a href="{{route('nuoc')}}">Nước</a></li>
@@ -51,8 +51,6 @@
         <li class="{{mb_strtolower($title)=='Báo cáo sự cố'?'active':''}}">
             <a href="{{route('phanhoi')}}">Báo cáo sự cố</a>
         </li>
-        <li class="{{mb_strtolower($title)=='thống kê'?'active':''}}">
-            <a href="{{route('thongke')}}">Thống kê</a>
-        </li>
+
     </ul>
 </nav>

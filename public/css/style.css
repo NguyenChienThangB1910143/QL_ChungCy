@@ -1,6 +1,10 @@
 .container {
     max-width: 1095px !important;
 }
+.close {
+    float: right;  /* Đặt nút bên phải */
+    border-radius: 50%;  /* Bo góc */
+}
 .user {
     width: 100%;
 }

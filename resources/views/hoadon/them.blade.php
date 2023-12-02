@@ -49,18 +49,18 @@
             <label class="form-label">Tiền điện
                 <span id="colorIcon">*</span>
             </label>
-            <input disabled required class="form-control" type="text" name="tiendien">
+            <input  required class="form-control" type="text" name="tiendien">
         </div>
         <div class="mb-3">
             <label class="form-label">Tiền nước
                 <span id="colorIcon">*</span>
             </label>
-            <input disabled required class="form-control" type="text" name="tiennuoc">
+            <input  required class="form-control" type="text" name="tiennuoc">
         </div>
         <div class="mb-3">
             <label class="form-label">Tiền bãi xe
             </label>
-            <input disabled  class="form-control" type="text" name="tienbaixe">
+            <input  class="form-control" type="text" name="tienbaixe">
         </div>
         <div class="mb-3">
             <label class="form-label">Khác

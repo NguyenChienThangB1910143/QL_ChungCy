@@ -71,6 +71,7 @@ a:hover {
     color: #fff;
     transition: all 0.3s;
     height: auto;
+    min-height: 600px;
 }
 
 #sidebar.active {

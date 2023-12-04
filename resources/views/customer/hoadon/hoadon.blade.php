@@ -85,6 +85,10 @@
                                     <i class="fas fa-eye"></i> 
                                 </button>
                                 @if($hoadon->tinhtrang==0)
+                                <form method="POST" action="{{ url('/MoMo/online_checkout/' . $hoadon->id) }}">
+                                    @csrf
+                                    <button type="submit" name="payUrl" class="btn btn-primary">MoMo</button>
+                                </form>
                                 <form method="POST" action="{{ url('/payment/create/' . $hoadon->id) }}">
                                     @csrf
                                     <button type="submit" class="btn btn-primary" name="redirect">Thanh toán</button>

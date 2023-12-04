@@ -22,6 +22,8 @@ use App\Http\Controllers\PhanHoiController;
 use App\Http\Controllers\ThongBaoController;
 use App\Http\Controllers\ThongBaoCustomerController;
 use App\Http\Controllers\HopDongCustomerController;
+use App\Http\Controllers\MoMoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -154,4 +156,7 @@ route::post('/upload',[TinTucController::class,'upload'])->name('ckeditor.upload
 //pay
 Route::post('/payment/create/{hoadon_id}', [PaymentController::class, 'createPayment']);
 Route::get('/payment/return', [PaymentController::class, 'returnPayment'])->name('payment.return');
+Route::post('/MoMo/online_checkout/{hoadon_id}', [MoMoController::class, 'online_checkout']);
+Route::get('/MoMo/redirect', [MoMoController::class, 'redirect']);
+
 

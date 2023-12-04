@@ -80,20 +80,28 @@
                             @endif
                             
                             
-                            <td style="display: flex;">
+                            <td style="display: flex; ">
                                 <button type="submit" onclick=chitiet_hoadon('{{$hoadon->id}}') class="btn btn-info">
                                     <i class="fas fa-eye"></i> 
                                 </button>
                                 @if($hoadon->tinhtrang==0)
-                                <form method="POST" action="{{ url('/MoMo/online_checkout/' . $hoadon->id) }}">
-                                    @csrf
-                                    <button type="submit" name="payUrl" class="btn btn-primary">MoMo</button>
-                                </form>
-                                <form method="POST" action="{{ url('/payment/create/' . $hoadon->id) }}">
-                                    @csrf
-                                    <button type="submit" class="btn btn-primary" name="redirect">Thanh toán</button>
-                                </form>
-                                @endif 
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Thanh toán
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <form method="POST" action="{{ url('/MoMo/online_checkout/' . $hoadon->id) }}">
+                                                @csrf
+                                                <button type="submit" name="payUrl" class="dropdown-item">MoMo</button>
+                                            </form>
+                                            <form method="POST" action="{{ url('/payment/create/' . $hoadon->id) }}">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item" name="redirect">VN PAY</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endif
+
                             </td>
                             
                         </tr>

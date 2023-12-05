@@ -164,7 +164,8 @@ class TinTucController extends Controller
         ];
         $tintucs = TinTuc::join('users', 'tintuc.id_user', '=', 'users.id')
             ->select('tintuc.*', 'users.name as ten_user')
-            ->paginate(5);
+            ->orderBy('tintuc.created_at', 'desc')
+            ->get();
 
         return view('customer/tintuc/tintuc', compact('title', 'tintucs', 'breadcrumbs'));
     }

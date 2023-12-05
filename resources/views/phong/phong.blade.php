@@ -96,13 +96,12 @@
             </div>
             <!-- Content -->
             <div class='p-4 d-flex flex-column' >
-                <table class="table table-hover mt-3">
-                    <thead style="background-color:#0d6efd; color:white;'"> 
+                <table id="tbphong" class="table table-striped" style="width:100%">
+                    <thead class="table-primary">
                     <tr>
-                        <th scope="col-6 col-md-4">Mã phòng</th>
+                        <th scope="col-6 col-md-4">Tên phòng</th>
                         <th scope="col-6 col-md-4">Tên Tầng</th>
                         <th scope="col-6 col-md-4">Tên Tòa</th>
-                        <th scope="col-6 col-md-4">Tên phòng</th>
                         <th scope="col-6 col-md-4">Tình Trạng</th>
                         <th scope="col-6 col-md-4">Tùy chỉnh</th>
                     </tr>
@@ -110,10 +109,9 @@
                     <tbody>
                         @foreach($phong as $phong)
                         <tr>
-                            <td>{{$phong->id_phong}}</td>
+                            <td>{{$phong->ten}}</td>
                             <td>{{$phong->ten_tang}}</td>
                             <td>{{$phong->ten_toa}}</td>
-                            <td>{{$phong->ten}}</td>
                             @if($phong->tinhtrang==0)
                                 <td>Còn trống</td> 
                             @else

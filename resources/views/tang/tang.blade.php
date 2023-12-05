@@ -65,10 +65,9 @@
                         <i class="fas fa-plus"></i> Thêm
                     </button>
                 </div>
-                <table class="table table-hover mt-3">
-                    <thead style="background-color:#0d6efd; color:white;'"> 
+                <table id="tbtang" class="table table-striped" style="width:100%">
+                    <thead class="table-primary"> 
                         <tr>
-                            <th scope="col-6 col-md-4">Mã tầng</th>
                             <th scope="col-6 col-md-4">Tên tầng</th>
                             <th scope="col-6 col-md-4">Mã tòa</th>
                             <th scope="col-6 col-md-4">Tùy chỉnh</th>
@@ -77,7 +76,6 @@
                     <tbody>
                         @foreach($tang as $tang)
                         <tr>
-                            <td>{{$tang->id_tang}}</td>
                             <td>{{$tang->ten}}</td>
                             <td>{{$tang->ten_toa}}</td>
                             <td>

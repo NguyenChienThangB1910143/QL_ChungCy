@@ -64,10 +64,9 @@
                     <button class="btn btn-success me-md-2 mt-1 mb-1" onclick=them_toa() type="button">
                         <i class="fas fa-plus"></i> Thêm</button>
                 </div>
-                <table class="table table-hover mt-3">
-                    <thead style="background-color:#0d6efd; color:white;'"> 
+                <table id="tbtoa" class="table table-striped" style="width:100%">
+                    <thead class="table-primary"> 
                         <tr>
-                            <th scope="col-6 col-md-4">Mã tòa</th>
                             <th scope="col-6 col-md-4">Tên tòa</th>
                             <th scope="col-6 col-md-4">Tùy chỉnh</th>
                         </tr>
@@ -75,7 +74,6 @@
                     <tbody>
                         @foreach($toa as $toa)
                         <tr>
-                            <td>{{$toa->id_toa}}</td>
                             <td>{{$toa->ten}}</td>
                             <td>
                                 <form action="{{route('toa-chinhsua', $toa->id_toa)}}" method="get">

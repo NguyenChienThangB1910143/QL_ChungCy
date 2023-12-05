@@ -139,9 +139,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/thongbao', [ThongBaoController::class, 'index'])->name('thongbao');
     Route::get('/thongbao/them', [ThongBaoController::class, 'them'])->name('thongbao-them');
     Route::post('/thongbao/them', [ThongBaoController::class, 'store'])->name('thongbao-store');
+    Route::get('/thongbao/chitiet/{id_thongbao}', [ThongBaoController::class, 'chitiet'])->name('thongbao-chitiet');
+
 
     //Thông báo Customer
     Route::get('/customer/thongbao', [ThongBaoCustomerController::class, 'index'])->name('thongbaoCT');
+    Route::get('/customer/thongbao/chitiet/{id_thongbao}', [ThongBaoCustomerController::class, 'chitiet'])->name('thongbaoct-chitiet');
+
 
     //Hợp đồng Customer
     Route::get('/customer/hopdong', [HopDongCustomerController::class, 'index'])->name('hopdongCT');

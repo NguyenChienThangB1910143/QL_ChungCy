@@ -36,5 +36,20 @@ class ThongBaoCustomerController extends Controller
     
         return view('customer/thongbao/thongbao', compact('title', 'thongbaoCT','hopdong','user', 'breadcrumbs'));
     }
-    
+    public function chitiet(Request $request)
+    {
+        $title = 'Thông báo';
+        $breadcrumbs = [
+            [
+                'name' => 'Thông báo',
+                'link' => '../'
+            ], [
+                'name' => 'thông báo',
+                'link' => './' . $request->id_thongbao
+            ]
+        ];
+        $cttb =  ThongBao::where('id_thongbao', $request->id_thongbao)->get();
+
+        return view('customer/thongbao/chitiet', compact('title', 'cttb', 'breadcrumbs'));
+    }
 }

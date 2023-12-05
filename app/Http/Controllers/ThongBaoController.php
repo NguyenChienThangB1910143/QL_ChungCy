@@ -50,5 +50,21 @@ class ThongBaoController extends Controller
 
         return redirect()->route('thongbao')->with('success', 'Thêm thành công');
     }
+    public function chitiet(Request $request)
+    {
+        $title = 'Thông báo';
+        $breadcrumbs = [
+            [
+                'name' => 'Thông báo',
+                'link' => '../'
+            ], [
+                'name' => 'thông báo',
+                'link' => './' . $request->id_thongbao
+            ]
+        ];
+        $chitiettb =  ThongBao::where('id_thongbao', $request->id_thongbao)->get();
+
+        return view('thongbao/chitiet', compact('title', 'chitiettb', 'breadcrumbs'));
+    }
     
 }

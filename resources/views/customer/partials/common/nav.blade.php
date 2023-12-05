@@ -8,15 +8,23 @@
         <a href="{{route('hopdongCT')}}">Hợp Đồng</a>
     </div>
     @php
-        $thoiGianKiemTra = \Carbon\Carbon::now()->subDay(); // Thay đổi theo nhu cầu của bạn
-        $coThongBaoMoi =\App\Models\ThongBao::where('created_at', '>', $thoiGianKiemTra)->exists();
-    @endphp
+    $userId = auth()->id(); // Get the id of the currently logged-in user
+    $thoiGianKiemTra = \Carbon\Carbon::now()->subDay(); // Change according to your needs
 
-    <div>
-        <a href="{{route('thongbaoCT')}}">
-            Thông báo 
-            <i class="fas fa-bell" style="{{ $coThongBaoMoi ? 'color: red;' : '' }}"></i> <!-- Biểu tượng thông báo -->
-        </a>
-    </div>
+    $coThongBaoMoi = \App\Models\ThongBao::where('created_at', '>', $thoiGianKiemTra)
+        ->where(function ($query) use ($userId) {
+            $query->where('nhan', 0)
+                ->orWhere('nhan', $userId);
+        })
+        ->exists();
+@endphp
+
+<div>
+    <a href="{{route('thongbaoCT')}}">
+        Thông báo 
+        <i class="fas fa-bell" style="{{ $coThongBaoMoi ? 'color: red;' : '' }}"></i> <!-- Notification icon -->
+    </a>
+</div>
+
 
 </nav>

@@ -23,8 +23,7 @@
             <label class="form-label">Nội dung
                 <span id="colorIcon">*</span>
             </label>
-            <textarea required class="form-control" name="noidung" id="noidung">
-            </textarea>
+            <textarea required class="form-control" name="noidung" id="noidung"></textarea>
         </div>
         <div class="mb-3 option-nhan">
             <label class="form-label">Người nhận

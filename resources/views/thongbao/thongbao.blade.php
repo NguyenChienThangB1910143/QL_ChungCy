@@ -39,6 +39,27 @@
                     </div>
                 </div>
             </div> --}}
+            <div class="modal fade" id="chitietthongbao">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Chi Tiết Thông báo</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="alert alert-danger" style="display:none"></div>
+                            <form method="GET" id="body_chitiet"  enctype="multipart/form-data">
+                                @csrf
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             <div class="modal fade" id="addthongbao">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -67,7 +88,7 @@
                 <table id="tbthongbao" class="table table-striped" style="width:100%">
                     <thead class="table-primary">  
                         <tr>
-                            <th scope="col-6 col-md-4">Mã Thông Báo</th>
+                            <th scope="col-6 col-md-4">Mã TB</th>
                             <th scope="col-6 col-md-4">Người Gửi</th>
                             <th scope="col-6 col-md-4">Tiêu Đề</th>
                             <th scope="col-6 col-md-4">Nội Dung</th>
@@ -82,8 +103,9 @@
                             <td>{{$thongbaos->id_thongbao}}</td>
                             <td>{{ \App\Models\User::find($thongbaos->id_user)->name }}</td>
 
-                            <td>{{$thongbaos->tieude}}</td>
-                            <td>{{$thongbaos->noidung}}</td>
+                            <td>{{ \Illuminate\Support\Str::limit($thongbaos->tieude, 30, '...') }}</td>
+                            <td>{{ \Illuminate\Support\Str::limit($thongbaos->noidung, 30, '...') }}</td>
+
                             <td>{{$thongbaos->thoigian}}</td>
                             <td>
                                 @if($thongbaos->nhan == 0)
@@ -92,14 +114,19 @@
                                     {{ \App\Models\Phong::find($thongbaos->nhan)->ten }}
                                 @endif
                             </td>
-                            
-                            <td>
-                                {{-- <form action="{{route('thongbao-chinhsua', $thongbao->id_thongbao)}}" method="get">
+                            <td class="d-flex justify-content-start">
+                                <button type="submit" onclick=chitiet_thongbao('{{$thongbaos->id_thongbao}}') class="btn btn-info me-md-3">
+                                    <i class="fas fa-eye"></i> 
+                                </button>
+                            </td>
+                            {{-- <td>
+                                <form action="{{route('thongbao-chinhsua', $thongbao->id_thongbao)}}" method="get">
                                         <button type="button" onclick=capnhat_thongbao('{{$thongbao->id_thongbao}}') class="btn btn-primary me-md-3">
                                             <i class="fas fa-edit"></i> Sửa
                                         </a>
-                                    </form> --}}
-                            </td>
+                                    </form>
+                                    
+                            </td> --}}
                         </tr>
                         @endforeach
                     </tbody>
@@ -124,6 +151,12 @@
             });
             $('#addthongbao').modal('show');
         }
+        function chitiet_thongbao(id_thongbao) {
+        $.get('./thongbao/chitiet/' + id_thongbao, function(data) {
+            $("#body_chitiet").html(data);
+        });
+        $('#chitietthongbao').modal('show');
+    }
         // function capnhat_thongbao(id_thongbao) {
         //     $.get('./thongbao/chinhsua/' + id_thongbao, function(data) {
         //         $("#body_edit").html(data);

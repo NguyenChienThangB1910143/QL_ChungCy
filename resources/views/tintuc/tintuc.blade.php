@@ -99,7 +99,7 @@
                         @foreach($tintucs as $tintuc)
                         <tr>
                             <td>{{$tintuc->id}}</td>
-                            <td>{{$tintuc->tieude}}</td>
+                            <td>{{ \Illuminate\Support\Str::limit($tintuc->tieude, 30, '...') }}</td>
                             <td>{{$tintuc->ten_user}}</td>
                             <td>{{$tintuc->thoigian}}</td>
                             <td class="d-flex justify-content-start">

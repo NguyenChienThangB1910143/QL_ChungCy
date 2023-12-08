@@ -16,5 +16,59 @@ NGUYEN VAN A
 03/07
 OTP: OTP
 
+Kính chào quí thầy cô cùng các bạn em tên NCT K45 khoa CNTT e xin trình bày phần báo cáo của e về hệ thống quản lý tòa nhà chung cư.
 
+* Đặt vấn đề:
+- Trong thời đại công nghệ số ngày nay, việc sử dụng các dịch vụ trực tuyến ngày càng trở nên phổ biến và tiện lợi.cùng với sự xuất hiện của nhiều chung cư được xây dựng và số lượng cư dân ở chung cư ngày càng nhiêu gây nên tình trạng giảm chất lượng và hiệu quả tương tác giữa quản lý và cư dân dẫn tới khó khăn trong việc quản lý các dịch vụ cung cấp cho cư dân để có thể cải thiện chúng ta cần hệ thống để thuận tiện cho việc quản lý và hỗ trợ người dùng.  
+- việc sử dụnghệ thống website quản lý chung cư nội bộ đang dần trở thành xu hướng mới, giúp người quản lý và cư dân thuê căn hộ dễ dàng truy cập và sử dụng các dịch vụ mà không cần phải đến trực tiếp văn phòng quản lý chung cư. Tuy nhiên, việc tìm kiếm và sử dụng các dịch vụ trên website quản lý chung cư vẫn còn nhiều khó khăn, đặc biệt đối với những người chưa có kinh nghiệm sử dụng dịch vụ trực tuyến trước đây
+- Để giải quyết những vấn đề này, các website quản lý chung cư đã ra đời và 
+ngày càng được phát triển với những tính năng và tiện ích mới nhằm giúp người dùng 
+có thể tìm kiếm và sử dụng các dịch vụ một cách dễ dàng, tiết kiệm thời gian và công 
+sức. 
 
+* Lịch sử giải quyết vấn đề:
+- Quản lý chung cư là một công việc phức tạp và quan trọng, bao gồm nhiều hoạt 
+động như quản lý và bảo trì hệ thống kỹ thuật, chăm sóc và quản lý khách hàng, quản 
+lý kiểm soát an ninh, quản lý vệ sinh tòa nhà chung cư, quản lý hoạt động tài chính, 
+và quản lý nhân viên. 
+- việc quản lý chung cư không phải lúc nào cũng diễn ra suôn sẻ. Trong 
+quá khứ, đã có nhiều vấn đề phát sinh liên quan đến quản lý chung cư, từ việc quản 
+lý vận hành, bảo dưỡng hệ thống kỹ thuật, đến việc giải quyết các mâu thuẫn giữa cư 
+dân trong chung cư. 
+- Để giải quyết những vấn đề này, Quốc hội, Chính phủ và Bộ Xây dựng Việt Nam 
+đã ban hành nhiều quy định về quản lý sử dụng nhà chung cư. Các quy định này đã 
+giúp cải thiện tình hình quản lý chung cư, tạo ra một môi trường sống tốt hơn cho cư 
+dân. 
+
+- Tuy nhiên, việc quản lý chung cư vẫn còn nhiều thách thức và cần sự cải tiến liên 
+tục. Điều quan trọng là cần có sự phối hợp chặt chẽ giữa Ban quản lý chung cư và cư 
+dân trong việc giải quyết các vấn đề phát sinh
+
+* Mục tiêu đề tài.
+- Mục tiêu của đề tài này là nghiên cứu, phát triển và triển khai một hệ thống 
+website quản lý chung cư nội bộ nhằm giúp người quản lý và cư dân thuê căn hộ dễ dàng quản lý và sử dụng các dịch vụ một cách nhanh chóng và thuận tiện hơn. Đồng 
+thời, đề tài cũng đặt ra mục tiêu phân tích và đánh giá hiệu quả của hệ thống website 
+với các tính năng chính như tìm kiếm, quản lý các căn hộ, quản lý các dịch vụ, quản 
+lý các hợp đồng thuê… Cụ thể, các mục tiêu của đề tài bao gồm: 
+- Từ đó, đề tài mong muốn đóng góp vào việc nâng cao trải nghiệm của người 
+dùng trong việc quản lý chung cư và giúp các doanh nghiệp quản lý chung cư một 
+cách hiệu quả hơn. 
+ 
+*I. 
+Kết quả đạt được: 
+Website quản lý chung cư đã thành công trong việc triển khai các chức năng cơ 
+bản cần thiết cho việc quản lý chung cư. Giao diện của website được thiết kế một 
+cách hài hòa, tạo sự thoải mái cho người dùng và đồng thời đáp ứng được các yêu 
+cầu chức năng đã đặt ra. 
+II. Hạn chế  
+Dù đã đạt được nhiều thành tựu, website vẫn còn một số hạn chế: - 
+Chưa thể xây dựng được chức năng cho phép cư dân tương tác trực tiếp 
+thông qua messenger.  - 
+Website cũng chưa hỗ trợ tính năng cho phép người dùng đăng ký tài khoản 
+và thuê phòng trực tuyến. 
+III. Hướng phát triển 
+Trong tương lai,  dự định phát triển hệ thống để có thể đáp ứng nhu cầu của một 
+lượng lớn người dùng muốn đăng ký tài khoản và thuê phòng trực tuyến. Dự định 
+thêm nhiều tính năng mới để tăng cường khả năng quản lý tương tác người dùng, giúp 
+người dùng có thể tương tác một cách hiệu quả với hệ thống. Xây dựng ứng dụng di 
+động sẽ giúp cư dân tiếp cận thông tin một cách nhanh chóng và thuận tiện hơn. 

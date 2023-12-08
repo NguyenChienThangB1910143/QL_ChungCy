@@ -29,13 +29,13 @@
                                     <p name="noidung" class="col-6 col-sm-6 text-view"><td>{{ \App\Models\User::find($chitiets->id_user)->name }}</td></p>
                                 </div>
                                 <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Người nhận:</div>
+                                    <div style="cursor: default;" class="col-6 col-sm-6"> Nhận:</div>
                                     <p name="noidung" class="col-6 col-sm-6 text-view">
                                         <td>
                                             @if($chitiets->nhan == 0)
                                                 Tất cả
                                             @else
-                                                {{ \App\Models\User::find($chitiets->nhan)->name }}
+                                                {{ \App\Models\Phong::find($chitiets->nhan)->ten }}
                                             @endif
                                         </td>
                                     </p>

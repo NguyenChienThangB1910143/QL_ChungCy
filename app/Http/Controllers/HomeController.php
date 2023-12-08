@@ -18,7 +18,7 @@ class HomeController extends Controller
         $baixe = Baixe::count();
         $baixe1 = Baixe::where('tinhtrang', 1)->count();
         $hopdong = Hopdong::where('ngayketthuc', '>', now())->count();
-        $user = User::count();
+        $user = User::where('quyen', 2)->count();
         $year = $request->get('year', date('Y')); // Get the year from the request, or use the current year as a default
         $thongke = [];
         for ($month = 1; $month <= 12; $month++) {

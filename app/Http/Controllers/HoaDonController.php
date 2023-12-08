@@ -10,7 +10,9 @@ use App\Models\Phong;
 use App\Models\Tang;
 use App\Models\Toa;
 use App\Models\HopDong;
+use App\Models\ThongBao;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HoaDonController extends Controller
 {
@@ -63,22 +65,31 @@ class HoaDonController extends Controller
     $thuthem = $request->input('thuthem') ?? 0;
     $thanhtien = $tiendien + $tiennuoc + $tienbaixe + $thuthem;
 
+    // Tạo hóa đơn mới
+    HoaDon::create([
+        'id_phong' => $id_phong,
+        'thoigian' => $thoigian,
+        'tiendien' => $tiendien,
+        'tiennuoc' => $tiennuoc,
+        'tienbaixe' => $tienbaixe, // Lưu tiền bãi xe vào cơ sở dữ liệu
+        'khac' => $khac,
+        'thuthem' => $thuthem,
+        'thanhtien' => $thanhtien,
+        'tinhtrang' => 0, // Tình trạng khi thêm là 0
+    ]);
 
-        // Tạo hóa đơn mới
-        HoaDon::create([
-            'id_phong' => $id_phong,
-            'thoigian' => $thoigian,
-            'tiendien' => $tiendien,
-            'tiennuoc' => $tiennuoc,
-            'tienbaixe' => $tienbaixe, // Lưu tiền bãi xe vào cơ sở dữ liệu
-            'khac' => $khac,
-            'thuthem' => $thuthem,
-            'thanhtien' => $thanhtien,
-            'tinhtrang' => 0, // Tình trạng khi thêm là 0
-        ]);
+    // Tạo thông báo mới
+    ThongBao::create([
+        'id_user' => Auth::user()->id, // Lấy id người dùng hiện tại
+        'tieude' => 'Thanh toán hóa đơn tháng ' . $thoigian,
+        'noidung' => 'Vui lòng thanh toán hóa đơn điện nước trong vòng 7 ngày sau khi nhận thông báo',
+        'nhan' => $id_phong,
+        'thoigian' => $thoigian,
+    ]);
 
-        return redirect()->route('hoadon')->with('success', 'Thêm thành công');
+    return redirect()->route('hoadon')->with('success', 'Thêm thành công');
 }
+
     public function hethan()
     {
         $title = 'Hóa Đơn';

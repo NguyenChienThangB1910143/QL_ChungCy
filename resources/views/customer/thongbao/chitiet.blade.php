@@ -20,37 +20,37 @@
                                         font-size: 1rem;
                                     }
                                 </style>
-                                <div class="row mb-1">
+                                <div class="row mb-1  mt-3">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Mã TB:</div>
-                                    <label name="id" class="col-6 col-sm-6 text-view">{{$cttbs->id_thongbao}}</label>
+                                    <label name="id" class="col-6 col-sm-6 ">{{$cttbs->id_thongbao}}</label>
                                 </div>
-                                <div class="row mb-1">
+                                <div class="row mb-1 mt-3">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Người gửi:</div>
-                                    <p name="nguoigui" class="col-6 col-sm-6 text-view"><td>{{ \App\Models\User::find($cttbs->id_user)->name }}</td></p>
+                                    <p name="nguoigui" class="col-6 col-sm-6"><td>{{ \App\Models\User::find($cttbs->id_user)->name }}</td></p>
                                 </div>
-                                <div class="row mb-1">
+                                <div class="row mb-1  mt-3">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Người nhận:</div>
-                                    <p name="nhan" class="col-6 col-sm-6 text-view">
+                                    <p name="nhan" class="col-6 col-sm-6 ">
                                         <td>
                                             @if($cttbs->nhan == 0)
                                                 Tất cả
                                             @else
-                                                {{ \App\Models\User::find($cttbs->nhan)->name }}
+                                            {{ \App\Models\Phong::find($cttbs->nhan)->ten }}
                                             @endif
                                         </td>
                                     </p>
                                 </div>                                
-                                <div class="row mb-1">
+                                <div class="row mb-1  mt-3">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Tiêu đề:</div>
-                                    <label name="tieude" class="col-6 col-sm-6 text-view">{{$cttbs->tieude}}</label>
+                                    <label name="tieude" class="col-6 col-sm-6">{{$cttbs->tieude}}</label>
                                 </div>
-                                <div class="row mb-1">
+                                <div class="row mb-1  mt-3">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Thời gian viết:</div>
-                                    <label name="thoigian" class="col-6 col-sm-6 text-view">{{$cttbs->thoigian}}</label>
+                                    <label name="thoigian" class="col-6 col-sm-6 ">{{$cttbs->thoigian}}</label>
                                 </div>
-                                <div class="row mb-1">
+                                <div class="row mb-1  mt-3">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Nội dung:</div>
-                                    <p name="noidung" class="col-6 col-sm-6 text-view">{!! $cttbs->noidung !!}</p>
+                                    <p name="noidung" class="col-6 col-sm-6">{!! $cttbs->noidung !!}</p>
                                 </div>
                             </div>
                         </div>

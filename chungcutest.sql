@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 08, 2023 lúc 02:45 AM
+-- Thời gian đã tạo: Th12 08, 2023 lúc 06:33 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -42,8 +42,9 @@ CREATE TABLE `baixe` (
 --
 
 INSERT INTO `baixe` (`id_baixe`, `ms`, `loaixe`, `tinhtrang`, `gia`, `created_at`, `updated_at`) VALUES
-(3, 'A001', 'Ô tô', 0, 100000, '2023-12-04 21:37:57', '2023-12-04 21:37:57'),
-(4, 'B001', 'Xe máy', 0, 50000, '2023-12-04 21:38:21', '2023-12-04 21:38:21');
+(3, 'A001', 'Ô tô', 1, 100000, '2023-12-04 21:37:57', '2023-12-08 04:23:05'),
+(4, 'B001', 'Xe máy', 1, 50000, '2023-12-04 21:38:21', '2023-12-08 04:26:12'),
+(5, 'A002', 'Ô tô', 0, 200000, '2023-12-08 04:32:02', '2023-12-08 04:32:02');
 
 -- --------------------------------------------------------
 
@@ -81,6 +82,14 @@ CREATE TABLE `dien` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `dien`
+--
+
+INSERT INTO `dien` (`id`, `id_phong`, `chiso_cu`, `chiso_moi`, `thoigian`, `dongia`, `thanhtien`, `created_at`, `updated_at`) VALUES
+(10, 12, 0, 10, '2023-02-01', 3000, 30000, '2023-12-08 04:41:41', '2023-12-08 04:41:41'),
+(11, 12, 10, 25, '2023-03-01', 10000, 150000, '2023-12-08 05:11:02', '2023-12-08 05:11:02');
+
 -- --------------------------------------------------------
 
 --
@@ -102,6 +111,14 @@ CREATE TABLE `hoadon` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `hoadon`
+--
+
+INSERT INTO `hoadon` (`id`, `id_phong`, `thoigian`, `tiendien`, `tiennuoc`, `tienbaixe`, `khac`, `thuthem`, `thanhtien`, `tinhtrang`, `created_at`, `updated_at`) VALUES
+(29, 12, '2023-02-01', 30000, 49000, NULL, 'Tiền sửa chữa hệ thống vòi sen', 100000, 179000, 0, '2023-12-08 04:44:04', '2023-12-08 04:44:04'),
+(30, 12, '2023-03-01', 150000, 56000, NULL, '', 0, 206000, 0, '2023-12-08 05:12:03', '2023-12-08 05:12:03');
+
 -- --------------------------------------------------------
 
 --
@@ -122,6 +139,17 @@ CREATE TABLE `hopdong` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `hopdong`
+--
+
+INSERT INTO `hopdong` (`id_hopdong`, `id_user`, `id_ql`, `id_phong`, `id_baixe`, `noidung`, `gia`, `ngaybatdau`, `ngayketthuc`, `created_at`, `updated_at`) VALUES
+(12, 7, 1, 9, 3, 'ông Nguyễn Phát Đức đã thuê căn hộ chung cư số P102-T1 tòa T1 đã thanh toán toàn bộ số tiền thuê trong 1 năm', '200.000.000/năm', '2023-12-08', '2024-12-08', '2023-12-08 04:23:04', '2023-12-08 04:23:04'),
+(13, 8, 1, 10, 4, 'ông Nguyễn Minh Khôi đã thuê căn hộ số P103-T1 tòa T1 đã thanh toán trước nữa năm tiền căn hộ', '200.000.000/năm', '2023-12-07', '2024-05-07', '2023-12-08 04:26:12', '2023-12-08 04:26:12'),
+(14, 9, 1, 11, NULL, 'ông Nguyễn Hữu Tín đã thuê căn hộ P104-T1 tòa T1 hợp đồng thuê được thực thi ngày 07/12/2023', '200.000.000/năm', '2023-12-07', '2023-12-31', '2023-12-08 04:30:08', '2023-12-08 04:30:08'),
+(15, 10, 1, 12, NULL, 'ông Huỳnh Văn Định đã thuê căn hộ số P105-T1 thời hạn nữa năm.', '200.000.000/năm', '2023-01-01', '2023-06-01', '2023-12-08 04:39:20', '2023-12-08 04:39:20'),
+(16, 10, 1, 12, NULL, 'ông Huỳnh Văn Định đã thuê căn hộ số P105-T1 thời hạn nữa năm.', '200.000.000/năm', '2023-08-01', '2023-12-01', '2023-12-08 05:31:48', '2023-12-08 05:31:48');
+
 -- --------------------------------------------------------
 
 --
@@ -139,6 +167,14 @@ CREATE TABLE `nuoc` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `nuoc`
+--
+
+INSERT INTO `nuoc` (`id`, `id_phong`, `chiso_cu`, `chiso_moi`, `thoigian`, `dongia`, `thanhtien`, `created_at`, `updated_at`) VALUES
+(10, 12, 0, 7, '2023-02-01', 7000, 49000, '2023-12-08 04:42:39', '2023-12-08 04:42:39'),
+(11, 12, 7, 15, '2023-03-01', 7000, 56000, '2023-12-08 05:11:36', '2023-12-08 05:11:36');
 
 -- --------------------------------------------------------
 
@@ -178,10 +214,10 @@ CREATE TABLE `phong` (
 
 INSERT INTO `phong` (`id_phong`, `ten`, `id_tang`, `tinhtrang`, `created_at`, `updated_at`) VALUES
 (8, 'P101-T1', 4, 0, '2023-12-04 21:35:05', '2023-12-04 21:35:05'),
-(9, 'P102-T1', 4, 0, '2023-12-04 21:35:30', '2023-12-04 21:35:30'),
-(10, 'P103-T1', 4, 0, '2023-12-04 21:35:52', '2023-12-04 21:35:52'),
-(11, 'P104-T1', 4, 0, '2023-12-04 21:36:18', '2023-12-04 21:36:18'),
-(12, 'P105-T1', 4, 0, '2023-12-04 21:36:44', '2023-12-04 21:36:44');
+(9, 'P102-T1', 4, 1, '2023-12-04 21:35:30', '2023-12-08 04:23:05'),
+(10, 'P103-T1', 4, 1, '2023-12-04 21:35:52', '2023-12-08 04:26:12'),
+(11, 'P104-T1', 4, 1, '2023-12-04 21:36:18', '2023-12-08 04:30:08'),
+(12, 'P105-T1', 4, 1, '2023-12-04 21:36:44', '2023-12-08 05:31:48');
 
 -- --------------------------------------------------------
 
@@ -229,7 +265,9 @@ CREATE TABLE `thongbao` (
 --
 
 INSERT INTO `thongbao` (`id_thongbao`, `id_user`, `tieude`, `noidung`, `thoigian`, `nhan`, `created_at`, `updated_at`) VALUES
-(10, 1, 'VỆ SINH MÔI TRƯỜNG', 'Vệ sinh môi trường là một trong những vấn đề quan trọng trong quản lý chung cư. Việc đảm bảo vệ sinh môi trường chính là đảm bảo cho cư dân cuộc sống trong lành, khỏe mạnh. Dưới đây là những tiêu chuẩn tối thiểu nhằm đảm bảo vệ sinh môi trường trong đời sống chung cư:\r\n\r\nMỗi gia đình cần có một thùng rác có nắp đậy với kích cỡ thích hợp;  nhân viên làm sạch sẽ tiến hành dọn dẹp theo lịch trình cố định trong ngày. Không được để thùng đựng rác trong hành lang chung và lối đi vì có thể gây cản trở cho người qua lại cũng như thu hút chuột, gián và các loài sâu bọ khác.\r\nThường xuyên tiến hành dọn dẹp và bảo trì máng rác và họng rác. Rác tích tụ trên bề mặt của hành lang, mái nhà, sân… cũng cần được dọn dẹp ngay để tránh gây tắc nghẽn đường cống. Cần xử lý ngay các dấu hiệu tắc nghẽn trên.\r\nCác khu vực của tòa nhà như mái nhà, giếng trời, vườn và khối đế cũng cần được kiểm tra thường xuyên để tránh nước tù đọng và loại bỏ nơi trú ngụ của muỗi.\r\n Không được để các đồ nội thất và các vật dụng cồng kềnh ở khu vực cửa thoát hiểm. Công ty quản lý sẽ có lịch trình dọn dẹp định kỳ tại các khu vực cần thiết trong tòa  nhà cư.\r\nCác vật dụng có cạnh sắc nhọn hoặc có tính chất nguy hiểm (như vật liệu dễ cháy nổ, ăn mòn) phải được đóng gói và xử lý riêng. Các loại rác thải như báo cũ, nhựa, kim loại, chai nhựa cũng như các vật liệu tương tự khác phải được phân loại cho mục đích tái chế.', '2023-12-08 07:47:24', 0, '2023-12-08 00:47:24', '2023-12-08 00:47:24');
+(10, 1, 'VỆ SINH MÔI TRƯỜNG', 'Vệ sinh môi trường là một trong những vấn đề quan trọng trong quản lý chung cư. Việc đảm bảo vệ sinh môi trường chính là đảm bảo cho cư dân cuộc sống trong lành, khỏe mạnh. Dưới đây là những tiêu chuẩn tối thiểu nhằm đảm bảo vệ sinh môi trường trong đời sống chung cư:\r\n\r\nMỗi gia đình cần có một thùng rác có nắp đậy với kích cỡ thích hợp;  nhân viên làm sạch sẽ tiến hành dọn dẹp theo lịch trình cố định trong ngày. Không được để thùng đựng rác trong hành lang chung và lối đi vì có thể gây cản trở cho người qua lại cũng như thu hút chuột, gián và các loài sâu bọ khác.\r\nThường xuyên tiến hành dọn dẹp và bảo trì máng rác và họng rác. Rác tích tụ trên bề mặt của hành lang, mái nhà, sân… cũng cần được dọn dẹp ngay để tránh gây tắc nghẽn đường cống. Cần xử lý ngay các dấu hiệu tắc nghẽn trên.\r\nCác khu vực của tòa nhà như mái nhà, giếng trời, vườn và khối đế cũng cần được kiểm tra thường xuyên để tránh nước tù đọng và loại bỏ nơi trú ngụ của muỗi.\r\n Không được để các đồ nội thất và các vật dụng cồng kềnh ở khu vực cửa thoát hiểm. Công ty quản lý sẽ có lịch trình dọn dẹp định kỳ tại các khu vực cần thiết trong tòa  nhà cư.\r\nCác vật dụng có cạnh sắc nhọn hoặc có tính chất nguy hiểm (như vật liệu dễ cháy nổ, ăn mòn) phải được đóng gói và xử lý riêng. Các loại rác thải như báo cũ, nhựa, kim loại, chai nhựa cũng như các vật liệu tương tự khác phải được phân loại cho mục đích tái chế.', '2023-12-08 07:47:24', 0, '2023-12-08 00:47:24', '2023-12-08 00:47:24'),
+(11, 1, 'Thanh toán hóa đơn tháng 2023-03-01', 'Vui lòng thanh toán hóa đơn điện nước trong vòng 7 ngày sau khi nhận thông báo', '2023-03-01 00:00:00', 12, '2023-12-08 05:12:03', '2023-12-08 05:12:03'),
+(12, 1, 'VỆ SINH MÔI TRƯỜNG', 'Kiểm tra vệ sinh ngày 12/8/2023', '2023-12-08 12:17:46', 11, '2023-12-08 05:17:46', '2023-12-08 05:17:46');
 
 -- --------------------------------------------------------
 
@@ -306,7 +344,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `ngaysinh`, `email`, `sdt`, `password`, `quyen`, `STK`, `trangthai`, `created_at`, `updated_at`) VALUES
 (1, 'Nguyen Chien Thang', '2001-03-26', 'nguyenchienthang2632001@gmail.com', '0582427509', '$2y$10$SxP62ScawJ1/0p5Z1a.abuD/SD6Jx6i3fLJ7hGurI5XMRNDW/E402', 0, '6546545466', 1, NULL, '2023-11-27 04:43:20'),
-(6, 'Nguyen Van A', '2023-12-08', 'a@gmail.com', '0545154815', '$2y$10$886oVFZFLkfpyjHaJsEDcOHqhUWV8BBoecl2p44Z5ZqfF5W31yTzK', 2, '165512185151', 1, '2023-12-08 00:41:54', '2023-12-08 00:41:54');
+(6, 'Nguyen Van A', '2023-12-08', 'a@gmail.com', '0545154815', '$2y$10$886oVFZFLkfpyjHaJsEDcOHqhUWV8BBoecl2p44Z5ZqfF5W31yTzK', 2, '165512185151', 1, '2023-12-08 00:41:54', '2023-12-08 00:41:54'),
+(7, 'Nguyễn Phát Đức', '2001-11-02', 'duc@gmail.com', '0548941518', '$2y$10$NsaU/BV/FA2Fyj/cwMOeKuKCu4k5RJrlZIaFZFmyV1cSHkojxcC8i', 2, '5626461654555', 1, '2023-12-08 04:16:17', '2023-12-08 04:16:17'),
+(8, 'Nguyễn Minh Khôi', '2001-08-29', 'khoi@gmail.com', '0564851561', '$2y$10$3HDpHXykcV5qYhqSe2WU2.VHBBVWNOLRxJ/rrv5/PLdCJnX76HUWK', 2, '498165815155', 1, '2023-12-08 04:17:12', '2023-12-08 04:17:12'),
+(9, 'Nguyễn Hữu Tín', '2001-02-13', 'tin@gmail.com', '0651451548', '$2y$10$iZuzcPN5JqqvjuecV77WlOpKAVI8G21DU1MyQvdIvHli4YaHLSULW', 2, '654516855544', 1, '2023-12-08 04:19:15', '2023-12-08 04:19:15'),
+(10, 'Huỳnh Văn Định', '2001-06-13', 'dinh@gmail.com', '056481518', '$2y$10$UOlGthD2J10OtAQezeMssuX8gH1QlNust0O4RBFIJKy57r5FCvCKu', 2, '514568158155', 1, '2023-12-08 04:37:37', '2023-12-08 04:37:37');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -398,7 +440,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `baixe`
 --
 ALTER TABLE `baixe`
-  MODIFY `id_baixe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_baixe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `baocaosc`
@@ -410,25 +452,25 @@ ALTER TABLE `baocaosc`
 -- AUTO_INCREMENT cho bảng `dien`
 --
 ALTER TABLE `dien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `hopdong`
 --
 ALTER TABLE `hopdong`
-  MODIFY `id_hopdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_hopdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `nuoc`
 --
 ALTER TABLE `nuoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `phanhoi`
@@ -452,7 +494,7 @@ ALTER TABLE `tang`
 -- AUTO_INCREMENT cho bảng `thongbao`
 --
 ALTER TABLE `thongbao`
-  MODIFY `id_thongbao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_thongbao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `tintuc`
@@ -470,7 +512,7 @@ ALTER TABLE `toa`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

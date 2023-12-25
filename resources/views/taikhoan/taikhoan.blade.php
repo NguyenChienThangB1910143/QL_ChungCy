@@ -69,9 +69,9 @@
                     <thead class="table-primary"> 
                         <tr>
                             <th >Mã người dùng</th>
-                            <th >Họ Tên</th>
+                            <th >Họ tên</th>
                             <th >Ngày sinh</th>
-                            <th >email</th>
+                            <th >Email</th>
                             <th >SĐT</th>
                             <th >STK</th>
                             <th >Tùy chỉnh</th>

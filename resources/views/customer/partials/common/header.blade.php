@@ -4,7 +4,7 @@
             <a href="{{route('homecustomer')}}">
                 <img src="{{ asset('img/logo.png') }}" alt="Logo" class="logo">
             </a>
-        <h1 class="title">Chung Cư TL</h1>
+        <h1 class="title">CHUNG CƯ TL</h1>
             
             
             <div class="user-info">

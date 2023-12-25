@@ -1,11 +1,11 @@
 <nav style="display: flex; justify-content: space-between;">
     <div>
         <a href="{{route('homecustomer')}}">Trang chủ</a> |
-        <a href="{{route('profile')}}">Thông tin TK</a> |
+        <a href="{{route('profile')}}">Thông tin cá nhân</a> |
         <a href="{{route('hoadoncustomer')}}">Hóa đơn</a> |
         <a href="{{route('baocaosc')}}">Báo cáo sự cố</a> |
-        <a href="{{route('tintuccustomer')}}">Tin Tức</a> |
-        <a href="{{route('hopdongCT')}}">Hợp Đồng</a>
+        <a href="{{route('tintuccustomer')}}">Tin tức</a> |
+        <a href="{{route('hopdongCT')}}">Hợp đồng</a>
     </div>
     @php
     $userId = auth()->id(); // Get the id of the currently logged-in user

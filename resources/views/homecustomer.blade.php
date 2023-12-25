@@ -61,7 +61,7 @@
             <a href="{{route('hopdongCT')}}" class="icon-box shadow">
               <div>
                 <i class="fas fa-clipboard icon"></i>
-                <h5>Hợp Đồng</h5>
+                <h5>Hợp đồng</h5>
               </div>
             </a>
             <a href="{{route('baocaosc')}}" class="icon-box shadow">
@@ -75,7 +75,7 @@
             <a href="{{route('tintuccustomer')}}" class="icon-box shadow">
               <div>
                 <i class="fas fa-globe icon"></i>
-                <h5>Tin Tức</h5>
+                <h5>Tin tức</h5>
               </div>
             </a>
             <a href="{{route('thongbaoCT')}}" class="icon-box shadow">

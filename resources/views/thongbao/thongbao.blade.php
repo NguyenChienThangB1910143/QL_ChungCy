@@ -88,22 +88,20 @@
                 <table id="tbthongbao" class="table table-striped" style="width:100%">
                     <thead class="table-primary">  
                         <tr>
-                            <th scope="col-6 col-md-4">Mã TB</th>
-                            <th scope="col-6 col-md-4">Người Gửi</th>
-                            <th scope="col-6 col-md-4">Tiêu Đề</th>
-                            <th scope="col-6 col-md-4">Nội Dung</th>
-                            <th scope="col-6 col-md-4">Thời Gian</th>
-                            <th scope="col-6 col-md-4">Người Nhận</th>
+                            <th scope="col-6 col-md-4">Tiêu đề</th>
+                            <th scope="col-6 col-md-4">Người gửi</th>
+                            <th scope="col-6 col-md-4">Nội dung</th>
+                            <th scope="col-6 col-md-4">Thời gian</th>
+                            <th scope="col-6 col-md-4">Người nhận</th>
                             <th scope="col-6 col-md-4">Tùy chỉnh</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($thongbao as $thongbaos)
                         <tr>
-                            <td>{{$thongbaos->id_thongbao}}</td>
+                            <td>{{ \Illuminate\Support\Str::limit($thongbaos->tieude, 30, '...') }}</td>
                             <td>{{ \App\Models\User::find($thongbaos->id_user)->name }}</td>
 
-                            <td>{{ \Illuminate\Support\Str::limit($thongbaos->tieude, 30, '...') }}</td>
                             <td>{{ \Illuminate\Support\Str::limit($thongbaos->noidung, 30, '...') }}</td>
 
                             <td>{{$thongbaos->thoigian}}</td>

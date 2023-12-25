@@ -7,7 +7,7 @@
     </ul>
     <ul class="list-unstyled">
         <li class="{{mb_strtolower($title)=='trang chủ'?'active':''}}">
-            <a href="{{route('home')}}">Trang Chủ</a>
+            <a href="{{route('home')}}">Trang chủ</a>
         </li>
         <li class="{{mb_strtolower($title)=='Chung cư'?'active':''}}">
             <a href="#"  data-toggle="dropdown">Chung cư</a>
@@ -33,20 +33,20 @@
             <a href="{{route('taikhoan')}}">Tài khoản</a>
         </li>
         <li class="{{mb_strtolower($title)=='tin tức'?'active':''}}">
-            <a href="{{route('tintuc')}}">Tin Tức</a>
+            <a href="{{route('tintuc')}}">Tin tức</a>
         </li>
         <li class="{{mb_strtolower($title)=='thông báo'?'active':''}}">
             <a href="{{route('thongbao')}}">Thông báo</a>
         </li>
         <li class="{{mb_strtolower($title)=='điện nước'?'active':''}}">
-            <a href="#" data-toggle="dropdown">Điện Nước</a>
+            <a href="#" data-toggle="dropdown">Điện nước</a>
                 <ul class="dropdown-menu">
                     <li><a href="{{route('dien')}}">Điện</a></li>
                     <li><a href="{{route('nuoc')}}">Nước</a></li>
                 </ul>
         </li>
         <li class="{{mb_strtolower($title)=='hóa đơn'?'active':''}}">
-            <a href="{{route('hoadon')}}">Hóa Đơn</a>
+            <a href="{{route('hoadon')}}">Hóa đơn</a>
         </li>
         <li class="{{mb_strtolower($title)=='Báo cáo sự cố'?'active':''}}">
             <a href="{{route('phanhoi')}}">Báo cáo sự cố</a>

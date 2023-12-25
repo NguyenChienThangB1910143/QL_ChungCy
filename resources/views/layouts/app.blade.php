@@ -100,6 +100,7 @@
         new DataTable('#tbtoa');
         new DataTable('#tbtang');
         new DataTable('#tbphong');
+        new DataTable('#tbbaixe');
 
     </script>
     @yield('JS')

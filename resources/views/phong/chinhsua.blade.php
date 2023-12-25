@@ -22,8 +22,8 @@
             <div class="mb-3 text-left">
                 <label class="form-label">Tình trạng</label>
                 <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tinhtrang" name="tinhtrang">
-                    <option value="1">Hoạt dộng</option>
-                    <option value="0">Ngưng hoạt dộng</option>
+                    <option value="1">Đã thuê</option>
+                    <option value="0">Trống</option>
                 </select>
             </div>
             <div class="row justify-content-center">

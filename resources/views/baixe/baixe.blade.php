@@ -65,14 +65,14 @@
                         <i class="fas fa-plus"></i> Thêm
                     </button>
                 </div>
-                <table class="table table-hover mt-3">
-                    <thead style="background-color:#0d6efd; color:white;'"> 
+                <table id="tbbaixe" class="table table-striped" style="width:100%">
+                    <thead class="table-primary">
                         <tr>
                             <th scope="col-6 col-md-4">id</th>
-                            <th scope="col-6 col-md-4">Mã Số</th>
+                            <th scope="col-6 col-md-4">Mã số</th>
                             <th scope="col-6 col-md-4">Loại xe</th>
                             <th scope="col-6 col-md-4">Tình trạng</th>
-                            <th scope="col-6 col-md-4">Gía</th>
+                            <th scope="col-6 col-md-4">Đơn giá</th>
                             <th scope="col-6 col-md-4">Tùy chỉnh</th>
                         </tr>
                     </thead>

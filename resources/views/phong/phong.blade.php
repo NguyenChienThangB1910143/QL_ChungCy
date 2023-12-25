@@ -24,7 +24,7 @@
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h4 class="modal-title">Cập Nhật Phòng</h4>
+                            <h4 class="modal-title">Cập nhật phòng</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -62,7 +62,7 @@
                     <!-- Lọc theo tòa -->
                     <div class="form-group col-md-4 ml-3 text-left">
                         <select class="form-control" id="toa" onchange="location = this.value;">
-                            <option value="{{ route('phong') }}">Chọn Tòa</option>
+                            <option value="{{ route('phong') }}">Chọn tòa</option>
                             @foreach ($toa as $item)
                                 <option value="{{ route('phong', ['toa' => $item->id_toa]) }}" {{ request()->toa == $item->id_toa ? 'selected' : '' }}>{{ $item->ten }}</option>
                             @endforeach
@@ -72,7 +72,7 @@
                     <!-- Lọc theo tầng -->
                     <div class="form-group col-md-4 ml-3 text-left">
                         <select class="form-control" id="tang" onchange="location = this.value;">
-                            <option value="{{ route('phong') }}">Chọn Tầng</option>
+                            <option value="{{ route('phong') }}">Chọn tầng</option>
                             @foreach ($tang as $item)
                                 <option value="{{ route('phong', ['toa' => request()->toa, 'tang' => $item->id_tang]) }}" {{ request()->tang == $item->id_tang ? 'selected' : '' }}>{{ $item->ten }}</option>
                             @endforeach
@@ -82,7 +82,7 @@
                     <!-- Lọc theo tình trạng -->
                     <div class="form-group col-md-4 ml-3 text-left">
                         <select class="form-control" id="tinhtrang" onchange="location = this.value;">
-                            <option value="{{ route('phong') }}">Tình Trạng</option>
+                            <option value="{{ route('phong') }}">Tình trạng</option>
                             <option value="{{ route('phong', ['toa' => request()->toa, 'tang' => request()->tang, 'tinhtrang' => 0]) }}" {{ request()->tinhtrang == '0' ? 'selected' : '' }}>Còn trống</option>
                             <option value="{{ route('phong', ['toa' => request()->toa, 'tang' => request()->tang, 'tinhtrang' => 1]) }}" {{ request()->tinhtrang == '1' ? 'selected' : '' }}>Đã thuê</option>
                         </select>
@@ -100,9 +100,9 @@
                     <thead class="table-primary">
                     <tr>
                         <th scope="col-6 col-md-4">Tên phòng</th>
-                        <th scope="col-6 col-md-4">Tên Tầng</th>
-                        <th scope="col-6 col-md-4">Tên Tòa</th>
-                        <th scope="col-6 col-md-4">Tình Trạng</th>
+                        <th scope="col-6 col-md-4">Tên tầng</th>
+                        <th scope="col-6 col-md-4">Tên tòa</th>
+                        <th scope="col-6 col-md-4">Tình trạng</th>
                         <th scope="col-6 col-md-4">Tùy chỉnh</th>
                     </tr>
                     </thead>
